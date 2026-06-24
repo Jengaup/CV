@@ -1,26 +1,34 @@
 /* ============================================================
-   NAVIGATION — mobile toggle & active link highlighting
+   EmailJS configuration
+   ============================================================ */
+var EMAILJS_PUBLIC_KEY  = '7z10gcbrRNaKaHB5m';
+var EMAILJS_SERVICE_ID  = 'service_wfiejqb';
+var EMAILJS_TEMPLATE_ID = 'template_rjtij71';
+
+/* ============================================================
+   NAVIGATION — mobile toggle
    ============================================================ */
 (function () {
-  const hamburger = document.querySelector('.nav__hamburger');
-  const mobileMenu = document.getElementById('mobile-menu');
+  var hamburger  = document.querySelector('.nav__hamburger');
+  var mobileMenu = document.getElementById('mobile-menu');
 
-  hamburger?.addEventListener('click', () => {
-    const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-    hamburger.setAttribute('aria-expanded', String(!expanded));
-    mobileMenu.hidden = expanded;
-  });
-
-  // Close mobile menu when a link is clicked
-  mobileMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.setAttribute('aria-expanded', 'false');
-      mobileMenu.hidden = true;
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function () {
+      var expanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.hidden = expanded;
     });
-  });
+
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.hidden = true;
+      });
+    });
+  }
 
   // Footer year
-  const yearEl = document.getElementById('footer-year');
+  var yearEl = document.getElementById('footer-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
 
@@ -30,72 +38,107 @@
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const targets = document.querySelectorAll(
-    '.value-card, .expertise-card, .impact-card, .timeline-item__content, .education__item, .about__text, .about__values, .section__title, .section__sub, .contact__info, .contact__form-wrap'
+  var targets = document.querySelectorAll(
+    '.value-card, .expertise-card, .impact-card, .timeline-item__content, ' +
+    '.education__item, .about__text, .about__values, .section__title, ' +
+    '.section__sub, .contact__info, .contact__form-wrap'
   );
 
-  targets.forEach(el => el.classList.add('reveal'));
+  targets.forEach(function (el) { el.classList.add('reveal'); });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-  );
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-  targets.forEach(el => observer.observe(el));
+  targets.forEach(function (el) { observer.observe(el); });
 })();
 
 /* ============================================================
-   CONTACT FORM — validation & Formspree submission
+   CONTACT FORM — validation + EmailJS submission
    ============================================================ */
 (function () {
-  const form = document.getElementById('contact-form');
+  // Init EmailJS
+  if (window.emailjs) {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }
+
+  var form       = document.getElementById('contact-form');
   if (!form) return;
 
-  const submitBtn = document.getElementById('form-submit');
-  const btnText = submitBtn?.querySelector('.btn__text');
-  const btnSpinner = submitBtn?.querySelector('.btn__spinner');
-  const successMsg = document.getElementById('form-success');
-  const errorMsg = document.getElementById('form-error-msg');
+  var submitBtn  = document.getElementById('form-submit');
+  var btnText    = submitBtn && submitBtn.querySelector('.btn__text');
+  var btnSpinner = submitBtn && submitBtn.querySelector('.btn__spinner');
+  var successMsg = document.getElementById('form-success');
+  var errorMsg   = document.getElementById('form-error-msg');
 
-  const fields = {
-    name: { el: document.getElementById('contact-name'), errEl: document.getElementById('name-error'), validate: v => v.trim().length >= 2 ? '' : 'Please enter your full name (at least 2 characters).' },
-    email: { el: document.getElementById('contact-email'), errEl: document.getElementById('email-error'), validate: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'Please enter a valid email address.' },
-    subject: { el: document.getElementById('contact-subject'), errEl: document.getElementById('subject-error'), validate: v => v.trim().length >= 3 ? '' : 'Please enter a subject (at least 3 characters).' },
-    message: { el: document.getElementById('contact-message'), errEl: document.getElementById('message-error'), validate: v => v.trim().length >= 20 ? '' : 'Please enter a message (at least 20 characters).' },
+  // Ensure both status messages are hidden on load
+  if (successMsg) successMsg.hidden = true;
+  if (errorMsg)   errorMsg.hidden   = true;
+
+  var fields = {
+    name: {
+      el: document.getElementById('contact-name'),
+      errEl: document.getElementById('name-error'),
+      validate: function (v) {
+        return v.trim().length >= 2 ? '' : 'Please enter your full name (at least 2 characters).';
+      }
+    },
+    email: {
+      el: document.getElementById('contact-email'),
+      errEl: document.getElementById('email-error'),
+      validate: function (v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) ? '' : 'Please enter a valid email address.';
+      }
+    },
+    subject: {
+      el: document.getElementById('contact-subject'),
+      errEl: document.getElementById('subject-error'),
+      validate: function (v) {
+        return v.trim().length >= 3 ? '' : 'Please enter a subject (at least 3 characters).';
+      }
+    },
+    message: {
+      el: document.getElementById('contact-message'),
+      errEl: document.getElementById('message-error'),
+      validate: function (v) {
+        return v.trim().length >= 20 ? '' : 'Please enter a message (at least 20 characters).';
+      }
+    }
   };
 
   function setFieldError(field, message) {
+    if (!field.el || !field.errEl) return;
     field.el.setAttribute('aria-invalid', message ? 'true' : 'false');
     field.errEl.textContent = message;
   }
 
   function validateAll() {
-    let valid = true;
-    Object.values(fields).forEach(field => {
-      const err = field.validate(field.el.value);
+    var valid = true;
+    Object.keys(fields).forEach(function (key) {
+      var field = fields[key];
+      if (!field.el) return;
+      var err = field.validate(field.el.value);
       setFieldError(field, err);
       if (err) valid = false;
     });
     return valid;
   }
 
-  // Live validation on blur
-  Object.values(fields).forEach(field => {
-    field.el.addEventListener('blur', () => {
-      const err = field.validate(field.el.value);
-      setFieldError(field, err);
+  // Live validation on blur / input
+  Object.keys(fields).forEach(function (key) {
+    var field = fields[key];
+    if (!field.el) return;
+    field.el.addEventListener('blur', function () {
+      setFieldError(field, field.validate(field.el.value));
     });
-    field.el.addEventListener('input', () => {
+    field.el.addEventListener('input', function () {
       if (field.el.getAttribute('aria-invalid') === 'true') {
-        const err = field.validate(field.el.value);
-        setFieldError(field, err);
+        setFieldError(field, field.validate(field.el.value));
       }
     });
   });
@@ -103,46 +146,58 @@
   function setLoading(loading) {
     if (!submitBtn) return;
     submitBtn.disabled = loading;
-    if (btnText) btnText.textContent = loading ? 'Sending…' : 'Send Message';
-    if (btnSpinner) btnSpinner.hidden = !loading;
+    if (btnText)    btnText.textContent  = loading ? 'Sending…' : 'Send Message';
+    if (btnSpinner) btnSpinner.hidden    = !loading;
   }
 
-  form.addEventListener('submit', async (e) => {
+  function showStatus(el, visible) {
+    if (el) el.hidden = !visible;
+  }
+
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    successMsg.hidden = true;
-    errorMsg.hidden = true;
+    // Hide both status banners before every attempt
+    showStatus(successMsg, false);
+    showStatus(errorMsg,   false);
 
     if (!validateAll()) {
-      // Focus first invalid field
-      const first = Object.values(fields).find(f => f.el.getAttribute('aria-invalid') === 'true');
-      first?.el.focus();
+      var firstInvalid = Object.keys(fields).find(function (k) {
+        return fields[k].el && fields[k].el.getAttribute('aria-invalid') === 'true';
+      });
+      if (firstInvalid) fields[firstInvalid].el.focus();
       return;
     }
 
+    // Honeypot check (basic bot guard)
+    var honeypot = form.querySelector('input[name="_gotcha"]');
+    if (honeypot && honeypot.value) return;
+
     setLoading(true);
 
-    try {
-      const data = new FormData(form);
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' },
-      });
+    // Build template params — names must match your EmailJS template variables
+    var templateParams = {
+      from_name:    fields.name.el.value.trim(),
+      from_email:   fields.email.el.value.trim(),
+      subject:      fields.subject.el.value.trim(),
+      message:      fields.message.el.value.trim()
+    };
 
-      if (response.ok) {
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+      .then(function () {
         form.reset();
-        Object.values(fields).forEach(f => f.el.removeAttribute('aria-invalid'));
-        successMsg.hidden = false;
-        successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      } else {
-        errorMsg.hidden = false;
-        errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    } catch {
-      errorMsg.hidden = false;
-    } finally {
-      setLoading(false);
-    }
+        Object.keys(fields).forEach(function (k) {
+          if (fields[k].el) fields[k].el.removeAttribute('aria-invalid');
+          if (fields[k].errEl) fields[k].errEl.textContent = '';
+        });
+        showStatus(successMsg, true);
+        if (successMsg) successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        setLoading(false);
+      })
+      .catch(function () {
+        showStatus(errorMsg, true);
+        if (errorMsg) errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        setLoading(false);
+      });
   });
 })();

@@ -13,6 +13,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -426,12 +428,8 @@
           </div>
 
           <div class="contact__form-wrap">
-            <!-- FORMSPREE: Replace YOUR_FORM_ID below with your actual Formspree endpoint ID -->
-            <!-- To get your endpoint: go to formspree.io → Create Form → copy the form ID (e.g. xpwzrqba) -->
             <form
               id="contact-form"
-              action="https://formspree.io/f/YOUR_FORM_ID"
-              method="POST"
               class="contact__form"
               novalidate
               aria-label="Contact form"
