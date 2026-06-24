@@ -151,7 +151,14 @@ var EMAILJS_TEMPLATE_ID = 'template_rjtij71';
   }
 
   function showStatus(el, visible) {
-    if (el) el.hidden = !visible;
+    if (!el) return;
+    if (visible) {
+      el.removeAttribute('style');
+      el.hidden = false;
+    } else {
+      el.hidden = true;
+      el.style.display = 'none';
+    }
   }
 
   form.addEventListener('submit', function (e) {
