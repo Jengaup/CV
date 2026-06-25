@@ -1060,6 +1060,71 @@ a {
 }
 
 /* ============================================================
+   CERTIFICATIONS
+   ============================================================ */
+.certs-section {
+  margin-top: var(--space-4);
+}
+
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.cert-card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.cert-card:hover {
+  border-color: var(--color-border-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.cert-card__logo {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cert-card__logo svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.cert-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.cert-card__name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.cert-card__issuer {
+  font-size: 0.75rem;
+  color: var(--color-text-3);
+  line-height: 1.3;
+}
+
+/* ============================================================
    SEO KEYWORD BLOCK — visible to search engines, hidden visually
    ============================================================ */
 .seo-keywords {
