@@ -420,7 +420,41 @@ a {
   font-size: clamp(2.75rem, 8vw, 5.75rem);
   font-weight: 700;
   letter-spacing: -0.035em;
-  line-height: 1.0;
+  line-height: 1.05;
+}
+
+/* First name: muted, lighter — sets up the contrast */
+.hero__firstname {
+  display: block;
+  color: var(--color-text-2);
+  font-weight: 500;
+  font-size: 0.62em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.1em;
+}
+
+/* Last name: gradient blue→cyan, large, commanding */
+.hero__lastname {
+  display: block;
+  background: linear-gradient(
+    105deg,
+    #ffffff   0%,
+    #a5c8ff  35%,
+    #0ea5e9  70%,
+    #38bdf8 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Subtle shimmer on load */
+  background-size: 200% auto;
+  animation: name-shimmer 4s ease-in-out infinite alternate;
+}
+
+@keyframes name-shimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 100% center; }
 }
 
 .hero__title {
