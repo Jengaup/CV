@@ -1,5 +1,12 @@
 # CV
 
-## Experiencia
+## 🚀 Experiencias adicionales
 
-- **Freelancer** — Desarrollo de páginas web, manejo de redes sociales y consultoría tecnológica.
+### 💼 Freelancer
+
+Servicios profesionales independientes:
+
+- 🌐 **Desarrollo de páginas web**
+- 📱 **Manejo de redes sociales**
+- 🛠️ **Consultoría tecnológica**
+- 🤖 **Consultoría de inteligencia artificial y automatizaciones**
