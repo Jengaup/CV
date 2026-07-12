@@ -19,18 +19,18 @@
       'hero.stat3': 'On-Time Project Delivery',
       'hero.stat4': 'Industries Served',
 
-      'about.label':     'About',
-      'about.title':     'Where Technology Meets <span class="accent">Business Value</span>',
-      'about.lead':      'I am a results-driven IT Director and Business Relationship Manager with over 20 years of experience leading digital transformation, IT/OT integration, and technology strategy across regulated and high-demand industries.',
-      'about.p2':        'My career spans energy, pharmaceutical, healthcare, and food service sectors. I have managed multi-million-dollar IT portfolios, led cross-functional teams, driven vendor negotiations, and built strong partnerships between business units and IT organizations. I hold an MBA in Technology Management and hands-on expertise in infrastructure, cloud, cybersecurity, compliance, and project delivery.',
-      'about.p3':        'Known for stakeholder management at the executive level, change management leadership, and a track record of on-time, on-budget project execution. Bilingual in English and Spanish. US Citizen. Available for on-site, remote, or hybrid roles.',
+      'about.label':      'About',
+      'about.title':      'Where Technology Meets <span class="accent">Business Value</span>',
+      'about.lead':       'I am a results-driven IT Director and Business Relationship Manager with over 20 years of experience leading digital transformation, IT/OT integration, and technology strategy across regulated and high-demand industries.',
+      'about.p2':         'My career spans energy, pharmaceutical, healthcare, and food service sectors. I have managed multi-million-dollar IT portfolios, led cross-functional teams, driven vendor negotiations, and built strong partnerships between business units and IT organizations. I hold an MBA in Technology Management and hands-on expertise in infrastructure, cloud, cybersecurity, compliance, and project delivery.',
+      'about.p3':         'Known for stakeholder management at the executive level, change management leadership, and a track record of on-time, on-budget project execution. Bilingual in English and Spanish. US Citizen. Available for on-site, remote, or hybrid roles.',
       'about.certsLabel': 'Credentials &amp; Certifications',
-      'about.v1title':   'Results First',
-      'about.v1desc':    'Every initiative I lead is tied to measurable business outcomes: cost reduction, efficiency gains, and real capability improvements.',
-      'about.v2title':   'Partnership Mindset',
-      'about.v2desc':    'I build trust across organizational layers, from shop floor to boardroom, making sure technology serves people and not the other way around.',
-      'about.v3title':   'Continuous Improvement',
-      'about.v3desc':    'Trained in Six Sigma methodology, I systematically identify inefficiencies and implement sustainable improvements.',
+      'about.v1title':    'Results First',
+      'about.v1desc':     'Every initiative I lead is tied to measurable business outcomes: cost reduction, efficiency gains, and real capability improvements.',
+      'about.v2title':    'Partnership Mindset',
+      'about.v2desc':     'I build trust across organizational layers, from shop floor to boardroom, making sure technology serves people and not the other way around.',
+      'about.v3title':    'Continuous Improvement',
+      'about.v3desc':     'Trained in Six Sigma methodology, I systematically identify inefficiencies and implement sustainable improvements.',
 
       'expertise.label': 'Core Strengths',
       'expertise.title': 'Areas of <span class="accent">Expertise</span>',
@@ -56,7 +56,6 @@
       'impact.label': 'Selected Impact',
       'impact.title': 'Delivering <span class="accent">Measurable Results</span>',
       'impact.sub':   'Impact speaks louder than titles. Here are some of the outcomes I have driven throughout my career.',
-
       'ic1.title': 'Cost Savings via IT/OT Initiatives',
       'ic1.desc':  'Led strategic IT/OT integration programs at Luma Energy, identifying and implementing initiatives that saved over $1.2 million while maintaining full project quality and deliverables.',
       'ic1.tag':   'Luma Energy · 2024–Present',
@@ -73,14 +72,67 @@
       'ic5.desc':  'Identified root causes of recurring program issues and implemented creative solutions that reduced operational downtime by 20%, improving service continuity across the organization.',
       'ic5.tag':   'Luma Energy',
       'ic6.title': 'Six Sigma Certification Achieved',
-      'ic6.desc':  'Earned Six Sigma Green Belt for implementing a network monitoring and management project that realized $198K in savings and contributed 17% toward the company\'s savings goal.',
+      'ic6.desc':  "Earned Six Sigma Green Belt for implementing a network monitoring and management project that realized $198K in savings and contributed 17% toward the company's savings goal.",
       'ic6.tag':   'Avara Pharmaceutical',
 
       'xp.label': 'Career Highlights',
       'xp.title': 'Professional <span class="accent">Experience</span>',
 
+      'tl1.role':    'IT Business Relationship Manager',
+      'tl1.period':  'Jun 2024 – Present',
+      'tl1.summary': 'Strategic technology partner to the business, managing IT/OT integration, cross-department alignment, and multi-million-dollar technology portfolios for a major energy transmission and distribution company.',
+      'tl1.highlights': [
+        'Saved $1.2M+ through strategic IT/OT cost optimization initiatives',
+        'Led technology roadmap alignment across 7 business departments',
+        'Managed hardware, software, and services procurement with 10% vendor cost reduction',
+        'Delivered executive-level reporting to C-suite on program performance and risk',
+        'Directed 3–5 year strategic work plans across cross-functional teams'
+      ],
+      'tl1.tags': ['IT/OT Strategy', 'BRM', 'Executive Stakeholder Management', 'Vendor Negotiation'],
+
+      'tl2.role':    'IT Manager / MRM',
+      'tl2.summary': 'Full oversight of IT operations for a regulated medical device manufacturing facility, ensuring compliance, driving team performance, and managing infrastructure, budget, and vendor relationships.',
+      'tl2.highlights': [
+        'Directed all IT infrastructure, networks, and systems for a GMP manufacturing plant',
+        'Managed budgets, forecasting, and capital/operating expense planning for the IT group',
+        'Maintained FDA regulatory compliance across all IT systems and documentation',
+        'Mentored and supervised internal and external IT professionals',
+        'Led technology implementation projects from initiation through delivery'
+      ],
+      'tl2.tags': ['IT Management', 'FDA Compliance', 'Budget Management', 'Team Leadership'],
+
+      'tl3.role':    'Senior IT Specialist',
+      'tl3.summary': 'Promoted to senior level to coordinate and manage computing solutions and infrastructure in a global pharmaceutical environment, serving as the single point of contact for site IT across local and international operations.',
+      'tl3.highlights': [
+        'Single point of contact for all site IT infrastructure and incident management (24/7)',
+        'Achieved Six Sigma Green Belt with $198K network project savings',
+        'Implemented ESX virtual environments, NetApp storage, and enterprise networking',
+        'Developed IQ/OQ documentation and SOPs for validated IT infrastructure equipment',
+        'Delivered training on Office 365, network switches, and WebEx across the organization'
+      ],
+      'tl3.tags': ['Infrastructure', 'Six Sigma', 'Virtualization', 'cGMP Compliance'],
+
+      'tl4.role':    'Earlier Career',
+      'tl4.company': 'Healthcare &amp; Hospitality Sectors',
+      'tl4.summary': 'Built a strong technical foundation across healthcare IT and food service technology, managing IT support operations, deskside services, and infrastructure across multi-site environments. This period shaped the discipline, customer focus, and operational depth that define 20+ years of technology leadership.',
+      'tl4.tags': ['Healthcare IT', 'Food Service IT', 'QSR Technology', 'Help Desk', 'Deskside Support', 'Multi-site Infrastructure'],
+
+      'tl5.role':    'Technology Consultant &amp; Freelancer',
+      'tl5.company': 'Independent · Self-Employed',
+      'tl5.period':  'Ongoing',
+      'tl5.summary': 'Parallel track of independent consulting alongside full-time roles, delivering technology solutions to small and medium businesses. Services span web development, social media strategy, AI adoption, and process automation.',
+      'tl5.highlights': [
+        'Design and develop professional websites and landing pages for clients across multiple industries',
+        'Advise businesses on social media strategy, digital presence, and brand positioning',
+        'Consult on AI tool adoption — chatbots, content generation, workflow intelligence — to reduce manual effort and improve productivity',
+        'Build process automations connecting business systems, eliminating repetitive tasks and saving measurable hours per week'
+      ],
+      'tl5.tags': ['Web Development', 'Social Media', 'AI Consulting', 'Process Automation', 'Digital Strategy', 'SMB Technology'],
+
+      'edu.title': 'Education',
+
       'contact.label':           'Contact',
-      'contact.title':           'Let\'s <span class="accent">Connect</span>',
+      'contact.title':           "Let's <span class=\"accent\">Connect</span>",
       'contact.sub':             'Whether you have a leadership opportunity, a strategic initiative, or simply want to connect, I would be glad to hear from you.',
       'contact.industries':      'Industries',
       'contact.languages':       'Languages',
@@ -123,18 +175,18 @@
       'hero.stat3': 'Proyectos Entregados a Tiempo',
       'hero.stat4': 'Industrias Atendidas',
 
-      'about.label':     'Sobre Mí',
-      'about.title':     'Donde la Tecnología Genera <span class="accent">Valor de Negocio</span>',
-      'about.lead':      'Soy un Director de TI y Gerente de Relaciones de Negocio orientado a resultados, con más de 20 años liderando transformación digital, integración TI/OT y estrategia tecnológica en industrias reguladas y de alta demanda.',
-      'about.p2':        'Mi carrera abarca los sectores de energía, farmacéutica, salud y servicio de alimentos. He gestionado portafolios de TI multimillonarios, liderado equipos interfuncionales, negociado con proveedores y construido alianzas sólidas entre las unidades de negocio y la organización de TI. Poseo un MBA en Gestión Tecnológica y experiencia práctica en infraestructura, nube, ciberseguridad, cumplimiento y entrega de proyectos.',
-      'about.p3':        'Reconocido por la gestión de partes interesadas a nivel ejecutivo, liderazgo en gestión del cambio y un historial comprobado de ejecución puntual y dentro del presupuesto. Bilingüe en inglés y español. Ciudadano estadounidense. Disponible para roles presenciales, remotos o híbridos.',
+      'about.label':      'Sobre Mí',
+      'about.title':      'Donde la Tecnología Genera <span class="accent">Valor de Negocio</span>',
+      'about.lead':       'Soy un Director de TI y Gerente de Relaciones de Negocio orientado a resultados, con más de 20 años liderando transformación digital, integración TI/OT y estrategia tecnológica en industrias reguladas y de alta demanda.',
+      'about.p2':         'Mi carrera abarca los sectores de energía, farmacéutica, salud y servicio de alimentos. He gestionado portafolios de TI multimillonarios, liderado equipos interfuncionales, negociado con proveedores y construido alianzas sólidas entre las unidades de negocio y la organización de TI. Poseo un MBA en Gestión Tecnológica y experiencia práctica en infraestructura, nube, ciberseguridad, cumplimiento y entrega de proyectos.',
+      'about.p3':         'Reconocido por la gestión de partes interesadas a nivel ejecutivo, liderazgo en gestión del cambio y un historial comprobado de ejecución puntual y dentro del presupuesto. Bilingüe en inglés y español. Ciudadano estadounidense. Disponible para roles presenciales, remotos o híbridos.',
       'about.certsLabel': 'Credenciales y Certificaciones',
-      'about.v1title':   'Resultados Primero',
-      'about.v1desc':    'Cada iniciativa que lidero está vinculada a resultados de negocio medibles: reducción de costos, mejoras en eficiencia y avances reales en capacidades.',
-      'about.v2title':   'Mentalidad de Alianza',
-      'about.v2desc':    'Construyo confianza en todos los niveles organizacionales, desde el piso de producción hasta la sala de directivos, asegurando que la tecnología sirva a las personas y no al revés.',
-      'about.v3title':   'Mejora Continua',
-      'about.v3desc':    'Formado en metodología Six Sigma, identifico sistemáticamente ineficiencias e implemento mejoras sostenibles.',
+      'about.v1title':    'Resultados Primero',
+      'about.v1desc':     'Cada iniciativa que lidero está vinculada a resultados de negocio medibles: reducción de costos, mejoras en eficiencia y avances reales en capacidades.',
+      'about.v2title':    'Mentalidad de Alianza',
+      'about.v2desc':     'Construyo confianza en todos los niveles organizacionales, desde el piso de producción hasta la sala de directivos, asegurando que la tecnología sirva a las personas y no al revés.',
+      'about.v3title':    'Mejora Continua',
+      'about.v3desc':     'Formado en metodología Six Sigma, identifico sistemáticamente ineficiencias e implemento mejoras sostenibles.',
 
       'expertise.label': 'Fortalezas Clave',
       'expertise.title': 'Áreas de <span class="accent">Especialidad</span>',
@@ -160,7 +212,6 @@
       'impact.label': 'Impacto Seleccionado',
       'impact.title': 'Entregando <span class="accent">Resultados Medibles</span>',
       'impact.sub':   'El impacto habla más que los títulos. Estos son algunos de los resultados que he generado a lo largo de mi carrera.',
-
       'ic1.title': 'Ahorros mediante Iniciativas TI/OT',
       'ic1.desc':  'Lideré programas estratégicos de integración TI/OT en Luma Energy, identificando e implementando iniciativas que generaron más de $1.2 millones en ahorros, manteniendo la calidad total del proyecto.',
       'ic1.tag':   'Luma Energy · 2024–Presente',
@@ -182,6 +233,59 @@
 
       'xp.label': 'Trayectoria Profesional',
       'xp.title': 'Experiencia <span class="accent">Profesional</span>',
+
+      'tl1.role':    'Gerente de Relaciones de Negocio de TI',
+      'tl1.period':  'Jun 2024 – Presente',
+      'tl1.summary': 'Socio tecnológico estratégico del negocio, gestionando la integración TI/OT, la alineación interdepartamental y portafolios tecnológicos multimillonarios para una importante empresa de transmisión y distribución de energía.',
+      'tl1.highlights': [
+        'Generé ahorros de más de $1.2M mediante iniciativas estratégicas de optimización TI/OT',
+        'Lideré la alineación de hojas de ruta tecnológicas en 7 departamentos de negocio',
+        'Gestioné la adquisición de hardware, software y servicios con una reducción del 10% en costos de proveedores',
+        'Presenté reportes ejecutivos al equipo directivo sobre el desempeño de programas y riesgos',
+        'Dirigí planes de trabajo estratégicos a 3–5 años en equipos interfuncionales'
+      ],
+      'tl1.tags': ['Estrategia TI/OT', 'BRM', 'Gestión de Partes Interesadas Ejecutivas', 'Negociación con Proveedores'],
+
+      'tl2.role':    'Gerente de TI / MRM',
+      'tl2.summary': 'Supervisión total de las operaciones de TI para una planta de manufactura de dispositivos médicos regulada, asegurando el cumplimiento, impulsando el desempeño del equipo y gestionando infraestructura, presupuesto y relaciones con proveedores.',
+      'tl2.highlights': [
+        'Dirigí toda la infraestructura de TI, redes y sistemas de una planta de manufactura GMP',
+        'Gestioné presupuestos, pronósticos y planificación de gastos de capital y operativos del grupo de TI',
+        'Mantuve el cumplimiento regulatorio FDA en todos los sistemas y documentación de TI',
+        'Mentoricé y supervisé profesionales de TI internos y externos',
+        'Lideré proyectos de implementación tecnológica desde el inicio hasta la entrega'
+      ],
+      'tl2.tags': ['Gestión de TI', 'Cumplimiento FDA', 'Gestión de Presupuesto', 'Liderazgo de Equipos'],
+
+      'tl3.role':    'Especialista Senior de TI',
+      'tl3.summary': 'Promovido al nivel senior para coordinar y gestionar soluciones informáticas e infraestructura en un entorno farmacéutico global, sirviendo como punto único de contacto para TI del sitio en operaciones locales e internacionales.',
+      'tl3.highlights': [
+        'Punto único de contacto para toda la infraestructura de TI del sitio y gestión de incidentes (24/7)',
+        'Obtuve la certificación Green Belt de Six Sigma con $198K en ahorros en proyecto de red',
+        'Implementé entornos virtuales ESX, almacenamiento NetApp y redes empresariales',
+        'Desarrollé documentación IQ/OQ y SOPs para equipos de infraestructura de TI validados',
+        'Impartí capacitación sobre Office 365, switches de red y WebEx en toda la organización'
+      ],
+      'tl3.tags': ['Infraestructura', 'Six Sigma', 'Virtualización', 'Cumplimiento cGMP'],
+
+      'tl4.role':    'Carrera Inicial',
+      'tl4.company': 'Sectores de Salud y Hospitalidad',
+      'tl4.summary': 'Construí una sólida base técnica en TI de salud y tecnología de servicio de alimentos, gestionando operaciones de soporte de TI, servicios de deskside e infraestructura en entornos multisitio. Este período forjó la disciplina, el enfoque al cliente y la profundidad operacional que definen más de 20 años de liderazgo tecnológico.',
+      'tl4.tags': ['TI de Salud', 'TI de Servicio de Alimentos', 'Tecnología QSR', 'Mesa de Ayuda', 'Soporte Deskside', 'Infraestructura Multisitio'],
+
+      'tl5.role':    'Consultor Tecnológico y Freelancer',
+      'tl5.company': 'Independiente · Por Cuenta Propia',
+      'tl5.period':  'Continuo',
+      'tl5.summary': 'Trayectoria paralela de consultoría independiente junto a roles de tiempo completo, entregando soluciones tecnológicas a pequeñas y medianas empresas. Los servicios incluyen desarrollo web, estrategia en redes sociales, adopción de IA y automatización de procesos.',
+      'tl5.highlights': [
+        'Diseño y desarrollo de sitios web profesionales y páginas de destino para clientes de múltiples industrias',
+        'Asesoría a empresas sobre estrategia en redes sociales, presencia digital y posicionamiento de marca',
+        'Consultoría en adopción de herramientas de IA — chatbots, generación de contenido, flujos inteligentes — para reducir el esfuerzo manual y mejorar la productividad',
+        'Construcción de automatizaciones de procesos que conectan sistemas de negocio, eliminando tareas repetitivas y ahorrando horas medibles por semana'
+      ],
+      'tl5.tags': ['Desarrollo Web', 'Redes Sociales', 'Consultoría IA', 'Automatización de Procesos', 'Estrategia Digital', 'Tecnología PYME'],
+
+      'edu.title': 'Educación',
 
       'contact.label':           'Contacto',
       'contact.title':           'Conectemos <span class="accent">Hoy</span>',
@@ -230,10 +334,32 @@
       if (t[key] !== undefined) el.setAttribute('placeholder', t[key]);
     });
 
+    // Render list items (ul with data-i18n-list)
+    document.querySelectorAll('[data-i18n-list]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-list');
+      var items = t[key];
+      if (Array.isArray(items)) {
+        el.innerHTML = items.map(function (item) {
+          return '<li>' + item + '</li>';
+        }).join('');
+      }
+    });
+
+    // Render tag spans (div with data-i18n-tags)
+    document.querySelectorAll('[data-i18n-tags]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-tags');
+      var tags = t[key];
+      if (Array.isArray(tags)) {
+        el.innerHTML = tags.map(function (tag) {
+          return '<span>' + tag + '</span>';
+        }).join('');
+      }
+    });
+
     // Update html lang attribute
     document.documentElement.lang = lang;
 
-    // Update toggle button label
+    // Update toggle button
     var btn = document.getElementById('lang-toggle');
     if (btn) {
       var label = btn.querySelector('.nav__lang-label');
@@ -245,10 +371,8 @@
     localStorage.setItem('lang', lang);
   }
 
-  // Wire up toggle button
   document.addEventListener('DOMContentLoaded', function () {
     applyLang(currentLang);
-
     var btn = document.getElementById('lang-toggle');
     if (btn) {
       btn.addEventListener('click', function () {
@@ -257,7 +381,6 @@
     }
   });
 
-  // Expose for main.js to use translated strings (e.g. form validation)
   window.i18n = {
     t: function (key) {
       return (translations[currentLang] || translations['en'])[key] || key;
