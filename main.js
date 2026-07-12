@@ -161,7 +161,7 @@ var EMAILJS_TEMPLATE_ID = 'template_rjtij71';
   function setLoading(loading) {
     if (!submitBtn) return;
     submitBtn.disabled = loading;
-    if (btnText)    btnText.textContent  = loading ? 'Sending…' : 'Send Message';
+    if (btnText)    btnText.textContent  = loading ? (window.i18n ? window.i18n.t('form.sending') : 'Sending…') : (window.i18n ? window.i18n.t('form.submit') : 'Send Message');
     if (btnSpinner) btnSpinner.hidden    = !loading;
   }
 
@@ -199,7 +199,7 @@ var EMAILJS_TEMPLATE_ID = 'template_rjtij71';
     if (submitCount >= MAX_SUBMITS) {
       showStatus(errorMsg, true);
       if (errorMsg) {
-        errorMsg.textContent = 'Too many attempts. Please try again later.';
+        errorMsg.textContent = window.i18n ? window.i18n.t('form.rateLimit') : 'Too many attempts. Please try again later.';
         errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }
       return;

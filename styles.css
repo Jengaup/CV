@@ -247,6 +247,28 @@ a {
 .nav__cta:hover { background: var(--color-accent-dark) !important; transform: translateY(-1px); }
 .nav__cta::after { display: none !important; }
 
+.nav__lang {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  color: var(--color-cyan);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+.nav__lang:hover {
+  background: rgba(14, 165, 233, 0.18);
+  border-color: rgba(14, 165, 233, 0.6);
+}
+.nav__lang-icon { font-size: 0.85rem; }
+
 .nav__hamburger {
   display: none;
   flex-direction: column;
