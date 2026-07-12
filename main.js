@@ -70,6 +70,21 @@ var EMAILJS_TEMPLATE_ID = 'template_rjtij71';
   var form       = document.getElementById('contact-form');
   if (!form) return;
 
+  // Rate limiting: max 3 submissions per session
+  var submitCount = 0;
+  var MAX_SUBMITS = 3;
+
+  // Strip HTML tags and control characters from user input
+  function sanitize(str) {
+    return str
+      .replace(/[<>'"]/g, function(c) {
+        return { '<': '', '>': '', "'": '', '"': '' }[c];
+      })
+      .replace(/[\x00-\x1F\x7F]/g, '')
+      .trim()
+      .slice(0, 2000);
+  }
+
   var submitBtn  = document.getElementById('form-submit');
   var btnText    = submitBtn && submitBtn.querySelector('.btn__text');
   var btnSpinner = submitBtn && submitBtn.querySelector('.btn__spinner');
@@ -180,14 +195,25 @@ var EMAILJS_TEMPLATE_ID = 'template_rjtij71';
     var honeypot = form.querySelector('input[name="_gotcha"]');
     if (honeypot && honeypot.value) return;
 
-    setLoading(true);
+    // Rate limit check
+    if (submitCount >= MAX_SUBMITS) {
+      showStatus(errorMsg, true);
+      if (errorMsg) {
+        errorMsg.textContent = 'Too many attempts. Please try again later.';
+        errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+      return;
+    }
 
-    // Build template params — names must match your EmailJS template variables
+    setLoading(true);
+    submitCount++;
+
+    // Build template params with sanitized values
     var templateParams = {
-      from_name:    fields.name.el.value.trim(),
-      from_email:   fields.email.el.value.trim(),
-      subject:      fields.subject.el.value.trim(),
-      message:      fields.message.el.value.trim()
+      from_name:  sanitize(fields.name.el.value),
+      from_email: sanitize(fields.email.el.value),
+      subject:    sanitize(fields.subject.el.value),
+      message:    sanitize(fields.message.el.value)
     };
 
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
