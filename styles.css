@@ -828,6 +828,17 @@ a {
 }
 .timeline-item__content:hover { border-color: var(--color-border-light); }
 
+.timeline-item--freelance .timeline-item__content {
+  border-color: rgba(14, 165, 233, 0.25);
+}
+.timeline-item--freelance .timeline-item__content:hover {
+  border-color: rgba(14, 165, 233, 0.5);
+}
+.timeline-item--freelance .timeline-item__marker {
+  background: var(--color-cyan);
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.15);
+}
+
 .timeline-item__header {
   display: flex;
   justify-content: space-between;
