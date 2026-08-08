@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://josealbertopr.com/sitemap.xml
+
+# Block crawlers from accessing private/utility files
+Disallow: /main.js
+Disallow: /i18n.js
