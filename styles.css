@@ -1252,6 +1252,9 @@ a {
 .cert-badge--blue    { background: #1e40af; }
 .cert-badge--red     { background: #b91c1c; }
 .cert-badge--crimson { background: #c8202f; font-size: 0.85rem; }
+.cert-badge--orange  { background: #d97706; }
+.cert-badge--teal    { background: #0d9488; }
+.cert-badge--gold    { background: #b45309; }
 
 .cert-card__info {
   display: flex;
