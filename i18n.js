@@ -163,6 +163,7 @@
       'form.errorTitle':   'Something went wrong.',
       'form.errorMsg':     'Please try again or check your connection.',
       'form.rateLimit':    'Too many attempts. Please try again later.',
+      'form.errorGeneric': 'Could not send message. Please refresh and try again.',
 
       'footer.rights': 'All rights reserved.',
       'footer.note':   'IT Director &amp; Business Relationship Manager · US Citizen · Bilingual EN/ES',
@@ -328,6 +329,7 @@
       'form.errorTitle':   'Algo salió mal.',
       'form.errorMsg':     'Por favor intente de nuevo o verifique su conexión.',
       'form.rateLimit':    'Demasiados intentos. Por favor intente más tarde.',
+      'form.errorGeneric': 'No se pudo enviar el mensaje. Por favor recargue e intente de nuevo.',
 
       'footer.rights': 'Todos los derechos reservados.',
       'footer.note':   'Director de TI y Gerente de Relaciones de Negocio · Ciudadano Estadounidense · Bilingüe EN/ES',

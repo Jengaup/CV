@@ -91,7 +91,17 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
    CONTACT FORM — validation + security + EmailJS submission
    ============================================================ */
 (function () {
-  if (window.emailjs) emailjs.init(_k);
+  /* Wait for EmailJS SDK to be ready before init */
+  function initEmailJS() {
+    if (window.emailjs) { emailjs.init(_k); return true; }
+    return false;
+  }
+  if (!initEmailJS()) {
+    var _ejs_retries = 0;
+    var _ejs_poll = setInterval(function () {
+      if (initEmailJS() || ++_ejs_retries > 20) clearInterval(_ejs_poll);
+    }, 200);
+  }
 
   var form = document.getElementById('contact-form');
   if (!form) return;
@@ -282,6 +292,11 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
       return;
     }
 
+    if (!window.emailjs) {
+      showError(window.i18n ? window.i18n.t('form.errorGeneric') : 'Service not ready. Please refresh and try again.');
+      return;
+    }
+
     setLoading(true);
     bumpRate();
 
@@ -292,8 +307,20 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
       message:    sanitize(fields.message.el.value)
     };
 
+    /* Safety timeout — unblock button if promise never resolves */
+    var _sent = false;
+    var _timeout = setTimeout(function () {
+      if (_sent) return;
+      _sent = true;
+      setLoading(false);
+      showError(window.i18n ? window.i18n.t('form.errorGeneric') : 'Request timed out. Please try again.');
+    }, 15000);
+
     emailjs.send(_s, _t, templateParams)
       .then(function () {
+        if (_sent) return;
+        _sent = true;
+        clearTimeout(_timeout);
         form.reset();
         Object.keys(fields).forEach(function (k) {
           if (fields[k].el)    fields[k].el.removeAttribute('aria-invalid');
@@ -302,10 +329,12 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
         showStatus(successMsg, true);
         if (successMsg) successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         setLoading(false);
-        // Invalidate token after successful send
         sessionToken = null;
       })
       .catch(function () {
+        if (_sent) return;
+        _sent = true;
+        clearTimeout(_timeout);
         showStatus(errorMsg, true);
         if (errorMsg) errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         setLoading(false);
