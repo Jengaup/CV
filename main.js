@@ -331,11 +331,17 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
         setLoading(false);
         sessionToken = null;
       })
-      .catch(function () {
+      .catch(function (err) {
         if (_sent) return;
         _sent = true;
         clearTimeout(_timeout);
+        console.error('[EmailJS error]', err);
+        var detail = (err && (err.text || err.message || JSON.stringify(err))) || 'Unknown error';
         showStatus(errorMsg, true);
+        if (errorMsg) {
+          var strong = errorMsg.querySelector('strong');
+          if (strong) strong.textContent = detail;
+        }
         if (errorMsg) errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         setLoading(false);
       });
