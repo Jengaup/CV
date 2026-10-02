@@ -62,6 +62,55 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
 })();
 
 /* ============================================================
+   STAT COUNTER ANIMATION
+   ============================================================ */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function parseTarget(el) {
+    var raw = el.getAttribute('data-stat-raw') || el.textContent.trim();
+    var prefix = raw.match(/^[\$]/) ? raw[0] : '';
+    var suffix = raw.match(/[+%KM]+$/) ? raw.match(/[+%KM]+$/)[0] : '';
+    var num    = parseFloat(raw.replace(/[^0-9.]/g, '')) || 0;
+    return { prefix: prefix, suffix: suffix, num: num, decimals: (raw.indexOf('.') > -1) ? 1 : 0 };
+  }
+
+  function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+  function animateCounter(el, duration) {
+    var parsed = parseTarget(el);
+    if (parsed.num === 0) return;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var t = Math.min((ts - start) / duration, 1);
+      var val = easeOutQuart(t) * parsed.num;
+      el.textContent = parsed.prefix +
+        (parsed.decimals ? val.toFixed(parsed.decimals) : Math.round(val)) +
+        parsed.suffix;
+      if (t < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var stats = document.querySelectorAll('.hero__stat-value');
+  stats.forEach(function (el) {
+    el.setAttribute('data-stat-raw', el.textContent.trim());
+    el.textContent = '0';
+  });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      animateCounter(entry.target, 1400);
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.5 });
+
+  stats.forEach(function (el) { observer.observe(el); });
+})();
+
+/* ============================================================
    SCROLL REVEAL
    ============================================================ */
 (function () {
