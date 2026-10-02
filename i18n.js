@@ -12,8 +12,9 @@
 
       'hero.title': 'IT Director &amp; Business Relationship Manager',
       'hero.sub':   '20+ years of IT leadership, digital transformation, and IT/OT integration across energy, pharmaceutical, healthcare, and food service industries. US Citizen. Bilingual EN/ES.',
-      'hero.cta1':  'Get in Touch',
-      'hero.cta2':  'See My Impact',
+      'hero.cta1':   'Get in Touch',
+      'hero.cta2':   'See My Impact',
+      'hero.resume': 'Download Resume',
       'hero.stat1': 'Years of Experience',
       'hero.stat2': 'Cost Savings Delivered',
       'hero.stat3': 'On-Time Project Delivery',
@@ -152,6 +153,7 @@
 
       'form.name':         'Full Name',
       'form.namePh':       'Your full name',
+      'form.email':        'Email Address',
       'form.subject':      'Subject',
       'form.subjectPh':    'What is this regarding?',
       'form.message':      'Message',
@@ -178,8 +180,9 @@
 
       'hero.title': 'Director de TI y Gerente de Relaciones de Negocio',
       'hero.sub':   'Más de 20 años de liderazgo en TI, transformación digital e integración TI/OT en industrias de energía, farmacéutica, salud y servicio de alimentos. Ciudadano estadounidense. Bilingüe EN/ES.',
-      'hero.cta1':  'Contáctame',
-      'hero.cta2':  'Ver Mi Impacto',
+      'hero.cta1':   'Contáctame',
+      'hero.cta2':   'Ver Mi Impacto',
+      'hero.resume': 'Descargar CV',
       'hero.stat1': 'Años de Experiencia',
       'hero.stat2': 'Ahorros Generados',
       'hero.stat3': 'Proyectos Entregados a Tiempo',
@@ -318,6 +321,7 @@
 
       'form.name':         'Nombre Completo',
       'form.namePh':       'Su nombre completo',
+      'form.email':        'Correo Electrónico',
       'form.subject':      'Asunto',
       'form.subjectPh':    '¿Sobre qué trata su mensaje?',
       'form.message':      'Mensaje',

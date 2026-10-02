@@ -137,6 +137,30 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
 })();
 
 /* ============================================================
+   NAV — active section highlight on scroll
+   ============================================================ */
+(function () {
+  var sections = document.querySelectorAll('main [id]');
+  var navLinks = document.querySelectorAll('.nav__links a[href^="#"]');
+  if (!sections.length || !navLinks.length) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var id = entry.target.id;
+      navLinks.forEach(function (link) {
+        var active = link.getAttribute('href') === '#' + id;
+        link.classList.toggle('nav__link--active', active);
+        if (active) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    });
+  }, { threshold: 0.35, rootMargin: '-64px 0px -35% 0px' });
+
+  sections.forEach(function (s) { observer.observe(s); });
+})();
+
+/* ============================================================
    CONTACT FORM — validation + security + EmailJS submission
    ============================================================ */
 (function () {

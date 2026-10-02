@@ -267,6 +267,8 @@ a {
   .nav__links a:focus-visible { color: var(--color-text); }
   .nav__links a:hover::after { width: 100%; }
 }
+.nav__links a.nav__link--active { color: var(--color-text); }
+.nav__links a.nav__link--active::after { width: 100%; }
 
 .nav__cta {
   background: var(--color-accent);
@@ -538,6 +540,7 @@ a {
   }
 }
 .btn--linkedin svg { flex-shrink: 0; }
+.btn svg { flex-shrink: 0; }
 
 .hero__name {
   font-family: var(--font-display);
@@ -1377,7 +1380,7 @@ a {
 .cert-badge--violet  { background: #5b21b6; font-size: 0.8rem; }
 .cert-badge--blue    { background: #1e40af; }
 .cert-badge--red     { background: #b91c1c; }
-.cert-badge--crimson { background: #c8202f; font-size: 0.85rem; }
+.cert-badge--crimson { background: #1e40af; font-size: 0.85rem; }
 .cert-badge--orange  { background: #d97706; }
 .cert-badge--teal    { background: #0d9488; }
 .cert-badge--gold    { background: #b45309; }
