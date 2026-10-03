@@ -266,9 +266,9 @@
       <nav aria-label="Main navigation">
         <ul class="nav__links">
           <li><a href="#about" data-i18n="nav.about">About</a></li>
-          <li><a href="#expertise" data-i18n="nav.expertise">Expertise</a></li>
-          <li><a href="#impact" data-i18n="nav.impact">Impact</a></li>
           <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="#impact" data-i18n="nav.impact">Impact</a></li>
+          <li><a href="#expertise" data-i18n="nav.expertise">Expertise</a></li>
           <li><a href="#contact" class="nav__cta" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </nav>
@@ -283,9 +283,9 @@
     <div class="nav__mobile" id="mobile-menu" hidden>
       <ul>
         <li><a href="#about" data-i18n="nav.about">About</a></li>
-        <li><a href="#expertise" data-i18n="nav.expertise">Expertise</a></li>
-        <li><a href="#impact" data-i18n="nav.impact">Impact</a></li>
         <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#impact" data-i18n="nav.impact">Impact</a></li>
+        <li><a href="#expertise" data-i18n="nav.expertise">Expertise</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
     </div>
@@ -323,7 +323,7 @@
           <span class="hero__lastname">Jimenez</span>
         </h1>
         <p class="hero__title" data-i18n="hero.title">IT Director &amp; Business Relationship Manager</p>
-        <p class="hero__sub" data-i18n="hero.sub">20+ years of IT leadership, digital transformation, and IT/OT integration across energy, pharmaceutical, healthcare, and food service industries. US Citizen. Bilingual EN/ES.</p>
+        <p class="hero__sub" data-i18n="hero.sub">IT executive who turns technology investment into measurable business results — 20+ years across energy, pharma, healthcare &amp; food service.</p>
         <div class="hero__actions">
           <a href="#contact" class="btn btn--primary" data-i18n="hero.cta1">Get in Touch</a>
           <a href="#impact" class="btn btn--ghost" data-i18n="hero.cta2">See My Impact</a>
@@ -338,18 +338,30 @@
         </div>
         <div class="hero__stats" aria-label="Key metrics">
           <div class="hero__stat">
+            <div class="hero__stat-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
             <span class="hero__stat-value">20+</span>
             <span class="hero__stat-label" data-i18n="hero.stat1">Years of Experience</span>
           </div>
           <div class="hero__stat">
+            <div class="hero__stat-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
             <span class="hero__stat-value">$1.2M+</span>
             <span class="hero__stat-label" data-i18n="hero.stat2">Cost Savings Delivered</span>
           </div>
           <div class="hero__stat">
+            <div class="hero__stat-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
             <span class="hero__stat-value">95%</span>
             <span class="hero__stat-label" data-i18n="hero.stat3">On-Time Project Delivery</span>
           </div>
           <div class="hero__stat">
+            <div class="hero__stat-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
             <span class="hero__stat-value">4</span>
             <span class="hero__stat-label" data-i18n="hero.stat4">Industries Served</span>
           </div>
@@ -367,16 +379,14 @@
         <div class="about__grid">
           <div class="about__text">
             <h2 id="about-heading" class="section__title" data-i18n="about.title">Where Technology Meets <span class="accent">Business Value</span></h2>
-            <p class="about__lead" data-i18n="about.lead">I am a results-driven IT Director and Business Relationship Manager with over 20 years of experience leading digital transformation, IT/OT integration, and technology strategy across regulated and high-demand industries.</p>
-            <p data-i18n="about.p2">My career spans energy, pharmaceutical, healthcare, and food service sectors. I have managed multi-million-dollar IT portfolios, led cross-functional teams, driven vendor negotiations, and built strong partnerships between business units and IT organizations. I hold an MBA in Technology Management and hands-on expertise in infrastructure, cloud, cybersecurity, compliance, and project delivery.</p>
-            <p data-i18n="about.p3">Known for stakeholder management at the executive level, change management leadership, and a track record of on-time, on-budget project execution. Bilingual in English and Spanish. US Citizen. Available for on-site, remote, or hybrid roles.</p>
-            <div class="about__certs">
-              <span class="cert-tag">MBA · Technology Management</span>
-              <span class="cert-tag">Six Sigma Green Belt</span>
-              <span class="cert-tag">ITIL V4</span>
-              <span class="cert-tag">BRMP</span>
-              <span class="cert-tag">CyberSec First Responder</span>
-              <span class="cert-tag">CompTIA A+ &amp; Network+</span>
+            <p class="about__lead" data-i18n="about.lead">Results-driven IT Director and Business Relationship Manager with 20+ years leading digital transformation, IT/OT integration, and technology strategy across regulated and high-demand industries.</p>
+            <ul class="about__highlights" data-i18n-list="about.highlights"></ul>
+            <div class="about__badges">
+              <span class="about__badge">MBA · Tech Management</span>
+              <span class="about__badge">ITIL V4</span>
+              <span class="about__badge">BRMP</span>
+              <span class="about__badge">Six Sigma</span>
+              <span class="about__badge">US Citizen · Bilingual</span>
             </div>
           </div>
           <div class="about__values">
@@ -397,11 +407,257 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section experience" aria-labelledby="experience-heading">
+      <div class="container">
+        <div class="section__label" data-i18n="xp.label">Career Highlights</div>
+        <h2 id="experience-heading" class="section__title" data-i18n="xp.title">Professional <span class="accent">Experience</span></h2>
+        <div class="timeline">
+
+          <article class="timeline-item">
+            <div class="timeline-item__marker" aria-hidden="true"></div>
+            <div class="timeline-item__content">
+              <div class="timeline-item__header">
+                <div>
+                  <h3 class="timeline-item__role" data-i18n="tl1.role">IT Business Relationship Manager</h3>
+                  <p class="timeline-item__company">Luma Energy LLC.</p>
+                </div>
+                <span class="timeline-item__period" data-i18n="tl1.period">Jun 2024 – Present</span>
+              </div>
+              <p class="timeline-item__summary" data-i18n="tl1.summary">Strategic technology partner to the business, managing IT/OT integration, cross-department alignment, and multi-million-dollar technology portfolios for a major energy transmission and distribution company.</p>
+              <ul class="timeline-item__highlights" data-i18n-list="tl1.highlights"></ul>
+              <div class="timeline-item__tags" data-i18n-tags="tl1.tags"></div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-item__marker" aria-hidden="true"></div>
+            <div class="timeline-item__content">
+              <div class="timeline-item__header">
+                <div>
+                  <h3 class="timeline-item__role" data-i18n="tl2.role">IT Manager / MRM</h3>
+                  <p class="timeline-item__company">Baxter International</p>
+                </div>
+                <span class="timeline-item__period">Feb 2023 – Jun 2024</span>
+              </div>
+              <p class="timeline-item__summary" data-i18n="tl2.summary">Full oversight of IT operations for a regulated medical device manufacturing facility, ensuring compliance, driving team performance, and managing infrastructure, budget, and vendor relationships.</p>
+              <ul class="timeline-item__highlights" data-i18n-list="tl2.highlights"></ul>
+              <div class="timeline-item__tags" data-i18n-tags="tl2.tags"></div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-item__marker" aria-hidden="true"></div>
+            <div class="timeline-item__content">
+              <div class="timeline-item__header">
+                <div>
+                  <h3 class="timeline-item__role" data-i18n="tl3.role">Senior IT Specialist</h3>
+                  <p class="timeline-item__company">Avara Pharmaceutical Services</p>
+                </div>
+                <span class="timeline-item__period">Oct 2016 – Feb 2023</span>
+              </div>
+              <p class="timeline-item__summary" data-i18n="tl3.summary">Promoted to senior level to coordinate and manage computing solutions and infrastructure in a global pharmaceutical environment, serving as the single point of contact for site IT across local and international operations.</p>
+              <ul class="timeline-item__highlights" data-i18n-list="tl3.highlights"></ul>
+              <div class="timeline-item__tags" data-i18n-tags="tl3.tags"></div>
+            </div>
+          </article>
+
+          <article class="timeline-item timeline-item--earlier">
+            <div class="timeline-item__marker" aria-hidden="true"></div>
+            <div class="timeline-item__content">
+              <div class="timeline-item__header">
+                <div>
+                  <h3 class="timeline-item__role" data-i18n="tl4.role">Earlier Career</h3>
+                  <p class="timeline-item__company" data-i18n="tl4.company">Healthcare &amp; Hospitality Sectors</p>
+                </div>
+                <span class="timeline-item__period">2003 – 2016</span>
+              </div>
+              <p class="timeline-item__summary" data-i18n="tl4.summary">Built a strong technical foundation across healthcare IT and food service technology, managing IT support operations, deskside services, and infrastructure across multi-site environments. This period shaped the discipline, customer focus, and operational depth that define 20+ years of technology leadership.</p>
+              <div class="timeline-item__tags" data-i18n-tags="tl4.tags"></div>
+            </div>
+          </article>
+
+          <article class="timeline-item timeline-item--freelance">
+            <div class="timeline-item__marker" aria-hidden="true"></div>
+            <div class="timeline-item__content">
+              <div class="timeline-item__header">
+                <div>
+                  <h3 class="timeline-item__role" data-i18n="tl5.role">Technology Consultant &amp; Freelancer</h3>
+                  <p class="timeline-item__company" data-i18n="tl5.company">Independent · Self-Employed</p>
+                </div>
+                <span class="timeline-item__period" data-i18n="tl5.period">Ongoing</span>
+              </div>
+              <p class="timeline-item__summary" data-i18n="tl5.summary">Parallel track of independent consulting alongside full-time roles, delivering technology solutions to small and medium businesses. Services span web development, social media strategy, AI adoption, and process automation.</p>
+              <ul class="timeline-item__highlights" data-i18n-list="tl5.highlights"></ul>
+              <div class="timeline-item__tags" data-i18n-tags="tl5.tags"></div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="education">
+          <h3 class="education__title" data-i18n="edu.title">Education</h3>
+          <div class="education__grid">
+            <div class="education__item">
+              <span class="education__degree">MBA · Technology Management</span>
+              <span class="education__school">University of Phoenix · GPA 3.80</span>
+            </div>
+            <div class="education__item">
+              <span class="education__degree">BA · Information Systems</span>
+              <span class="education__school">Universidad Metropolitana (UMET) · GPA 3.70</span>
+            </div>
+            <div class="education__item">
+              <span class="education__degree">Minor · Marketing</span>
+              <span class="education__school">Universidad Metropolitana (UMET)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section id="impact" class="section impact" aria-labelledby="impact-heading">
+      <div class="container">
+        <div class="section__label" data-i18n="impact.label">Selected Impact</div>
+        <h2 id="impact-heading" class="section__title" data-i18n="impact.title">Delivering <span class="accent">Measurable Results</span></h2>
+        <p class="section__sub" data-i18n="impact.sub">Impact speaks louder than titles. Here are some of the outcomes I have driven throughout my career.</p>
+        <div class="impact__grid">
+
+          <article class="impact-card impact-card--featured">
+            <div class="impact-card__metric">$1.2M+</div>
+            <h3 data-i18n="ic1.title">Cost Savings via IT/OT Initiatives</h3>
+            <p data-i18n="ic1.desc">Led strategic IT/OT integration programs at Luma Energy, identifying and implementing initiatives that saved over $1.2 million while maintaining full project quality and deliverables.</p>
+            <div class="impact-card__tag" data-i18n="ic1.tag">Luma Energy · 2024–Present</div>
+          </article>
+
+          <article class="impact-card">
+            <div class="impact-card__metric">15%</div>
+            <h3 data-i18n="ic2.title">Operational Efficiency Increase</h3>
+            <p data-i18n="ic2.desc">Aligned technology roadmaps across 7 departments with business objectives, resulting in a 15% increase in operational efficiency through strategic IT/OT integration.</p>
+            <div class="impact-card__tag" data-i18n="ic2.tag">Luma Energy</div>
+          </article>
+
+          <article class="impact-card">
+            <div class="impact-card__metric">95%</div>
+            <h3 data-i18n="ic3.title">On-Time Project Delivery Rate</h3>
+            <p data-i18n="ic3.desc">Supervised technology implementations across the full project lifecycle, consistently achieving 95% of project deadlines on time and within budget.</p>
+            <div class="impact-card__tag" data-i18n="ic3.tag">Luma Energy</div>
+          </article>
+
+          <article class="impact-card">
+            <div class="impact-card__metric">$448K+</div>
+            <h3 data-i18n="ic4.title">Network Infrastructure Savings</h3>
+            <p data-i18n="ic4.desc">Led a network infrastructure change management project replacing L2 switches, APs, and wireless controllers, delivering $198K in year one savings and a projected $250K in year two.</p>
+            <div class="impact-card__tag" data-i18n="ic4.tag">Avara Pharmaceutical · 2016–2023</div>
+          </article>
+
+          <article class="impact-card">
+            <div class="impact-card__metric">20%</div>
+            <h3 data-i18n="ic5.title">Downtime Reduction</h3>
+            <p data-i18n="ic5.desc">Identified root causes of recurring program issues and implemented creative solutions that reduced operational downtime by 20%, improving service continuity across the organization.</p>
+            <div class="impact-card__tag" data-i18n="ic5.tag">Luma Energy</div>
+          </article>
+
+          <article class="impact-card">
+            <div class="impact-card__metric">Green Belt</div>
+            <h3 data-i18n="ic6.title">Six Sigma Certification Achieved</h3>
+            <p data-i18n="ic6.desc">Earned Six Sigma Green Belt for implementing a network monitoring and management project that realized $198K in savings and contributed 17% toward the company's savings goal.</p>
+            <div class="impact-card__tag" data-i18n="ic6.tag">Avara Pharmaceutical</div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERTISE -->
+    <section id="expertise" class="section expertise" aria-labelledby="expertise-heading">
+      <div class="container">
+        <div class="section__label" data-i18n="expertise.label">Core Strengths</div>
+        <h2 id="expertise-heading" class="section__title" data-i18n="expertise.title">Areas of <span class="accent">Expertise</span></h2>
+        <p class="section__sub" data-i18n="expertise.sub">A comprehensive command of the technical and leadership dimensions that modern IT Directors and Technology Managers need to deliver real business value.</p>
+        <div class="expertise__grid">
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 data-i18n="exp1.title">IT Leadership &amp; Team Management</h3>
+            <p data-i18n="exp1.desc">Building and guiding high-performance IT teams. Mentoring professionals, defining vision, and aligning day-to-day operations with strategic objectives.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3 data-i18n="exp2.title">IT/OT Integration &amp; Alignment</h3>
+            <p data-i18n="exp2.desc">Bridging Information Technology and Operational Technology in manufacturing and energy environments. Ensuring systems speak the same language as the business.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <h3 data-i18n="exp3.title">Infrastructure &amp; Operations</h3>
+            <p data-i18n="exp3.desc">End-to-end management of enterprise infrastructure: networks, servers, data centers, storage systems, virtualization (VMware/ESX), and cloud environments.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </div>
+            <h3 data-i18n="exp4.title">Business Relationship Management</h3>
+            <p data-i18n="exp4.desc">Serving as the strategic bridge between IT and business units. Translating organizational needs into technology roadmaps that generate tangible value.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h3 data-i18n="exp5.title">Project &amp; Program Delivery</h3>
+            <p data-i18n="exp5.desc">Leading complex, cross-functional technology programs from scoping to delivery. Consistent track record of on-time, on-budget execution across multiple concurrent projects.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12h20"/><path d="M12 2v20"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+            <h3 data-i18n="exp6.title">Process Improvement &amp; Six Sigma</h3>
+            <p data-i18n="exp6.desc">Green Belt certified in Six Sigma methodology. Systematically identifying inefficiencies, implementing controls, and measuring results to drive sustainable operational improvements.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 data-i18n="exp7.title">IT Security &amp; Compliance</h3>
+            <p data-i18n="exp7.desc">Enforcing security policies, managing regulatory compliance (FDA, cGMP), and implementing cybersecurity frameworks to protect critical enterprise assets and data.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3 data-i18n="exp8.title">Bilingual Communication</h3>
+            <p data-i18n="exp8.desc">Fully bilingual in English and Spanish, which allows me to collaborate effectively with global teams, multinational stakeholders, and diverse user communities across industries.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section id="credentials" class="section credentials" aria-labelledby="creds-heading">
+      <div class="container">
+        <div class="section__label" data-i18n="creds.label">Credentials &amp; Certifications</div>
+        <h2 id="creds-heading" class="section__title" data-i18n="creds.title">Certifications &amp; <span class="accent">Education</span></h2>
         <!-- CERTIFICATIONS -->
         <div class="certs-section">
-          <div class="section__label" style="margin-top: var(--space-16)" data-i18n="about.certsLabel">Credentials &amp; Certifications</div>
-          <div class="certs-legend" aria-label="Color legend by area">
+            <div class="certs-legend" aria-label="Color legend by area">
             <div class="certs-legend__item">
               <span class="certs-legend__dot" style="background:#7c3aed"></span>
               <span data-i18n="certs.legend.education">Education</span>
@@ -583,246 +839,6 @@
       </div>
     </section>
 
-    <!-- EXPERTISE -->
-    <section id="expertise" class="section expertise" aria-labelledby="expertise-heading">
-      <div class="container">
-        <div class="section__label" data-i18n="expertise.label">Core Strengths</div>
-        <h2 id="expertise-heading" class="section__title" data-i18n="expertise.title">Areas of <span class="accent">Expertise</span></h2>
-        <p class="section__sub" data-i18n="expertise.sub">A comprehensive command of the technical and leadership dimensions that modern IT Directors and Technology Managers need to deliver real business value.</p>
-        <div class="expertise__grid">
-
-          <article class="expertise-card">
-            <div class="expertise-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            </div>
-            <h3 data-i18n="exp1.title">IT Leadership &amp; Team Management</h3>
-            <p data-i18n="exp1.desc">Building and guiding high-performance IT teams. Mentoring professionals, defining vision, and aligning day-to-day operations with strategic objectives.</p>
-          </article>
-
-          <article class="expertise-card">
-            <div class="expertise-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-            </div>
-            <h3 data-i18n="exp2.title">IT/OT Integration &amp; Alignment</h3>
-            <p data-i18n="exp2.desc">Bridging Information Technology and Operational Technology in manufacturing and energy environments. Ensuring systems speak the same language as the business.</p>
-          </article>
-
-          <article class="expertise-card">
-            <div class="expertise-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-            </div>
-            <h3 data-i18n="exp3.title">Infrastructure &amp; Operations</h3>
-            <p data-i18n="exp3.desc">End-to-end management of enterprise infrastructure: networks, servers, data centers, storage systems, virtualization (VMware/ESX), and cloud environments.</p>
-          </article>
-
-          <article class="expertise-card">
-            <div class="expertise-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-            </div>
-            <h3 data-i18n="exp4.title">Business Relationship Management</h3>
-            <p data-i18n="exp4.desc">Serving as the strategic bridge between IT and business units. Translating organizational needs into technology roadmaps that generate tangible value.</p>
-          </article>
-
-          <article class="expertise-card">
-            <div class="expertise-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-            </div>
-            <h3 data-i18n="exp5.title">Project &amp; Program Delivery</h3>
-            <p data-i18n="exp5.desc">Leading complex, cross-functional technology programs from scoping to delivery. Consistent track record of on-time, on-budget execution across multiple concurrent projects.</p>
-          </article>
-
-          <article class="expertise-card">
-            <div class="expertise-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12h20"/><path d="M12 2v20"/><circle cx="12" cy="12" r="4"/></svg>
-            </div>
-            <h3 data-i18n="exp6.title">Process Improvement &amp; Six Sigma</h3>
-            <p data-i18n="exp6.desc">Green Belt certified in Six Sigma methodology. Systematically identifying inefficiencies, implementing controls, and measuring results to drive sustainable operational improvements.</p>
-          </article>
-
-          <article class="expertise-card">
-            <div class="expertise-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3 data-i18n="exp7.title">IT Security &amp; Compliance</h3>
-            <p data-i18n="exp7.desc">Enforcing security policies, managing regulatory compliance (FDA, cGMP), and implementing cybersecurity frameworks to protect critical enterprise assets and data.</p>
-          </article>
-
-          <article class="expertise-card">
-            <div class="expertise-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </div>
-            <h3 data-i18n="exp8.title">Bilingual Communication</h3>
-            <p data-i18n="exp8.desc">Fully bilingual in English and Spanish, which allows me to collaborate effectively with global teams, multinational stakeholders, and diverse user communities across industries.</p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- IMPACT -->
-    <section id="impact" class="section impact" aria-labelledby="impact-heading">
-      <div class="container">
-        <div class="section__label" data-i18n="impact.label">Selected Impact</div>
-        <h2 id="impact-heading" class="section__title" data-i18n="impact.title">Delivering <span class="accent">Measurable Results</span></h2>
-        <p class="section__sub" data-i18n="impact.sub">Impact speaks louder than titles. Here are some of the outcomes I have driven throughout my career.</p>
-        <div class="impact__grid">
-
-          <article class="impact-card impact-card--featured">
-            <div class="impact-card__metric">$1.2M+</div>
-            <h3 data-i18n="ic1.title">Cost Savings via IT/OT Initiatives</h3>
-            <p data-i18n="ic1.desc">Led strategic IT/OT integration programs at Luma Energy, identifying and implementing initiatives that saved over $1.2 million while maintaining full project quality and deliverables.</p>
-            <div class="impact-card__tag" data-i18n="ic1.tag">Luma Energy · 2024–Present</div>
-          </article>
-
-          <article class="impact-card">
-            <div class="impact-card__metric">15%</div>
-            <h3 data-i18n="ic2.title">Operational Efficiency Increase</h3>
-            <p data-i18n="ic2.desc">Aligned technology roadmaps across 7 departments with business objectives, resulting in a 15% increase in operational efficiency through strategic IT/OT integration.</p>
-            <div class="impact-card__tag" data-i18n="ic2.tag">Luma Energy</div>
-          </article>
-
-          <article class="impact-card">
-            <div class="impact-card__metric">95%</div>
-            <h3 data-i18n="ic3.title">On-Time Project Delivery Rate</h3>
-            <p data-i18n="ic3.desc">Supervised technology implementations across the full project lifecycle, consistently achieving 95% of project deadlines on time and within budget.</p>
-            <div class="impact-card__tag" data-i18n="ic3.tag">Luma Energy</div>
-          </article>
-
-          <article class="impact-card">
-            <div class="impact-card__metric">$448K+</div>
-            <h3 data-i18n="ic4.title">Network Infrastructure Savings</h3>
-            <p data-i18n="ic4.desc">Led a network infrastructure change management project replacing L2 switches, APs, and wireless controllers, delivering $198K in year one savings and a projected $250K in year two.</p>
-            <div class="impact-card__tag" data-i18n="ic4.tag">Avara Pharmaceutical · 2016–2023</div>
-          </article>
-
-          <article class="impact-card">
-            <div class="impact-card__metric">20%</div>
-            <h3 data-i18n="ic5.title">Downtime Reduction</h3>
-            <p data-i18n="ic5.desc">Identified root causes of recurring program issues and implemented creative solutions that reduced operational downtime by 20%, improving service continuity across the organization.</p>
-            <div class="impact-card__tag" data-i18n="ic5.tag">Luma Energy</div>
-          </article>
-
-          <article class="impact-card">
-            <div class="impact-card__metric">Green Belt</div>
-            <h3 data-i18n="ic6.title">Six Sigma Certification Achieved</h3>
-            <p data-i18n="ic6.desc">Earned Six Sigma Green Belt for implementing a network monitoring and management project that realized $198K in savings and contributed 17% toward the company's savings goal.</p>
-            <div class="impact-card__tag" data-i18n="ic6.tag">Avara Pharmaceutical</div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section experience" aria-labelledby="experience-heading">
-      <div class="container">
-        <div class="section__label" data-i18n="xp.label">Career Highlights</div>
-        <h2 id="experience-heading" class="section__title" data-i18n="xp.title">Professional <span class="accent">Experience</span></h2>
-        <div class="timeline">
-
-          <article class="timeline-item">
-            <div class="timeline-item__marker" aria-hidden="true"></div>
-            <div class="timeline-item__content">
-              <div class="timeline-item__header">
-                <div>
-                  <h3 class="timeline-item__role" data-i18n="tl1.role">IT Business Relationship Manager</h3>
-                  <p class="timeline-item__company">Luma Energy LLC.</p>
-                </div>
-                <span class="timeline-item__period" data-i18n="tl1.period">Jun 2024 – Present</span>
-              </div>
-              <p class="timeline-item__summary" data-i18n="tl1.summary">Strategic technology partner to the business, managing IT/OT integration, cross-department alignment, and multi-million-dollar technology portfolios for a major energy transmission and distribution company.</p>
-              <ul class="timeline-item__highlights" data-i18n-list="tl1.highlights"></ul>
-              <div class="timeline-item__tags" data-i18n-tags="tl1.tags"></div>
-            </div>
-          </article>
-
-          <article class="timeline-item">
-            <div class="timeline-item__marker" aria-hidden="true"></div>
-            <div class="timeline-item__content">
-              <div class="timeline-item__header">
-                <div>
-                  <h3 class="timeline-item__role" data-i18n="tl2.role">IT Manager / MRM</h3>
-                  <p class="timeline-item__company">Baxter International</p>
-                </div>
-                <span class="timeline-item__period">Feb 2023 – Jun 2024</span>
-              </div>
-              <p class="timeline-item__summary" data-i18n="tl2.summary">Full oversight of IT operations for a regulated medical device manufacturing facility, ensuring compliance, driving team performance, and managing infrastructure, budget, and vendor relationships.</p>
-              <ul class="timeline-item__highlights" data-i18n-list="tl2.highlights"></ul>
-              <div class="timeline-item__tags" data-i18n-tags="tl2.tags"></div>
-            </div>
-          </article>
-
-          <article class="timeline-item">
-            <div class="timeline-item__marker" aria-hidden="true"></div>
-            <div class="timeline-item__content">
-              <div class="timeline-item__header">
-                <div>
-                  <h3 class="timeline-item__role" data-i18n="tl3.role">Senior IT Specialist</h3>
-                  <p class="timeline-item__company">Avara Pharmaceutical Services</p>
-                </div>
-                <span class="timeline-item__period">Oct 2016 – Feb 2023</span>
-              </div>
-              <p class="timeline-item__summary" data-i18n="tl3.summary">Promoted to senior level to coordinate and manage computing solutions and infrastructure in a global pharmaceutical environment, serving as the single point of contact for site IT across local and international operations.</p>
-              <ul class="timeline-item__highlights" data-i18n-list="tl3.highlights"></ul>
-              <div class="timeline-item__tags" data-i18n-tags="tl3.tags"></div>
-            </div>
-          </article>
-
-          <article class="timeline-item timeline-item--earlier">
-            <div class="timeline-item__marker" aria-hidden="true"></div>
-            <div class="timeline-item__content">
-              <div class="timeline-item__header">
-                <div>
-                  <h3 class="timeline-item__role" data-i18n="tl4.role">Earlier Career</h3>
-                  <p class="timeline-item__company" data-i18n="tl4.company">Healthcare &amp; Hospitality Sectors</p>
-                </div>
-                <span class="timeline-item__period">2003 – 2016</span>
-              </div>
-              <p class="timeline-item__summary" data-i18n="tl4.summary">Built a strong technical foundation across healthcare IT and food service technology, managing IT support operations, deskside services, and infrastructure across multi-site environments. This period shaped the discipline, customer focus, and operational depth that define 20+ years of technology leadership.</p>
-              <div class="timeline-item__tags" data-i18n-tags="tl4.tags"></div>
-            </div>
-          </article>
-
-          <article class="timeline-item timeline-item--freelance">
-            <div class="timeline-item__marker" aria-hidden="true"></div>
-            <div class="timeline-item__content">
-              <div class="timeline-item__header">
-                <div>
-                  <h3 class="timeline-item__role" data-i18n="tl5.role">Technology Consultant &amp; Freelancer</h3>
-                  <p class="timeline-item__company" data-i18n="tl5.company">Independent · Self-Employed</p>
-                </div>
-                <span class="timeline-item__period" data-i18n="tl5.period">Ongoing</span>
-              </div>
-              <p class="timeline-item__summary" data-i18n="tl5.summary">Parallel track of independent consulting alongside full-time roles, delivering technology solutions to small and medium businesses. Services span web development, social media strategy, AI adoption, and process automation.</p>
-              <ul class="timeline-item__highlights" data-i18n-list="tl5.highlights"></ul>
-              <div class="timeline-item__tags" data-i18n-tags="tl5.tags"></div>
-            </div>
-          </article>
-
-        </div>
-
-        <!-- EDUCATION -->
-        <div class="education">
-          <h3 class="education__title" data-i18n="edu.title">Education</h3>
-          <div class="education__grid">
-            <div class="education__item">
-              <span class="education__degree">MBA · Technology Management</span>
-              <span class="education__school">University of Phoenix · GPA 3.80</span>
-            </div>
-            <div class="education__item">
-              <span class="education__degree">BA · Information Systems</span>
-              <span class="education__school">Universidad Metropolitana (UMET) · GPA 3.70</span>
-            </div>
-            <div class="education__item">
-              <span class="education__degree">Minor · Marketing</span>
-              <span class="education__school">Universidad Metropolitana (UMET)</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
     <!-- CONTACT -->
     <section id="contact" class="section contact" aria-labelledby="contact-heading">
       <div class="container">
@@ -973,9 +989,24 @@
   </main>
 
   <footer class="footer" role="contentinfo">
-    <div class="container footer__inner">
-      <p class="footer__copy">&copy; <span id="footer-year"></span> Jose Alberto Jimenez. <span data-i18n="footer.rights">All rights reserved.</span></p>
-      <p class="footer__note" data-i18n="footer.note">IT Director &amp; Business Relationship Manager · US Citizen · Bilingual EN/ES</p>
+    <div class="container">
+      <div class="footer__cta">
+        <p class="footer__cta-text" data-i18n="footer.cta">Open to leadership opportunities in IT strategy, digital transformation, and business relationship management.</p>
+        <a href="#contact" class="btn btn--primary" data-i18n="footer.ctaBtn">Let's Talk</a>
+      </div>
+      <div class="footer__inner">
+        <p class="footer__copy">&copy; <span id="footer-year"></span> Jose Alberto Jimenez. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <div class="footer__links">
+          <a href="https://www.linkedin.com/in/jose-alberto-jimenez-it" target="_blank" rel="me noopener noreferrer" class="footer__link" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="Jose_Alberto_Jimenez_Resume.pdf" download class="footer__link" aria-label="Download Resume">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-i18n="footer.resume">Resume PDF</span>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 

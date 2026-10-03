@@ -15,6 +15,7 @@
       'hero.cta1':   'Get in Touch',
       'hero.cta2':   'See My Impact',
       'hero.resume': 'Download Resume',
+      'hero.sub':    'IT executive who turns technology investment into measurable business results — 20+ years across energy, pharma, healthcare &amp; food service.',
       'hero.stat1': 'Years of Experience',
       'hero.stat2': 'Cost Savings Delivered',
       'hero.stat3': 'On-Time Project Delivery',
@@ -22,10 +23,17 @@
 
       'about.label':      'About',
       'about.title':      'Where Technology Meets <span class="accent">Business Value</span>',
-      'about.lead':       'I am a results-driven IT Director and Business Relationship Manager with over 20 years of experience leading digital transformation, IT/OT integration, and technology strategy across regulated and high-demand industries.',
-      'about.p2':         'My career spans energy, pharmaceutical, healthcare, and food service sectors. I have managed multi-million-dollar IT portfolios, led cross-functional teams, driven vendor negotiations, and built strong partnerships between business units and IT organizations. I hold an MBA in Technology Management and hands-on expertise in infrastructure, cloud, cybersecurity, compliance, and project delivery.',
-      'about.p3':         'Known for stakeholder management at the executive level, change management leadership, and a track record of on-time, on-budget project execution. Bilingual in English and Spanish. US Citizen. Available for on-site, remote, or hybrid roles.',
+      'about.lead':       'Results-driven IT Director and Business Relationship Manager with 20+ years leading digital transformation, IT/OT integration, and technology strategy across regulated and high-demand industries.',
+      'about.highlights': [
+        'Managed multi-million-dollar IT portfolios across energy, pharma, healthcare &amp; food service',
+        '$1.2M+ in cost savings and efficiency initiatives driven at Luma Energy',
+        '95% on-time project delivery across concurrent cross-functional programs',
+        'Expert in IT/OT integration, FDA compliance (cGMP, 21 CFR Part 11), and cloud infrastructure',
+        'Executive-level stakeholder management · Bilingual EN/ES · US Citizen'
+      ],
       'about.certsLabel':          'Credentials &amp; Certifications',
+      'creds.label':               'Credentials',
+      'creds.title':               'Certifications &amp; <span class="accent">Education</span>',
       'certs.legend.education':   'Education',
       'certs.legend.quality':     'Quality &amp; Process',
       'certs.legend.itsm':        'IT Service Management',
@@ -167,8 +175,11 @@
       'form.rateLimit':    'Too many attempts. Please try again later.',
       'form.errorGeneric': 'Could not send message. Please refresh and try again.',
 
-      'footer.rights': 'All rights reserved.',
-      'footer.note':   'IT Director &amp; Business Relationship Manager · US Citizen · Bilingual EN/ES',
+      'footer.rights':  'All rights reserved.',
+      'footer.note':    'IT Director &amp; Business Relationship Manager · US Citizen · Bilingual EN/ES',
+      'footer.cta':     'Open to leadership opportunities in IT strategy, digital transformation, and business relationship management.',
+      'footer.ctaBtn':  'Let\'s Talk',
+      'footer.resume':  'Resume PDF',
     },
 
     es: {
@@ -183,6 +194,7 @@
       'hero.cta1':   'Contáctame',
       'hero.cta2':   'Ver Mi Impacto',
       'hero.resume': 'Descargar CV',
+      'hero.sub':    'Ejecutivo de TI que convierte inversión tecnológica en resultados medibles — 20+ años en energía, pharma, salud y servicio de alimentos.',
       'hero.stat1': 'Años de Experiencia',
       'hero.stat2': 'Ahorros Generados',
       'hero.stat3': 'Proyectos Entregados a Tiempo',
@@ -190,10 +202,17 @@
 
       'about.label':      'Sobre Mí',
       'about.title':      'Donde la Tecnología Genera <span class="accent">Valor de Negocio</span>',
-      'about.lead':       'Soy un Director de TI y Gerente de Relaciones de Negocio orientado a resultados, con más de 20 años liderando transformación digital, integración TI/OT y estrategia tecnológica en industrias reguladas y de alta demanda.',
-      'about.p2':         'Mi carrera abarca los sectores de energía, farmacéutica, salud y servicio de alimentos. He gestionado portafolios de TI multimillonarios, liderado equipos interfuncionales, negociado con proveedores y construido alianzas sólidas entre las unidades de negocio y la organización de TI. Poseo un MBA en Gestión Tecnológica y experiencia práctica en infraestructura, nube, ciberseguridad, cumplimiento y entrega de proyectos.',
-      'about.p3':         'Reconocido por la gestión de partes interesadas a nivel ejecutivo, liderazgo en gestión del cambio y un historial comprobado de ejecución puntual y dentro del presupuesto. Bilingüe en inglés y español. Ciudadano estadounidense. Disponible para roles presenciales, remotos o híbridos.',
+      'about.lead':       'Director de TI y Gerente de Relaciones de Negocio con 20+ años liderando transformación digital, integración TI/OT y estrategia tecnológica en industrias reguladas y de alta demanda.',
+      'about.highlights': [
+        'Gestioné portafolios de TI multimillonarios en energía, farmacéutica, salud y servicio de alimentos',
+        'Más de $1.2M en ahorros e iniciativas de eficiencia en Luma Energy',
+        '95% de proyectos entregados a tiempo en programas interfuncionales simultáneos',
+        'Experto en integración TI/OT, cumplimiento FDA (cGMP, 21 CFR Parte 11) e infraestructura cloud',
+        'Gestión de partes interesadas a nivel ejecutivo · Bilingüe EN/ES · Ciudadano Estadounidense'
+      ],
       'about.certsLabel':          'Credenciales y Certificaciones',
+      'creds.label':               'Credenciales',
+      'creds.title':               'Certificaciones y <span class="accent">Educación</span>',
       'certs.legend.education':   'Educación',
       'certs.legend.quality':     'Calidad y Procesos',
       'certs.legend.itsm':        'Gestión de Servicios TI',
@@ -335,8 +354,11 @@
       'form.rateLimit':    'Demasiados intentos. Por favor intente más tarde.',
       'form.errorGeneric': 'No se pudo enviar el mensaje. Por favor recargue e intente de nuevo.',
 
-      'footer.rights': 'Todos los derechos reservados.',
-      'footer.note':   'Director de TI y Gerente de Relaciones de Negocio · Ciudadano Estadounidense · Bilingüe EN/ES',
+      'footer.rights':  'Todos los derechos reservados.',
+      'footer.note':    'Director de TI y Gerente de Relaciones de Negocio · Ciudadano Estadounidense · Bilingüe EN/ES',
+      'footer.cta':     'Abierto a oportunidades de liderazgo en estrategia de TI, transformación digital y gestión de relaciones de negocio.',
+      'footer.ctaBtn':  'Hablemos',
+      'footer.resume':  'CV en PDF',
     }
   };
 

@@ -667,31 +667,51 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-1);
+  gap: 2px;
   opacity: 0;
   animation: fade-up 0.5s var(--ease-out) forwards;
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: rgba(11, 26, 46, 0.6);
+  min-width: 130px;
+  transition: border-color 200ms var(--ease-out), background 200ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero__stat:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    background: rgba(37, 99, 235, 0.07);
+  }
 }
 .hero__stat:nth-child(1) { animation-delay: 1.0s; }
 .hero__stat:nth-child(2) { animation-delay: 1.06s; }
 .hero__stat:nth-child(3) { animation-delay: 1.12s; }
 .hero__stat:nth-child(4) { animation-delay: 1.18s; }
 
+.hero__stat-icon {
+  color: var(--color-accent-light);
+  opacity: 0.7;
+  margin-bottom: var(--space-1);
+}
+
 .hero__stat-value {
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2.125rem);
-  font-weight: 700;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
   color: var(--color-cyan);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 
 .hero__stat-label {
-  font-size: 0.7rem;
+  font-size: 0.6875rem;
   color: var(--color-text-3);
   text-align: center;
-  max-width: 100px;
+  max-width: 110px;
   line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 0.07em;
+  margin-top: var(--space-1);
 }
 
 /* Scroll indicator — subtle, no bounce */
@@ -740,6 +760,52 @@ a {
   font-size: 1.0625rem !important;
   color: var(--color-text) !important;
   font-weight: 400;
+}
+
+.about__highlights {
+  list-style: none;
+  margin: var(--space-5) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.about__highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: 0.9375rem;
+  color: var(--color-text-2);
+  line-height: 1.6;
+}
+
+.about__highlights li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-cyan);
+  flex-shrink: 0;
+  margin-top: 0.5em;
+}
+
+.about__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.about__badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.22);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent-light);
+  letter-spacing: 0.02em;
 }
 
 .about__certs {
@@ -801,15 +867,15 @@ a {
    ============================================================ */
 .expertise__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: var(--space-6);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-4);
 }
 
 .expertise-card {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-6);
+  padding: var(--space-5);
   transition: border-color 200ms var(--ease-out),
               transform 200ms var(--ease-out),
               box-shadow 200ms var(--ease-out);
@@ -857,15 +923,24 @@ a {
 }
 
 .expertise-card p {
-  font-size: 0.875rem;
-  line-height: 1.75;
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--color-text-2);
 }
 
 /* ============================================================
    IMPACT
    ============================================================ */
+/* Section alternation — visual rhythm */
+.section.about       { background: var(--color-bg); }
+.section.experience  { background: var(--color-bg-2); }
+.section.impact      { background: var(--color-bg); }
+.section.expertise   { background: var(--color-bg-2); }
+.section.credentials { background: var(--color-bg); }
+.section.contact     { background: var(--color-bg-2); }
+
 .impact {
-  background: var(--color-bg-2);
+  background: var(--color-bg);
 }
 
 .impact__grid {
@@ -899,12 +974,16 @@ a {
 
 .impact-card__metric {
   font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 700;
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 800;
   color: var(--color-cyan);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.04em;
   line-height: 1;
-  margin-bottom: var(--space-1);
+  margin-bottom: var(--space-2);
+  background: linear-gradient(135deg, var(--color-cyan) 0%, var(--color-accent-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .impact-card h3 {
@@ -1277,7 +1356,25 @@ a {
 .footer {
   background: var(--color-bg);
   border-top: 1px solid var(--color-border);
-  padding: var(--space-8) 0;
+  padding: var(--space-16) 0 var(--space-8);
+}
+
+.footer__cta {
+  text-align: center;
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.footer__cta-text {
+  font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
+  color: var(--color-text-2);
+  max-width: 560px;
+  line-height: 1.7;
 }
 
 .footer__inner {
@@ -1285,7 +1382,7 @@ a {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: var(--space-2);
+  gap: var(--space-4);
 }
 
 .footer__copy {
@@ -1296,6 +1393,24 @@ a {
 .footer__note {
   font-size: 0.8125rem;
   color: var(--color-text-3);
+}
+
+.footer__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  color: var(--color-text-3);
+  transition: color 160ms var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .footer__link:hover { color: var(--color-accent-light); }
 }
 
 /* ============================================================
@@ -1458,11 +1573,17 @@ a {
 @media (max-width: 500px) {
   .expertise__grid  { grid-template-columns: 1fr; }
   .impact__grid     { grid-template-columns: 1fr; }
-  .hero__actions    { flex-direction: column; align-items: center; }
+  .hero__actions    { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
+  /* On mobile show only primary CTA + download, hide ghost + linkedin */
+  .hero__actions .btn--ghost:not([aria-label="Download Resume PDF"]) { display: none; }
+  .hero__actions .btn--linkedin { display: none; }
   .form-row         { grid-template-columns: 1fr; }
   .contact__form-wrap { padding: var(--space-6); }
   .footer__inner    { flex-direction: column; text-align: center; }
+  .footer__links    { justify-content: center; }
   .certs-grid       { grid-template-columns: 1fr; }
+  .hero__stats      { gap: var(--space-3); }
+  .hero__stat       { min-width: 0; flex: 1 1 calc(50% - var(--space-3)); }
 }
 
 /* ============================================================
