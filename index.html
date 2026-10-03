@@ -259,6 +259,9 @@
 </head>
 <body>
 
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
   <!-- NAV -->
   <header class="nav" role="banner">
     <div class="nav__inner container">
@@ -299,6 +302,7 @@
         <div class="hero__grid"></div>
         <div class="hero__glow"></div>
       </div>
+      <div class="hero__spotlight" aria-hidden="true"></div>
       <div class="container hero__content">
         <div class="hero__avatar" aria-hidden="true">
           <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JAJ initials avatar">
@@ -325,8 +329,8 @@
         <p class="hero__title" data-i18n="hero.title">IT Director &amp; Business Relationship Manager</p>
         <p class="hero__sub" data-i18n="hero.sub">IT executive who turns technology investment into measurable business results — 20+ years across energy, pharma, healthcare &amp; food service.</p>
         <div class="hero__actions">
-          <a href="#contact" class="btn btn--primary" data-i18n="hero.cta1">Get in Touch</a>
-          <a href="#impact" class="btn btn--ghost" data-i18n="hero.cta2">See My Impact</a>
+          <a href="#contact" class="btn btn--primary btn--magnetic" data-i18n="hero.cta1">Get in Touch</a>
+          <a href="#impact" class="btn btn--ghost btn--magnetic" data-i18n="hero.cta2">See My Impact</a>
           <a href="Jose_Alberto_Jimenez_Resume.pdf" download class="btn btn--ghost" aria-label="Download Resume PDF">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <span data-i18n="hero.resume">Download Resume</span>

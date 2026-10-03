@@ -420,3 +420,215 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
       });
   });
 })();
+
+/* ============================================================
+   ANIMATION 1 — Scroll progress bar
+   ============================================================ */
+(function () {
+  var bar = document.getElementById('scroll-progress');
+  if (!bar) return;
+  function update() {
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docH = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    bar.style.width = (docH > 0 ? (scrollTop / docH) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+/* ============================================================
+   ANIMATION 2 — Cursor spotlight (hero)
+   ============================================================ */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  var hero = document.getElementById('hero');
+  if (!hero) return;
+
+  hero.addEventListener('mousemove', function (e) {
+    var rect = hero.getBoundingClientRect();
+    var x = ((e.clientX - rect.left) / rect.width * 100).toFixed(2) + '%';
+    var y = ((e.clientY - rect.top)  / rect.height * 100).toFixed(2) + '%';
+    hero.style.setProperty('--mx', x);
+    hero.style.setProperty('--my', y);
+  });
+})();
+
+/* ============================================================
+   ANIMATION 3 — Magnetic buttons
+   ============================================================ */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  document.querySelectorAll('.btn--magnetic').forEach(function (btn) {
+    btn.addEventListener('mousemove', function (e) {
+      var rect = btn.getBoundingClientRect();
+      var cx = rect.left + rect.width  / 2;
+      var cy = rect.top  + rect.height / 2;
+      var dx = (e.clientX - cx) * 0.25;
+      var dy = (e.clientY - cy) * 0.25;
+      btn.style.transform = 'translate(' + dx + 'px, ' + dy + 'px)';
+    });
+    btn.addEventListener('mouseleave', function () {
+      btn.style.transform = '';
+    });
+    btn.addEventListener('mousedown', function () {
+      btn.style.transform = 'scale(0.97)';
+    });
+    btn.addEventListener('mouseup', function () {
+      btn.style.transform = '';
+    });
+  });
+})();
+
+/* ============================================================
+   ANIMATION 4 — 3D card tilt
+   ============================================================ */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  var MAX_TILT = 8;
+
+  document.querySelectorAll('.impact-card, .expertise-card, .hero__stat').forEach(function (card) {
+    card.classList.add('tilt-ready');
+
+    card.addEventListener('mousemove', function (e) {
+      var rect = card.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width  - 0.5;
+      var y = (e.clientY - rect.top)  / rect.height - 0.5;
+      var rx = (-y * MAX_TILT).toFixed(2);
+      var ry = ( x * MAX_TILT).toFixed(2);
+      card.style.transform = 'perspective(600px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) scale(1.03)';
+    });
+
+    card.addEventListener('mouseleave', function () {
+      card.style.transform = '';
+    });
+  });
+})();
+
+/* ============================================================
+   ANIMATION 5 — Timeline line draw-in
+   ============================================================ */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var timeline = document.querySelector('.timeline');
+  if (!timeline) return;
+
+  var obs = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) {
+      timeline.classList.add('line-drawn');
+      obs.disconnect();
+    }
+  }, { threshold: 0.1 });
+
+  obs.observe(timeline);
+})();
+
+/* ============================================================
+   ANIMATION 6 — Section title shimmer
+   ============================================================ */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.querySelectorAll('.section__title').forEach(function (title) {
+    var sweep = document.createElement('span');
+    sweep.className = 'shimmer-sweep';
+    sweep.setAttribute('aria-hidden', 'true');
+    title.appendChild(sweep);
+
+    var obs = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        title.classList.add('shimmer-run');
+        obs.disconnect();
+      }
+    }, { threshold: 0.6 });
+
+    obs.observe(title);
+  });
+})();
+
+/* ============================================================
+   ANIMATION 7 — Impact metric flash on count complete +
+                  enhanced counter for impact-card__metric
+   ============================================================ */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  function parseTarget(el) {
+    var raw = el.getAttribute('data-metric-raw') || el.textContent.trim();
+    var prefix = /^\$/.test(raw) ? '$' : '';
+    var suffix = raw.match(/[+%KM]+$/) ? raw.match(/[+%KM]+$/)[0] : '';
+    var num = parseFloat(raw.replace(/[^0-9.]/g, '')) || 0;
+    return { prefix: prefix, suffix: suffix, num: num, raw: raw,
+             decimals: (raw.indexOf('.') > -1 ? 1 : 0) };
+  }
+
+  function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+
+  function animateMetric(el) {
+    var parsed = parseTarget(el);
+    if (parsed.num === 0) { return; }
+    var duration = 1600;
+    var start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var t = Math.min((ts - start) / duration, 1);
+      var val = easeOutQuart(t) * parsed.num;
+      el.textContent = parsed.prefix +
+        (parsed.decimals ? val.toFixed(parsed.decimals) : Math.round(val)) +
+        parsed.suffix;
+      if (t < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = parsed.raw;
+        el.classList.add('flash-done');
+        el.addEventListener('animationend', function () {
+          el.classList.remove('flash-done');
+        }, { once: true });
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  var metrics = document.querySelectorAll('.impact-card__metric');
+  metrics.forEach(function (el) {
+    el.setAttribute('data-metric-raw', el.textContent.trim());
+    var parsed = parseTarget(el);
+    if (parsed.num > 0) el.textContent = parsed.prefix + '0' + parsed.suffix;
+  });
+
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      animateMetric(entry.target);
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.5 });
+
+  metrics.forEach(function (el) { obs.observe(el); });
+})();
+
+/* ============================================================
+   ANIMATION 8 — Stagger cascade (cert, expertise, impact, value cards)
+   ============================================================ */
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var GROUPS = [
+    '.cert-grid .cert-card',
+    '.expertise-grid .expertise-card',
+    '.impact-grid .impact-card',
+    '.values-grid .value-card'
+  ];
+
+  GROUPS.forEach(function (selector) {
+    document.querySelectorAll(selector).forEach(function (el, i) {
+      el.style.setProperty('--stagger-delay', (i * 55) + 'ms');
+    });
+  });
+})();
