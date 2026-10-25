@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'none';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src https://fonts.gstatic.com;
+    img-src 'self';
+    frame-ancestors 'none';
+    base-uri 'self';
+    form-action 'none';
+  " />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Accessibility Statement — Jose Alberto Jimenez</title>
+  <meta name="description" content="Accessibility Statement for josealbertopr.com — our commitment to WCAG 2.2 AA." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://josealbertopr.com/accessibility.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" href="styles.css" as="style" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content" id="skip-link-en">Skip to main content</a>
+
+  <header class="nav" role="banner">
+    <div class="nav__inner container">
+      <a href="/" class="nav__logo" aria-label="Home — Jose Alberto Jimenez">JAJ</a>
+      <nav aria-label="Site navigation">
+        <ul class="nav__links">
+          <li><a href="/" id="back-link">← Back to Portfolio</a></li>
+        </ul>
+      </nav>
+      <button id="lang-toggle" class="nav__lang" aria-label="Switch to Spanish" title="Cambiar idioma / Switch language">
+        <span class="nav__lang-icon" aria-hidden="true">🌐</span>
+        <span class="nav__lang-label">ES</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="legal-page">
+
+      <!-- ENGLISH -->
+      <article data-lang-block="en">
+        <h1>Accessibility Statement</h1>
+        <p class="legal-meta">Last updated: October 25, 2026</p>
+
+        <div class="legal-highlight">
+          <p>Jose Alberto Jimenez is committed to making <strong>josealbertopr.com</strong> accessible to everyone, including people with disabilities. The target standard is <strong>WCAG 2.2 Level AA</strong>.</p>
+        </div>
+
+        <h2>1. Conformance status</h2>
+        <p>This site partially conforms to WCAG 2.2 Level AA. "Partially conforms" means that some content does not yet fully meet all success criteria.</p>
+
+        <h2>2. Implemented accessibility features</h2>
+        <ul>
+          <li><strong>Skip link:</strong> A "Skip to main content" link is available at the top of every page, allowing keyboard users to bypass the navigation.</li>
+          <li><strong>Keyboard navigation:</strong> The site is fully navigable using a keyboard. Interactive elements (nav links, buttons, form fields) are reachable and operable with the Tab key.</li>
+          <li><strong>Escape key:</strong> The mobile navigation menu can be dismissed with the Escape key. Focus returns to the hamburger button on close.</li>
+          <li><strong>Semantic HTML:</strong> The page uses proper heading hierarchy (h1 → h2 → h3), <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, and <code>&lt;section&gt;</code> landmarks with <code>aria-labelledby</code>.</li>
+          <li><strong>Form accessibility:</strong> Contact form fields have visible labels, <code>aria-required</code>, <code>aria-describedby</code> error associations, and <code>role="alert"</code> on error messages for screen reader announcements.</li>
+          <li><strong>Focus visible:</strong> Focus indicators are visible on all interactive elements. The language toggle button and navigation links have clear focus outlines.</li>
+          <li><strong>Language attribute:</strong> The <code>lang</code> attribute on the <code>&lt;html&gt;</code> element updates dynamically when the user switches between English and Spanish.</li>
+          <li><strong>Reduced motion:</strong> Animations and transitions are disabled for users who have enabled the "reduce motion" system preference (<code>prefers-reduced-motion: reduce</code>).</li>
+          <li><strong>Decorative elements:</strong> SVG icons and decorative content carry <code>aria-hidden="true"</code> to prevent screen reader noise.</li>
+          <li><strong>Color contrast:</strong> Text and interactive element colors are selected for sufficient contrast against background colors.</li>
+          <li><strong>Responsive design:</strong> The layout adapts to screen widths down to 320px without horizontal scrolling.</li>
+          <li><strong>Alt text:</strong> The avatar SVG has a descriptive <code>aria-label</code>. The LinkedIn and resume buttons have <code>aria-label</code> descriptions.</li>
+        </ul>
+
+        <h2>3. Known limitations</h2>
+        <ul>
+          <li>The scroll progress bar at the top of the portfolio page does not have an accessible equivalent for users who cannot perceive visual progress.</li>
+          <li>The cursor spotlight and 3D tilt animations are visual enhancements with no functional alternative; they are decorative and do not convey information.</li>
+          <li>The stat counter animations on the hero section are disabled for <code>prefers-reduced-motion</code> users but no static equivalent value is shown during the load phase before the counter resolves (it briefly shows "0").</li>
+        </ul>
+
+        <h2>4. Technical approach</h2>
+        <p>This site is built with plain HTML, CSS, and JavaScript (no framework). There is no client-side routing, no lazy-loaded content that changes document structure unexpectedly, and no AJAX navigation that would confuse screen readers.</p>
+
+        <h2>5. Feedback and contact</h2>
+        <p>If you encounter any accessibility barriers on this site, please use the <a href="/#contact">contact form</a> with the subject <em>"Accessibility Feedback"</em>. I will make reasonable efforts to respond within 10 business days and to address legitimate barriers.</p>
+
+        <h2>6. Assessment approach</h2>
+        <p>Accessibility has been assessed through:</p>
+        <ul>
+          <li>Manual keyboard navigation testing.</li>
+          <li>Review against WCAG 2.2 AA success criteria.</li>
+          <li>Inspection of rendered markup and ARIA usage.</li>
+        </ul>
+        <p>No automated testing service has performed a formal audit of this site.</p>
+      </article>
+
+      <!-- SPANISH -->
+      <article data-lang-block="es" hidden>
+        <h1>Declaración de Accesibilidad</h1>
+        <p class="legal-meta">Última actualización: 25 de octubre de 2026</p>
+
+        <div class="legal-highlight">
+          <p>Jose Alberto Jimenez se compromete a que <strong>josealbertopr.com</strong> sea accesible para todas las personas, incluidas aquellas con discapacidades. El estándar objetivo es <strong>WCAG 2.2 Nivel AA</strong>.</p>
+        </div>
+
+        <h2>1. Estado de conformidad</h2>
+        <p>Este sitio cumple parcialmente con WCAG 2.2 Nivel AA. "Cumple parcialmente" significa que parte del contenido aún no satisface todos los criterios de éxito.</p>
+
+        <h2>2. Características de accesibilidad implementadas</h2>
+        <ul>
+          <li><strong>Enlace de salto:</strong> Un enlace "Saltar al contenido principal" aparece al inicio de cada página para que los usuarios de teclado puedan omitir la navegación.</li>
+          <li><strong>Navegación por teclado:</strong> El sitio es completamente navegable con teclado. Los elementos interactivos son accesibles con la tecla Tab.</li>
+          <li><strong>Tecla Escape:</strong> El menú de navegación móvil puede cerrarse con la tecla Escape. El foco regresa al botón hamburguesa al cerrarse.</li>
+          <li><strong>HTML semántico:</strong> El sitio usa jerarquía de encabezados correcta, elementos <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code> y <code>&lt;section&gt;</code> con <code>aria-labelledby</code>.</li>
+          <li><strong>Accesibilidad del formulario:</strong> Los campos del formulario de contacto tienen etiquetas visibles, <code>aria-required</code>, asociaciones de error con <code>aria-describedby</code> y <code>role="alert"</code> en mensajes de error.</li>
+          <li><strong>Foco visible:</strong> Los indicadores de foco son visibles en todos los elementos interactivos.</li>
+          <li><strong>Atributo de idioma:</strong> El atributo <code>lang</code> del elemento <code>&lt;html&gt;</code> se actualiza dinámicamente al cambiar el idioma.</li>
+          <li><strong>Movimiento reducido:</strong> Las animaciones se deshabilitan para usuarios con la preferencia de sistema "reducir movimiento" activada.</li>
+          <li><strong>Elementos decorativos:</strong> Los íconos SVG y contenido decorativo tienen <code>aria-hidden="true"</code>.</li>
+          <li><strong>Contraste de color:</strong> Los colores de texto y elementos interactivos tienen contraste suficiente con el fondo.</li>
+          <li><strong>Diseño responsivo:</strong> El diseño se adapta a anchos de pantalla desde 320px sin desplazamiento horizontal.</li>
+        </ul>
+
+        <h2>3. Limitaciones conocidas</h2>
+        <ul>
+          <li>La barra de progreso de desplazamiento no tiene un equivalente accesible para usuarios que no pueden percibir el progreso visual.</li>
+          <li>Las animaciones de cursor y tilt 3D son mejoras visuales decorativas que no transmiten información.</li>
+          <li>Los contadores de estadísticas muestran "0" brevemente antes de resolverse para usuarios sin movimiento reducido.</li>
+        </ul>
+
+        <h2>4. Enfoque técnico</h2>
+        <p>Este sitio está construido con HTML, CSS y JavaScript puros, sin framework ni navegación AJAX que pueda confundir a los lectores de pantalla.</p>
+
+        <h2>5. Comentarios y contacto</h2>
+        <p>Si encuentra barreras de accesibilidad en este sitio, use el <a href="/#contact">formulario de contacto</a> con el asunto <em>"Comentarios de Accesibilidad"</em>. Haré esfuerzos razonables para responder en un plazo de 10 días hábiles.</p>
+
+        <h2>6. Método de evaluación</h2>
+        <p>La accesibilidad ha sido evaluada mediante:</p>
+        <ul>
+          <li>Pruebas manuales de navegación por teclado.</li>
+          <li>Revisión contra los criterios de éxito WCAG 2.2 AA.</li>
+          <li>Inspección del marcado renderizado y el uso de ARIA.</li>
+        </ul>
+        <p>Ningún servicio de auditoría automatizado ha realizado una evaluación formal de este sitio.</p>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">&copy; <span id="footer-year"></span> Jose Alberto Jimenez. <span id="footer-rights">All rights reserved.</span></p>
+        <div class="footer__links">
+          <a href="/" class="footer__link" id="footer-home">← Portfolio</a>
+        </div>
+      </div>
+      <nav class="footer__legal" aria-label="Legal pages">
+        <a href="privacy.html" id="legal-privacy">Privacy Policy</a>
+        <a href="terms.html" id="legal-terms">Terms of Use</a>
+        <a href="accessibility.html" id="legal-a11y">Accessibility</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="legal.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var skipLink = document.getElementById('skip-link-en');
+      var backLink = document.getElementById('back-link');
+      var footerRights = document.getElementById('footer-rights');
+      var footerHome = document.getElementById('footer-home');
+      var legalPrivacy = document.getElementById('legal-privacy');
+      var legalTerms = document.getElementById('legal-terms');
+      var legalA11y = document.getElementById('legal-a11y');
+
+      function updateStaticText(lang) {
+        if (skipLink) skipLink.textContent = lang === 'es' ? 'Saltar al contenido principal' : 'Skip to main content';
+        if (backLink) backLink.textContent = lang === 'es' ? '← Volver al Portafolio' : '← Back to Portfolio';
+        if (footerRights) footerRights.textContent = lang === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.';
+        if (footerHome) footerHome.textContent = lang === 'es' ? '← Portafolio' : '← Portfolio';
+        if (legalPrivacy) legalPrivacy.textContent = lang === 'es' ? 'Política de Privacidad' : 'Privacy Policy';
+        if (legalTerms) legalTerms.textContent = lang === 'es' ? 'Términos de Uso' : 'Terms of Use';
+        if (legalA11y) legalA11y.textContent = lang === 'es' ? 'Accesibilidad' : 'Accessibility';
+      }
+
+      var initialLang = localStorage.getItem('lang') || 'en';
+      updateStaticText(initialLang);
+
+      var btn = document.getElementById('lang-toggle');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          setTimeout(function () {
+            updateStaticText(localStorage.getItem('lang') || 'en');
+          }, 50);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

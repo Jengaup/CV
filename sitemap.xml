@@ -3,11 +3,38 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://josealbertopr.com/</loc>
-    <lastmod>2025-07-01</lastmod>
+    <lastmod>2026-10-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://josealbertopr.com/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://josealbertopr.com/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://josealbertopr.com/"/>
+  </url>
+  <url>
+    <loc>https://josealbertopr.com/privacy.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://josealbertopr.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://josealbertopr.com/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://josealbertopr.com/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://josealbertopr.com/terms.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://josealbertopr.com/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://josealbertopr.com/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://josealbertopr.com/terms.html"/>
+  </url>
+  <url>
+    <loc>https://josealbertopr.com/accessibility.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://josealbertopr.com/accessibility.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://josealbertopr.com/accessibility.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://josealbertopr.com/accessibility.html"/>
   </url>
 </urlset>

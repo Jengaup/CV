@@ -259,6 +259,8 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content" data-i18n="nav.skip">Skip to main content</a>
+
   <!-- Scroll progress indicator -->
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
@@ -275,8 +277,8 @@
           <li><a href="#contact" class="nav__cta" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </nav>
-      <button id="lang-toggle" class="nav__lang" aria-label="Switch language" title="Cambiar idioma / Switch language">
-        <span class="nav__lang-icon">🌐</span>
+      <button id="lang-toggle" class="nav__lang" aria-label="Switch to Spanish" title="Cambiar idioma / Switch language">
+        <span class="nav__lang-icon" aria-hidden="true">🌐</span>
         <span class="nav__lang-label">ES</span>
       </button>
       <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -294,7 +296,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
 
     <!-- HERO -->
     <section id="hero" class="hero" aria-labelledby="hero-heading">
@@ -530,6 +532,7 @@
         <div class="section__label" data-i18n="impact.label">Selected Impact</div>
         <h2 id="impact-heading" class="section__title" data-i18n="impact.title">Delivering <span class="accent">Measurable Results</span></h2>
         <p class="section__sub" data-i18n="impact.sub">Impact speaks louder than titles. Here are some of the outcomes I have driven throughout my career.</p>
+        <p class="impact__disclaimer" data-i18n="impact.disclaimer">Results shown reflect documented professional initiatives. Certain details are withheld for confidentiality.</p>
         <div class="impact__grid">
 
           <article class="impact-card impact-card--featured">
@@ -963,6 +966,8 @@
                 <span class="form-error" id="message-error" role="alert" aria-live="polite"></span>
               </div>
 
+              <p class="form-privacy-notice" data-i18n="form.privacyNotice">Information provided is used only to respond to your inquiry. <a href="privacy.html" class="form-privacy-link">Review the Privacy Policy</a>.</p>
+
               <button type="submit" class="btn btn--primary btn--full" id="form-submit">
                 <span class="btn__text" data-i18n="form.submit">Send Message</span>
                 <span class="btn__spinner" aria-hidden="true" hidden></span>
@@ -1011,6 +1016,12 @@
           </a>
         </div>
       </div>
+      <nav class="footer__legal" aria-label="Legal pages">
+        <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="terms.html" data-i18n="footer.terms">Terms of Use</a>
+        <a href="accessibility.html" data-i18n="footer.accessibility">Accessibility</a>
+        <a href="privacy.html#data-deletion" data-i18n="footer.dataDeletion">Data Deletion</a>
+      </nav>
     </div>
   </footer>
 

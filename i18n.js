@@ -175,11 +175,32 @@
       'form.rateLimit':    'Too many attempts. Please try again later.',
       'form.errorGeneric': 'Could not send message. Please refresh and try again.',
 
-      'footer.rights':  'All rights reserved.',
-      'footer.note':    'IT Director &amp; Business Relationship Manager · US Citizen · Bilingual EN/ES',
-      'footer.cta':     'Open to leadership opportunities in IT strategy, digital transformation, and business relationship management.',
-      'footer.ctaBtn':  'Let\'s Talk',
-      'footer.resume':  'Resume PDF',
+      'footer.rights':       'All rights reserved.',
+      'footer.note':         'IT Director &amp; Business Relationship Manager · US Citizen · Bilingual EN/ES',
+      'footer.cta':          'Open to leadership opportunities in IT strategy, digital transformation, and business relationship management.',
+      'footer.ctaBtn':       'Let\'s Talk',
+      'footer.resume':       'Resume PDF',
+      'footer.privacy':      'Privacy Policy',
+      'footer.terms':        'Terms of Use',
+      'footer.accessibility':'Accessibility',
+      'footer.dataDeletion': 'Data Deletion',
+
+      'nav.skip': 'Skip to main content',
+      'nav.backToPortfolio': '← Back to Portfolio',
+
+      'impact.disclaimer': 'Results shown reflect documented professional initiatives. Certain details are withheld for confidentiality.',
+
+      'form.privacyNotice': 'Information provided is used only to respond to your inquiry. <a href="privacy.html" class="form-privacy-link">Review the Privacy Policy</a>.',
+
+      'form.err.nameMin':    'Please enter your full name (at least 2 characters).',
+      'form.err.nameMax':    'Name is too long.',
+      'form.err.nameChars':  'Name contains invalid characters.',
+      'form.err.emailInvalid':'Please enter a valid email address.',
+      'form.err.emailMax':   'Email address is too long.',
+      'form.err.subjectMin': 'Please enter a subject (at least 3 characters).',
+      'form.err.subjectMax': 'Subject is too long.',
+      'form.err.msgMin':     'Please enter a message (at least 20 characters).',
+      'form.err.msgMax':     'Message is too long (max 3000 characters).',
     },
 
     es: {
@@ -354,11 +375,32 @@
       'form.rateLimit':    'Demasiados intentos. Por favor intente más tarde.',
       'form.errorGeneric': 'No se pudo enviar el mensaje. Por favor recargue e intente de nuevo.',
 
-      'footer.rights':  'Todos los derechos reservados.',
-      'footer.note':    'Director de TI y Gerente de Relaciones de Negocio · Ciudadano Estadounidense · Bilingüe EN/ES',
-      'footer.cta':     'Abierto a oportunidades de liderazgo en estrategia de TI, transformación digital y gestión de relaciones de negocio.',
-      'footer.ctaBtn':  'Hablemos',
-      'footer.resume':  'CV en PDF',
+      'footer.rights':       'Todos los derechos reservados.',
+      'footer.note':         'Director de TI y Gerente de Relaciones de Negocio · Ciudadano Estadounidense · Bilingüe EN/ES',
+      'footer.cta':          'Abierto a oportunidades de liderazgo en estrategia de TI, transformación digital y gestión de relaciones de negocio.',
+      'footer.ctaBtn':       'Hablemos',
+      'footer.resume':       'CV en PDF',
+      'footer.privacy':      'Política de Privacidad',
+      'footer.terms':        'Términos de Uso',
+      'footer.accessibility':'Accesibilidad',
+      'footer.dataDeletion': 'Eliminación de Datos',
+
+      'nav.skip': 'Saltar al contenido principal',
+      'nav.backToPortfolio': '← Volver al Portafolio',
+
+      'impact.disclaimer': 'Los resultados presentados corresponden a iniciativas profesionales documentadas. Ciertos detalles no se publican por razones de confidencialidad.',
+
+      'form.privacyNotice': 'La información proporcionada se utiliza únicamente para responder a su consulta. <a href="privacy.html" class="form-privacy-link">Consulte la Política de Privacidad</a>.',
+
+      'form.err.nameMin':    'Ingresa tu nombre completo (mínimo 2 caracteres).',
+      'form.err.nameMax':    'El nombre es demasiado largo.',
+      'form.err.nameChars':  'El nombre contiene caracteres inválidos.',
+      'form.err.emailInvalid':'Por favor ingresa un correo electrónico válido.',
+      'form.err.emailMax':   'El correo electrónico es demasiado largo.',
+      'form.err.subjectMin': 'Por favor ingresa un asunto (mínimo 3 caracteres).',
+      'form.err.subjectMax': 'El asunto es demasiado largo.',
+      'form.err.msgMin':     'Por favor ingresa un mensaje (mínimo 20 caracteres).',
+      'form.err.msgMax':     'El mensaje es demasiado largo (máximo 3000 caracteres).',
     }
   };
 
@@ -405,12 +447,18 @@
     // Update html lang attribute
     document.documentElement.lang = lang;
 
+    // Show/hide bilingual content blocks on legal pages
+    document.querySelectorAll('[data-lang-block]').forEach(function (el) {
+      el.hidden = el.getAttribute('data-lang-block') !== lang;
+    });
+
     // Update toggle button
     var btn = document.getElementById('lang-toggle');
     if (btn) {
       var label = btn.querySelector('.nav__lang-label');
       if (label) label.textContent = lang === 'en' ? 'ES' : 'EN';
       btn.setAttribute('title', lang === 'en' ? 'Cambiar a Español' : 'Switch to English');
+      btn.setAttribute('aria-label', lang === 'en' ? 'Switch to Spanish' : 'Cambiar a Inglés');
     }
 
     currentLang = lang;

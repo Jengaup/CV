@@ -6,33 +6,12 @@ var _s = ['servi','ce_wf','iejqb'].join('');
 var _t = ['templ','ate_r','jtij7','1'].join('');
 
 /* ============================================================
-   SECURITY — console warning + devtools detection
+   PORTFOLIO NOTICE
    ============================================================ */
-(function () {
-  var warned = false;
-  function warn() {
-    if (warned) return;
-    warned = true;
-    console.log(
-      '%c⚠ SECURITY NOTICE',
-      'color:#ff4444;font-size:20px;font-weight:bold;'
-    );
-    console.log(
-      '%cThis is a personal professional portfolio. ' +
-      'Unauthorized use, scraping, or injection attempts are logged and monitored.',
-      'color:#ff8800;font-size:13px;'
-    );
-  }
-  // Fire on any devtools open attempt
-  var threshold = 160;
-  setInterval(function () {
-    if (window.outerWidth - window.innerWidth > threshold ||
-        window.outerHeight - window.innerHeight > threshold) {
-      warn();
-    }
-  }, 1000);
-  warn();
-})();
+console.log(
+  '%cJosealbertopr.com — Personal professional portfolio.',
+  'color:#2563eb;font-size:13px;'
+);
 
 /* ============================================================
    NAVIGATION — mobile toggle
@@ -53,6 +32,14 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
         hamburger.setAttribute('aria-expanded', 'false');
         mobileMenu.hidden = true;
       });
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !mobileMenu.hidden) {
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.hidden = true;
+        hamburger.focus();
+      }
     });
   }
 
@@ -239,9 +226,10 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
       el: document.getElementById('contact-name'),
       errEl: document.getElementById('name-error'),
       validate: function (v) {
-        if (v.trim().length < 2)   return 'Please enter your full name (at least 2 characters).';
-        if (v.trim().length > 100) return 'Name is too long.';
-        if (/[<>"'`]/.test(v))     return 'Name contains invalid characters.';
+        var t = window.i18n ? window.i18n.t.bind(window.i18n) : function (k, fb) { return fb; };
+        if (v.trim().length < 2)   return t('form.err.nameMin',  'Please enter your full name (at least 2 characters).');
+        if (v.trim().length > 100) return t('form.err.nameMax',  'Name is too long.');
+        if (/[<>"'`]/.test(v))     return t('form.err.nameChars','Name contains invalid characters.');
         return '';
       }
     },
@@ -249,8 +237,9 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
       el: document.getElementById('contact-email'),
       errEl: document.getElementById('email-error'),
       validate: function (v) {
-        if (!validEmail(v)) return 'Please enter a valid email address.';
-        if (v.length > 254) return 'Email address is too long.';
+        var t = window.i18n ? window.i18n.t.bind(window.i18n) : function (k, fb) { return fb; };
+        if (!validEmail(v)) return t('form.err.emailInvalid', 'Please enter a valid email address.');
+        if (v.length > 254) return t('form.err.emailMax',     'Email address is too long.');
         return '';
       }
     },
@@ -258,8 +247,9 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
       el: document.getElementById('contact-subject'),
       errEl: document.getElementById('subject-error'),
       validate: function (v) {
-        if (v.trim().length < 3)   return 'Please enter a subject (at least 3 characters).';
-        if (v.trim().length > 200) return 'Subject is too long.';
+        var t = window.i18n ? window.i18n.t.bind(window.i18n) : function (k, fb) { return fb; };
+        if (v.trim().length < 3)   return t('form.err.subjectMin', 'Please enter a subject (at least 3 characters).');
+        if (v.trim().length > 200) return t('form.err.subjectMax', 'Subject is too long.');
         return '';
       }
     },
@@ -267,8 +257,9 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
       el: document.getElementById('contact-message'),
       errEl: document.getElementById('message-error'),
       validate: function (v) {
-        if (v.trim().length < 20)    return 'Please enter a message (at least 20 characters).';
-        if (v.trim().length > 3000)  return 'Message is too long (max 3000 characters).';
+        var t = window.i18n ? window.i18n.t.bind(window.i18n) : function (k, fb) { return fb; };
+        if (v.trim().length < 20)   return t('form.err.msgMin', 'Please enter a message (at least 20 characters).');
+        if (v.trim().length > 3000) return t('form.err.msgMax', 'Message is too long (max 3000 characters).');
         return '';
       }
     }
@@ -409,12 +400,7 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
         _sent = true;
         clearTimeout(_timeout);
         console.error('[EmailJS error]', err);
-        var detail = (err && (err.text || err.message || JSON.stringify(err))) || 'Unknown error';
         showStatus(errorMsg, true);
-        if (errorMsg) {
-          var strong = errorMsg.querySelector('strong');
-          if (strong) strong.textContent = detail;
-        }
         if (errorMsg) errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         setLoading(false);
       });
