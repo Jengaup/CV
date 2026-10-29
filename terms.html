@@ -9,16 +9,13 @@
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src https://fonts.gstatic.com;
     img-src 'self';
-    frame-ancestors 'none';
     base-uri 'self';
     form-action 'none';
   " />
-  <meta http-equiv="X-Frame-Options" content="DENY" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>Terms of Use — Jose Alberto Jimenez</title>
   <meta name="description" content="Terms of Use for josealbertopr.com — a personal professional portfolio." />
-  <meta name="robots" content="noindex, follow" />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://josealbertopr.com/terms.html" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -192,38 +189,5 @@
 
   <script src="i18n.js"></script>
   <script src="legal.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var skipLink = document.getElementById('skip-link-en');
-      var backLink = document.getElementById('back-link');
-      var footerRights = document.getElementById('footer-rights');
-      var footerHome = document.getElementById('footer-home');
-      var legalPrivacy = document.getElementById('legal-privacy');
-      var legalTerms = document.getElementById('legal-terms');
-      var legalA11y = document.getElementById('legal-a11y');
-
-      function updateStaticText(lang) {
-        if (skipLink) skipLink.textContent = lang === 'es' ? 'Saltar al contenido principal' : 'Skip to main content';
-        if (backLink) backLink.textContent = lang === 'es' ? '← Volver al Portafolio' : '← Back to Portfolio';
-        if (footerRights) footerRights.textContent = lang === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.';
-        if (footerHome) footerHome.textContent = lang === 'es' ? '← Portafolio' : '← Portfolio';
-        if (legalPrivacy) legalPrivacy.textContent = lang === 'es' ? 'Política de Privacidad' : 'Privacy Policy';
-        if (legalTerms) legalTerms.textContent = lang === 'es' ? 'Términos de Uso' : 'Terms of Use';
-        if (legalA11y) legalA11y.textContent = lang === 'es' ? 'Accesibilidad' : 'Accessibility';
-      }
-
-      var initialLang = localStorage.getItem('lang') || 'en';
-      updateStaticText(initialLang);
-
-      var btn = document.getElementById('lang-toggle');
-      if (btn) {
-        btn.addEventListener('click', function () {
-          setTimeout(function () {
-            updateStaticText(localStorage.getItem('lang') || 'en');
-          }, 50);
-        });
-      }
-    });
-  </script>
 </body>
 </html>

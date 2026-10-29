@@ -32,7 +32,7 @@ Audited: October 25, 2026.
 
 **Purpose:** Contact form email delivery  
 **Resources loaded:**
-- `https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js` — EmailJS SDK via jsDelivr CDN
+- `vendor/emailjs-4.4.1.min.js` — EmailJS SDK hosted locally (no CDN)
 
 **How it is used:**
 - Loaded on `index.html` only (not on legal pages).
@@ -47,23 +47,18 @@ Audited: October 25, 2026.
 **Cookies set:** None by EmailJS on this site.  
 **Personal data collected by this site:** Only what the user voluntarily enters in the contact form.  
 **Privacy policy:** https://www.emailjs.com/legal/privacy-policy/  
-**CSP coverage:** `connect-src https://api.emailjs.com`, `script-src https://cdn.jsdelivr.net`
+**CSP coverage:** `connect-src https://api.emailjs.com`, `script-src 'self'`
 
 **Note on public key:** The EmailJS public key (`7z10gcbrRNaKaHB5m`) is obfuscated in `main.js` by splitting into segments that are reassembled at runtime. This is a mild deterrent to automated scraping but is not a security measure — any determined actor can recover the key from the rendered page. EmailJS public keys are designed to be safe in client-side code; they are scoped to specific service/template combinations and do not grant access to the owner's EmailJS account.
 
 ---
 
-### 3. jsDelivr CDN
+### 3. Cloudflare (proxy and Turnstile)
 
-**Purpose:** CDN delivery for the EmailJS SDK  
-**URL:** `https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js`
-
-**Data sent to jsDelivr:** Standard CDN request (IP, user agent, referer).  
-**Cookies set:** None.  
-**Privacy policy:** https://www.jsdelivr.com/privacy-policy-jsdelivr-net  
-**CSP coverage:** `script-src https://cdn.jsdelivr.net`
-
----
+**Purpose:** DNS/proxy in front of GitHub Pages; Turnstile bot check on the contact form; Worker `/api/contact` that validates the check and relays the message to EmailJS.
+**Data:** IP address and browser signals are processed by Cloudflare for delivery, security and Turnstile. Form content passes through the Worker, which does not store or log it.
+**Cookies:** none set by this site; Turnstile does not use advertising cookies.
+**Privacy policy:** https://www.cloudflare.com/privacypolicy/
 
 ### 4. GitHub Pages
 
@@ -119,4 +114,4 @@ Both entries are set by first-party JavaScript and are never read by or transmit
 
 ## Summary
 
-This site uses **3 active external services** (Google Fonts, EmailJS via jsDelivr, GitHub Pages) and includes **1 outbound link** to LinkedIn. There is no analytics, no advertising, no tracking, and no third-party cookies. The only personal data collected is the contact form submission, processed by EmailJS for delivery to the site owner's inbox.
+This site uses **4 active external services** (Google Fonts, EmailJS, Cloudflare incl. Turnstile; GitHub Pages as origin) and includes **1 outbound link** to LinkedIn. There is no analytics, no advertising, no tracking, and no third-party cookies. The only personal data collected is the contact form submission, processed by EmailJS for delivery to the site owner's inbox.

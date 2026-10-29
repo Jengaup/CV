@@ -1,16 +1,14 @@
 /* ============================================================
-   CONTACT FORM WORKER ENDPOINT
-   Replace with the actual Cloudflare Worker URL before deploying.
-   The Worker validates Turnstile, rate-limits by IP, then calls EmailJS
-   server-side. The EmailJS keys below are kept only as a local fallback
-   during development; in production the Worker holds them server-side.
-   See SECURITY_DEPLOYMENT.md §4.
+   CONTACT FORM CONFIG
+   WORKER_URL: Cloudflare Worker endpoint (validates Turnstile, rate-limits, sends mail).
+   TURNSTILE_SITEKEY: public Turnstile site key (safe to publish; the secret lives in the Worker).
+   While WORKER_URL is unset the form uses the legacy direct-EmailJS path, which has NO
+   server-side protection. Set both values to enable the protected path. See SECURITY_DEPLOYMENT.md.
    ============================================================ */
-var WORKER_URL = 'https://WORKER_HOSTNAME/contact';
+var WORKER_URL        = '';
+var TURNSTILE_SITEKEY = '';
 
-/* EmailJS fallback identifiers (public-facing credentials by EmailJS design).
-   These are only used when WORKER_URL is not yet configured (dev mode).
-   In production they are used only by the Worker, not by browser code. */
+/* EmailJS identifiers: public by EmailJS design. Used only by the legacy path above. */
 var _k = ['7z10g','cbrRN','aKaHB','5m'].join('');
 var _s = ['servi','ce_wf','iejqb'].join('');
 var _t = ['templ','ate_r','jtij7','1'].join('');
@@ -161,6 +159,20 @@ console.log(
    CONTACT FORM — validation + security + EmailJS submission
    ============================================================ */
 (function () {
+  /* Mount Turnstile once its script and a site key are available */
+  var tsWidgetId = null;
+  (function mountTurnstile() {
+    var slot = document.getElementById('turnstile-widget');
+    if (!slot || !WORKER_URL || !TURNSTILE_SITEKEY) return;
+    var tries = 0;
+    var iv = setInterval(function () {
+      if (window.turnstile) {
+        clearInterval(iv);
+        tsWidgetId = window.turnstile.render(slot, { sitekey: TURNSTILE_SITEKEY, theme: 'auto' });
+      } else if (++tries > 50) { clearInterval(iv); }
+    }, 200);
+  })();
+
   /* Wait for EmailJS SDK to be ready before init */
   function initEmailJS() {
     if (window.emailjs) { emailjs.init(_k); return true; }
@@ -366,17 +378,11 @@ console.log(
       return;
     }
 
-    /* 6 — Turnstile token must be present before submission */
+    /* 6 — Turnstile token (required only on the Worker path) */
+    var useWorker = !!WORKER_URL;
     var turnstileToken = '';
-    var tsWidget = document.getElementById('turnstile-widget');
-    if (tsWidget) {
-      /* window.turnstile is injected by the Turnstile script */
-      if (window.turnstile) {
-        turnstileToken = window.turnstile.getResponse();
-      } else {
-        /* Turnstile script not yet loaded; treat as missing token */
-        turnstileToken = '';
-      }
+    if (useWorker) {
+      turnstileToken = (window.turnstile && tsWidgetId !== null) ? window.turnstile.getResponse(tsWidgetId) : '';
       if (!turnstileToken) {
         showError(window.i18n ? window.i18n.t('form.turnstileRequired') : 'Please complete the verification before sending.');
         return;
@@ -406,8 +412,6 @@ console.log(
     }, 15000);
 
     /* ── Production path: POST to Cloudflare Worker ── */
-    var useWorker = (WORKER_URL && WORKER_URL.indexOf('WORKER_HOSTNAME') === -1);
-
     if (useWorker) {
       fetch(WORKER_URL, {
         method: 'POST',
@@ -428,7 +432,7 @@ console.log(
             if (errorMsg) errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             setLoading(false);
             sessionToken = true;
-            if (window.turnstile) window.turnstile.reset();
+            if (window.turnstile) window.turnstile.reset(tsWidgetId);
             return;
           }
           form.reset();
@@ -449,7 +453,7 @@ console.log(
           if (errorMsg) errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
           setLoading(false);
           sessionToken = true;
-          if (window.turnstile) window.turnstile.reset();
+          if (window.turnstile) window.turnstile.reset(tsWidgetId);
         });
 
     } else {

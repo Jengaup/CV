@@ -7,36 +7,24 @@
   <!-- ═══════════════════════════════════════════════
        SECURITY HEADERS
   ═══════════════════════════════════════════════ -->
-  <!-- CSP: no unsafe-inline for scripts; allow only trusted CDN + self -->
   <!--
-    CSP meta tag — kept in sync with the HTTP header set by the Cloudflare Worker.
-    NOTE: frame-ancestors is NOT enforced from a <meta> tag — it requires an HTTP
-    header. The Worker sets it as a proper HTTP response header. See SECURITY_DEPLOYMENT.md.
-    This meta tag is a defence-in-depth fallback for other directives only.
-    TURNSTILE: challenges.cloudflare.com is needed for the Turnstile widget script,
-    frame (iframe), and verification API call.
-    WORKER: replace WORKER_HOSTNAME with the actual *.workers.dev domain or custom route.
+    CSP meta: fallback only; the authoritative policy is the HTTP
+    header set in Cloudflare (see SECURITY_DEPLOYMENT.md). frame-ancestors only works as a header.
   -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'none';
-    script-src 'self' https://cdn.jsdelivr.net https://challenges.cloudflare.com;
+    script-src 'self' https://challenges.cloudflare.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src https://fonts.gstatic.com;
     img-src 'self' data: https://josealbertopr.com;
-    connect-src 'self' https://api.emailjs.com https://challenges.cloudflare.com https://WORKER_HOSTNAME;
+    connect-src 'self' https://api.emailjs.com https://challenges.cloudflare.com;
     frame-src https://challenges.cloudflare.com;
-    frame-ancestors 'none';
     base-uri 'self';
     form-action 'self';
     upgrade-insecure-requests;
-    block-all-mixed-content;
   " />
-  <meta http-equiv="X-Frame-Options" content="DENY" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+  <!-- X-Frame-Options, nosniff, Permissions-Policy, HSTS are real HTTP headers; set in Cloudflare, not via meta -->
   <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), accelerometer=(), gyroscope=()" />
-  <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin-allow-popups" />
 
   <!-- ═══════════════════════════════════════════════
        PRIMARY SEO
@@ -257,26 +245,16 @@
   ═══════════════════════════════════════════════ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
-  <link rel="dns-prefetch" href="https://api.emailjs.com" />
+    <link rel="dns-prefetch" href="https://api.emailjs.com" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preload" href="styles.css" as="style" />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" as="style" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <!--
-    EmailJS SDK — loaded from jsDelivr CDN.
-    SRI NOTE: An integrity= hash cannot be computed in this environment.
-    To add SRI: download email.min.js, run
-      openssl dgst -sha384 -binary email.min.js | openssl base64 -A
-    then add  integrity="sha384-<hash>"  crossorigin="anonymous"  to the tag.
-    Alternative: copy email.min.js into the repo as /vendor/emailjs.min.js
-    and load it with  src="vendor/emailjs.min.js"  (no CDN dependency, no SRI needed).
-    See SECURITY_DEPLOYMENT.md §3 for the full procedure.
-  -->
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <!-- Cloudflare Turnstile — server-validated CAPTCHA widget -->
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <!-- EmailJS SDK 4.4.1 (BSD-3-Clause) hosted locally; no third-party CDN, so no SRI dependency -->
+  <script src="vendor/emailjs-4.4.1.min.js"></script>
+  <!-- Cloudflare Turnstile: explicit render, widget is created by main.js once a site key is set -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </head>
 <body>
 
@@ -989,19 +967,8 @@
 
               <p class="form-privacy-notice" data-i18n="form.privacyNotice">Information provided is used only to respond to your inquiry. <a href="privacy.html" class="form-privacy-link">Review the Privacy Policy</a>.</p>
 
-              <!--
-                Cloudflare Turnstile widget.
-                Replace data-sitekey with your actual Turnstile site key from the Cloudflare dashboard.
-                The 0x4AAAAAAA... value below is the Turnstile "always passes" test key — safe for
-                development but MUST be replaced before production. See SECURITY_DEPLOYMENT.md §4.
-              -->
-              <div class="cf-turnstile"
-                   data-sitekey="0x4AAAAAABBBBBBBBBBBBBBBsitekey"
-                   data-theme="auto"
-                   data-language="auto"
-                   aria-label="Human verification challenge"
-                   id="turnstile-widget">
-              </div>
+              <!-- Turnstile mounts here when a site key is set in main.js (TURNSTILE_SITEKEY) -->
+              <div id="turnstile-widget" class="cf-turnstile"></div>
 
               <button type="submit" class="btn btn--primary btn--full" id="form-submit">
                 <span class="btn__text" data-i18n="form.submit">Send Message</span>
