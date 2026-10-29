@@ -1767,6 +1767,11 @@ a {
   color: var(--color-primary-light, #60a5fa);
 }
 
+/* Turnstile widget container */
+.cf-turnstile {
+  margin-bottom: 1rem;
+}
+
 /* ============================================================
    IMPACT DISCLAIMER
    ============================================================ */

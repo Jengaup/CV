@@ -172,8 +172,9 @@
       'form.successMsg':   'Thank you for reaching out. I will get back to you shortly.',
       'form.errorTitle':   'Something went wrong.',
       'form.errorMsg':     'Please try again or check your connection.',
-      'form.rateLimit':    'Too many attempts. Please try again later.',
-      'form.errorGeneric': 'Could not send message. Please refresh and try again.',
+      'form.rateLimit':          'Too many attempts. Please try again later.',
+      'form.errorGeneric':       'Could not send message. Please refresh and try again.',
+      'form.turnstileRequired':  'Please complete the verification before sending.',
 
       'footer.rights':       'All rights reserved.',
       'footer.note':         'IT Director &amp; Business Relationship Manager · US Citizen · Bilingual EN/ES',
@@ -372,8 +373,9 @@
       'form.successMsg':   'Gracias por comunicarse. Le responderé a la brevedad posible.',
       'form.errorTitle':   'Algo salió mal.',
       'form.errorMsg':     'Por favor intente de nuevo o verifique su conexión.',
-      'form.rateLimit':    'Demasiados intentos. Por favor intente más tarde.',
-      'form.errorGeneric': 'No se pudo enviar el mensaje. Por favor recargue e intente de nuevo.',
+      'form.rateLimit':          'Demasiados intentos. Por favor intente más tarde.',
+      'form.errorGeneric':       'No se pudo enviar el mensaje. Por favor recargue e intente de nuevo.',
+      'form.turnstileRequired':  'Por favor completa la verificación antes de enviar.',
 
       'footer.rights':       'Todos los derechos reservados.',
       'footer.note':         'Director de TI y Gerente de Relaciones de Negocio · Ciudadano Estadounidense · Bilingüe EN/ES',

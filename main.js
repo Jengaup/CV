@@ -1,6 +1,16 @@
 /* ============================================================
-   EmailJS configuration — split to deter naive scraping
+   CONTACT FORM WORKER ENDPOINT
+   Replace with the actual Cloudflare Worker URL before deploying.
+   The Worker validates Turnstile, rate-limits by IP, then calls EmailJS
+   server-side. The EmailJS keys below are kept only as a local fallback
+   during development; in production the Worker holds them server-side.
+   See SECURITY_DEPLOYMENT.md §4.
    ============================================================ */
+var WORKER_URL = 'https://WORKER_HOSTNAME/contact';
+
+/* EmailJS fallback identifiers (public-facing credentials by EmailJS design).
+   These are only used when WORKER_URL is not yet configured (dev mode).
+   In production they are used only by the Worker, not by browser code. */
 var _k = ['7z10g','cbrRN','aKaHB','5m'].join('');
 var _s = ['servi','ce_wf','iejqb'].join('');
 var _t = ['templ','ate_r','jtij7','1'].join('');
@@ -191,8 +201,8 @@ console.log(
   var pageLoadTime = Date.now();
   var MIN_FILL_MS  = 4000;
 
-  /* ── Session token: one-time CSRF-like guard ── */
-  var sessionToken = (Math.random().toString(36).slice(2) + Date.now().toString(36));
+  /* ── Submission flag: prevents double-submit on slow network ── */
+  var sessionToken = true; /* placeholder; actual anti-replay is enforced server-side by the Worker */
 
   /* ── Input sanitization ── */
   function sanitize(str) {
@@ -347,63 +357,141 @@ console.log(
     /* 3 — Bot timing (filled too fast) */
     if (Date.now() - pageLoadTime < MIN_FILL_MS) return;
 
-    /* 4 — Session token present */
+    /* 4 — Submission guard (double-submit) */
     if (!sessionToken) return;
 
-    /* 5 — Persistent rate limit */
+    /* 5 — Client-side rate limit (last line of defence; Worker enforces by IP) */
     if (isRateLimited()) {
       showError(window.i18n ? window.i18n.t('form.rateLimit') : 'Too many attempts. Please try again in an hour.');
       return;
     }
 
-    if (!window.emailjs) {
-      showError(window.i18n ? window.i18n.t('form.errorGeneric') : 'Service not ready. Please refresh and try again.');
-      return;
+    /* 6 — Turnstile token must be present before submission */
+    var turnstileToken = '';
+    var tsWidget = document.getElementById('turnstile-widget');
+    if (tsWidget) {
+      /* window.turnstile is injected by the Turnstile script */
+      if (window.turnstile) {
+        turnstileToken = window.turnstile.getResponse();
+      } else {
+        /* Turnstile script not yet loaded; treat as missing token */
+        turnstileToken = '';
+      }
+      if (!turnstileToken) {
+        showError(window.i18n ? window.i18n.t('form.turnstileRequired') : 'Please complete the verification before sending.');
+        return;
+      }
     }
 
     setLoading(true);
     bumpRate();
+    sessionToken = false; /* prevent double-submit */
 
-    var templateParams = {
-      from_name:  sanitize(fields.name.el.value),
-      from_email: sanitize(fields.email.el.value),
-      subject:    sanitize(fields.subject.el.value),
-      message:    sanitize(fields.message.el.value)
+    var payload = {
+      name:            sanitize(fields.name.el.value),
+      email:           sanitize(fields.email.el.value),
+      subject:         sanitize(fields.subject.el.value),
+      message:         sanitize(fields.message.el.value),
+      'cf-turnstile-response': turnstileToken
     };
 
-    /* Safety timeout — unblock button if promise never resolves */
+    /* Safety timeout */
     var _sent = false;
     var _timeout = setTimeout(function () {
       if (_sent) return;
       _sent = true;
       setLoading(false);
+      sessionToken = true;
       showError(window.i18n ? window.i18n.t('form.errorGeneric') : 'Request timed out. Please try again.');
     }, 15000);
 
-    emailjs.send(_s, _t, templateParams)
-      .then(function () {
-        if (_sent) return;
-        _sent = true;
-        clearTimeout(_timeout);
-        form.reset();
-        Object.keys(fields).forEach(function (k) {
-          if (fields[k].el)    fields[k].el.removeAttribute('aria-invalid');
-          if (fields[k].errEl) fields[k].errEl.textContent = '';
-        });
-        showStatus(successMsg, true);
-        if (successMsg) successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        setLoading(false);
-        sessionToken = null;
+    /* ── Production path: POST to Cloudflare Worker ── */
+    var useWorker = (WORKER_URL && WORKER_URL.indexOf('WORKER_HOSTNAME') === -1);
+
+    if (useWorker) {
+      fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
       })
-      .catch(function (err) {
-        if (_sent) return;
-        _sent = true;
+        .then(function (res) {
+          return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+        })
+        .then(function (result) {
+          if (_sent) return;
+          _sent = true;
+          clearTimeout(_timeout);
+          if (!result.ok) {
+            /* Worker returned a structured error — show generic message only */
+            console.warn('[Worker] submission rejected:', result.data && result.data.error);
+            showStatus(errorMsg, true);
+            if (errorMsg) errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            setLoading(false);
+            sessionToken = true;
+            if (window.turnstile) window.turnstile.reset();
+            return;
+          }
+          form.reset();
+          Object.keys(fields).forEach(function (k) {
+            if (fields[k].el)    fields[k].el.removeAttribute('aria-invalid');
+            if (fields[k].errEl) fields[k].errEl.textContent = '';
+          });
+          showStatus(successMsg, true);
+          if (successMsg) successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          setLoading(false);
+        })
+        .catch(function (err) {
+          if (_sent) return;
+          _sent = true;
+          clearTimeout(_timeout);
+          console.error('[Worker fetch error]', err);
+          showStatus(errorMsg, true);
+          if (errorMsg) errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          setLoading(false);
+          sessionToken = true;
+          if (window.turnstile) window.turnstile.reset();
+        });
+
+    } else {
+      /* ── Development fallback: direct EmailJS (Worker not yet configured) ── */
+      if (!window.emailjs) {
         clearTimeout(_timeout);
-        console.error('[EmailJS error]', err);
-        showStatus(errorMsg, true);
-        if (errorMsg) errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         setLoading(false);
-      });
+        sessionToken = true;
+        showError(window.i18n ? window.i18n.t('form.errorGeneric') : 'Service not ready. Please refresh and try again.');
+        return;
+      }
+      var templateParams = {
+        from_name:  payload.name,
+        from_email: payload.email,
+        subject:    payload.subject,
+        message:    payload.message
+      };
+      emailjs.send(_s, _t, templateParams)
+        .then(function () {
+          if (_sent) return;
+          _sent = true;
+          clearTimeout(_timeout);
+          form.reset();
+          Object.keys(fields).forEach(function (k) {
+            if (fields[k].el)    fields[k].el.removeAttribute('aria-invalid');
+            if (fields[k].errEl) fields[k].errEl.textContent = '';
+          });
+          showStatus(successMsg, true);
+          if (successMsg) successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          setLoading(false);
+        })
+        .catch(function (err) {
+          if (_sent) return;
+          _sent = true;
+          clearTimeout(_timeout);
+          console.error('[EmailJS error]', err);
+          showStatus(errorMsg, true);
+          if (errorMsg) errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          setLoading(false);
+          sessionToken = true;
+        });
+    }
   });
 })();
 

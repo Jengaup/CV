@@ -1,9 +1,69 @@
+# robots.txt — josealbertopr.com
+# Policy: allow legitimate search engines and AI-assisted search;
+# disallow crawlers used exclusively for AI training where identifiable.
+# Last updated: 2026-10-29
+#
+# NOTE: robots.txt is advisory, not a security control.
+# Bot abuse, scraping of forms/APIs, and rate-limit violations are
+# handled by Cloudflare WAF rules, Managed Challenge, and rate limiting
+# — not by this file. See SECURITY_DEPLOYMENT.md §5.
+
+# ── General rule: allow everything ──────────────────────────
+# This covers Googlebot, Bingbot, and any legitimate crawlers
+# not listed individually below.
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://josealbertopr.com/sitemap.xml
+# ── Search engine resources (critical for correct rendering) ─
+# These files must be accessible so search engines can render
+# and index the page correctly. Do NOT disallow them.
+# Previously /main.js and /i18n.js were disallowed — that was
+# wrong and has been corrected.
 
-# Block crawlers from accessing private/utility files
-Disallow: /main.js
-Disallow: /i18n.js
+# ── AI-assisted search (allow — not training-only) ───────────
+# GPTBot from OpenAI is used for both search features and training;
+# allowing it here because the owner's policy permits AI-assisted
+# search. If training-only exclusion is desired, a more granular
+# signal (e.g. AI Training Preference spec) is needed.
+User-agent: GPTBot
+Allow: /
+
+# Google-Extended covers Gemini and Vertex AI features.
+# Allowed as AI-assisted search, not training.
+User-agent: Google-Extended
+Allow: /
+
+# Applebot-Extended: Apple Intelligence features.
+User-agent: Applebot-Extended
+Allow: /
+
+# ── Known training-only crawlers (disallow) ──────────────────
+# These crawlers are identified by their operators as used
+# primarily for model training, not for search or retrieval.
+
+# CCBot (Common Crawl) — primary source for many training datasets
+User-agent: CCBot
+Disallow: /
+
+# Omgili / Webz.io — commercial data reseller
+User-agent: omgili
+Disallow: /
+
+User-agent: omgilibot
+Disallow: /
+
+# Diffbot — automated data extraction
+User-agent: Diffbot
+Disallow: /
+
+# DataForSeoBot — commercial data harvesting
+User-agent: DataForSeoBot
+Disallow: /
+
+# ── Contact form and API endpoints ───────────────────────────
+# These are protected by Cloudflare Turnstile + Worker, not robots.txt.
+# Listed here as a documentation signal; real protection is Cloudflare.
+# No Disallow needed since the form is part of the main page (/#contact).
+
+# ── Sitemap ──────────────────────────────────────────────────
+Sitemap: https://josealbertopr.com/sitemap.xml
