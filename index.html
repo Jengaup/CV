@@ -269,6 +269,7 @@
       <a href="#hero" class="nav__logo" aria-label="Home">JAJ</a>
       <nav aria-label="Main navigation">
         <ul class="nav__links">
+          <li class="nav__indicator-wrap" aria-hidden="true"><span class="nav__indicator"></span></li>
           <li><a href="#about" data-i18n="nav.about">About</a></li>
           <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
           <li><a href="#impact" data-i18n="nav.impact">Impact</a></li>
@@ -663,48 +664,25 @@
         <h2 id="creds-heading" class="section__title" data-i18n="creds.title">Certifications &amp; <span class="accent">Education</span></h2>
         <!-- CERTIFICATIONS -->
         <div class="certs-section">
-            <div class="certs-legend" aria-label="Color legend by area">
-            <div class="certs-legend__item">
-              <span class="certs-legend__dot" style="background:#7c3aed"></span>
-              <span data-i18n="certs.legend.education">Education</span>
-            </div>
-            <div class="certs-legend__item">
-              <span class="certs-legend__dot" style="background:#16a34a"></span>
-              <span data-i18n="certs.legend.quality">Quality &amp; Process</span>
-            </div>
-            <div class="certs-legend__item">
-              <span class="certs-legend__dot" style="background:#6d28d9"></span>
-              <span data-i18n="certs.legend.itsm">IT Service Management</span>
-            </div>
-            <div class="certs-legend__item">
-              <span class="certs-legend__dot" style="background:#1e40af"></span>
-              <span data-i18n="certs.legend.brm">Business Relationship Mgmt</span>
-            </div>
-            <div class="certs-legend__item">
-              <span class="certs-legend__dot" style="background:#b91c1c"></span>
-              <span data-i18n="certs.legend.cyber">Cybersecurity</span>
-            </div>
-            <div class="certs-legend__item">
-              <span class="certs-legend__dot" style="background:#1e40af"></span>
-              <span data-i18n="certs.legend.infra">IT Infrastructure</span>
-            </div>
-            <div class="certs-legend__item">
-              <span class="certs-legend__dot" style="background:#d97706"></span>
-              <span data-i18n="certs.legend.automation">Automation &amp; RPA</span>
-            </div>
-            <div class="certs-legend__item">
-              <span class="certs-legend__dot" style="background:#0d9488"></span>
-              <span data-i18n="certs.legend.emergency">Emergency Management</span>
-            </div>
-            <div class="certs-legend__item">
-              <span class="certs-legend__dot" style="background:#b45309"></span>
-              <span data-i18n="certs.legend.leadership">Leadership &amp; Communication</span>
-            </div>
+            <div class="certs-legend" id="certs-filters" role="group" aria-label="Filter credentials by area" data-i18n-aria-label="certs.filterLabel">
+            <button type="button" class="certs-legend__item" data-filter="all" aria-pressed="true"><span class="certs-legend__dot" aria-hidden="true" data-all="true"></span><span data-i18n="certs.legend.all">All</span></button>
+            <button type="button" class="certs-legend__item" data-filter="education" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#7c3aed"></span><span data-i18n="certs.legend.education">Education</span></button>
+            <button type="button" class="certs-legend__item" data-filter="quality" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#16a34a"></span><span data-i18n="certs.legend.quality">Quality &amp; Process</span></button>
+            <button type="button" class="certs-legend__item" data-filter="itsm" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#6d28d9"></span><span data-i18n="certs.legend.itsm">IT Service Management</span></button>
+            <button type="button" class="certs-legend__item" data-filter="brm" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#1e40af"></span><span data-i18n="certs.legend.brm">Business Relationship Mgmt</span></button>
+            <button type="button" class="certs-legend__item" data-filter="cybersecurity" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#b91c1c"></span><span data-i18n="certs.legend.cyber">Cybersecurity</span></button>
+            <button type="button" class="certs-legend__item" data-filter="infrastructure" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#1e40af"></span><span data-i18n="certs.legend.infra">IT Infrastructure</span></button>
+            <button type="button" class="certs-legend__item" data-filter="automation" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#d97706"></span><span data-i18n="certs.legend.automation">Automation &amp; RPA</span></button>
+            <button type="button" class="certs-legend__item" data-filter="emergency" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#0d9488"></span><span data-i18n="certs.legend.emergency">Emergency Management</span></button>
+            <button type="button" class="certs-legend__item" data-filter="leadership" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#b45309"></span><span data-i18n="certs.legend.leadership">Leadership &amp; Communication</span></button>
+            <span class="certs-legend__indicator" aria-hidden="true"></span>
           </div>
+          <noscript><style>.certs-legend__item{pointer-events:none;cursor:default}</style></noscript>
+          <p class="certs-count" id="certs-count" aria-live="polite" aria-atomic="true"></p>
 
           <div class="certs-grid">
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="education">
               <div class="cert-badge cert-badge--purple" aria-hidden="true">MBA</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">MBA · Technology Management</span>
@@ -712,7 +690,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="quality">
               <div class="cert-badge cert-badge--green" aria-hidden="true">6σ</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">Six Sigma Green Belt (CSSGB)</span>
@@ -720,7 +698,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="itsm">
               <div class="cert-badge cert-badge--violet" aria-hidden="true">ITIL</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">ITIL® 4 Foundation</span>
@@ -728,7 +706,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="brm">
               <div class="cert-badge cert-badge--blue" aria-hidden="true">BRM</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">BRMP® — Business Relationship Management Professional</span>
@@ -736,7 +714,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="brm">
               <div class="cert-badge cert-badge--blue" aria-hidden="true">BRM+</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">High Performing BRM Designation</span>
@@ -744,7 +722,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="cybersecurity">
               <div class="cert-badge cert-badge--red" aria-hidden="true">CFR</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">CyberSec First Responder (CFR)</span>
@@ -752,7 +730,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="infrastructure">
               <div class="cert-badge cert-badge--crimson" aria-hidden="true">A+</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">CompTIA A+</span>
@@ -760,7 +738,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="infrastructure">
               <div class="cert-badge cert-badge--crimson" aria-hidden="true">N+</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">CompTIA Network+</span>
@@ -768,7 +746,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="automation">
               <div class="cert-badge cert-badge--orange" aria-hidden="true">UI</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">Introduction to Automation</span>
@@ -776,7 +754,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="automation">
               <div class="cert-badge cert-badge--orange" aria-hidden="true">UI</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">Build Your First Automation in Studio Web</span>
@@ -784,7 +762,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="automation">
               <div class="cert-badge cert-badge--orange" aria-hidden="true">AI</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">Introduction to AI-Powered Automation</span>
@@ -792,7 +770,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="automation">
               <div class="cert-badge cert-badge--orange" aria-hidden="true">BA</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">UiPath Business Automation Platform for Business Analysts</span>
@@ -800,7 +778,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="emergency">
               <div class="cert-badge cert-badge--teal" aria-hidden="true">ICS</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">ICS-100: Introduction to the Incident Command System</span>
@@ -808,7 +786,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="emergency">
               <div class="cert-badge cert-badge--teal" aria-hidden="true">ICS</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">ICS-200: ICS for Single Resources and Initial Action Incidents</span>
@@ -816,7 +794,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="emergency">
               <div class="cert-badge cert-badge--teal" aria-hidden="true">ICS</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">IS-700: National Incident Management System (NIMS)</span>
@@ -824,7 +802,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="emergency leadership">
               <div class="cert-badge cert-badge--teal" aria-hidden="true">IS</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">IS-240.C: Leadership and Influence</span>
@@ -832,7 +810,7 @@
               </div>
             </div>
 
-            <div class="cert-card">
+            <div class="cert-card" data-category="leadership">
               <div class="cert-badge cert-badge--gold" aria-hidden="true">TM</div>
               <div class="cert-card__info">
                 <span class="cert-card__name">Persuasive Influence</span>

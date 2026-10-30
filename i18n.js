@@ -43,6 +43,9 @@
       'certs.legend.automation':  'Automation &amp; RPA',
       'certs.legend.emergency':   'Emergency Management',
       'certs.legend.leadership':  'Leadership &amp; Communication',
+      'certs.legend.all':        'All',
+      'certs.filterLabel':       'Filter credentials by area',
+      'certs.count':             'Showing {n} of {total} credentials',
       'about.v1title':    'Results First',
       'about.v1desc':     'Every initiative I lead is tied to measurable business outcomes: cost reduction, efficiency gains, and real capability improvements.',
       'about.v2title':    'Partnership Mindset',
@@ -244,6 +247,9 @@
       'certs.legend.automation':  'Automatización y RPA',
       'certs.legend.emergency':   'Manejo de Emergencias',
       'certs.legend.leadership':  'Liderazgo y Comunicación',
+      'certs.legend.all':        'Todas',
+      'certs.filterLabel':       'Filtrar credenciales por área',
+      'certs.count':             'Mostrando {n} de {total} credenciales',
       'about.v1title':    'Resultados Primero',
       'about.v1desc':     'Cada iniciativa que lidero está vinculada a resultados de negocio medibles: reducción de costos, mejoras en eficiencia y avances reales en capacidades.',
       'about.v2title':    'Mentalidad de Alianza',
@@ -418,6 +424,12 @@
       if (t[key] !== undefined) el.innerHTML = t[key];
     });
 
+    // Translate aria-labels
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-aria-label');
+      if (t[key] !== undefined) el.setAttribute('aria-label', t[key]);
+    });
+
     // Translate placeholders
     document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-placeholder');
@@ -464,7 +476,32 @@
     }
 
     currentLang = lang;
-    localStorage.setItem('lang', lang);
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+    document.dispatchEvent(new CustomEvent('i18n:change', { detail: { lang: lang } }));
+  }
+
+  /* Crossfade: fade out the text containers, swap language at minimum opacity, fade back in.
+     One timer, one pending target; rapid clicks only update the target. */
+  var FADE_MS = 140;
+  var targetLang = null;
+  var swapTimer = null;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function switchLang(next) {
+    targetLang = next;
+    if (reduceMotion.matches) {
+      clearTimeout(swapTimer); swapTimer = null;
+      document.documentElement.classList.remove('lang-fading');
+      applyLang(next);
+      return;
+    }
+    if (swapTimer) return; /* a swap is already scheduled; it will use the latest target */
+    document.documentElement.classList.add('lang-fading');
+    swapTimer = setTimeout(function () {
+      swapTimer = null;
+      try { applyLang(targetLang); }
+      finally { requestAnimationFrame(function () { document.documentElement.classList.remove('lang-fading'); }); }
+    }, FADE_MS);
   }
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -472,7 +509,7 @@
     var btn = document.getElementById('lang-toggle');
     if (btn) {
       btn.addEventListener('click', function () {
-        applyLang(currentLang === 'en' ? 'es' : 'en');
+        switchLang((targetLang || currentLang) === 'en' ? 'es' : 'en');
       });
     }
   });
