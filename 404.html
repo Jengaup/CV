@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'none';
+    script-src 'self';
+    style-src 'self' 'unsafe-inline';
+    font-src 'self';
+    img-src 'self';
+    connect-src 'self';
+    base-uri 'self';
+    form-action 'none';
+  " />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Page not found | Jose Alberto Jimenez</title>
+  <meta name="description" content="This page does not exist. Return to the portfolio of Jose Alberto Jimenez, IT Director and Business Relationship Manager." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preload" href="/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content" id="skip-link-en">Skip to main content</a>
+  <header class="nav" role="banner">
+    <div class="nav__inner container">
+      <a href="/" class="nav__logo" aria-label="Home — Jose Alberto Jimenez">JAJ</a>
+      <nav aria-label="Site navigation">
+        <ul class="nav__links">
+          <li><a href="/" id="back-link">← Back to Portfolio</a></li>
+        </ul>
+      </nav>
+      <button id="lang-toggle" class="nav__lang" aria-label="Switch to Spanish (ES)" title="Cambiar idioma / Switch language">
+        <span class="nav__lang-icon" aria-hidden="true">🌐</span>
+        <span class="nav__lang-label">ES</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div class="legal-page">
+      <article data-lang-block="en">
+        <h1>Page not found</h1>
+        <p>The page you requested does not exist or has moved. These links may help:</p>
+        <ul>
+          <li><a href="/">Portfolio home</a></li>
+          <li><a href="/#experience">Professional experience</a></li>
+          <li><a href="/#impact">Measurable results</a></li>
+          <li><a href="/#credentials">Certifications &amp; education</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </article>
+      <article data-lang-block="es" hidden>
+        <h1>Página no encontrada</h1>
+        <p>La página solicitada no existe o fue movida. Estos enlaces pueden ayudarte:</p>
+        <ul>
+          <li><a href="/">Inicio del portafolio</a></li>
+          <li><a href="/#experience">Experiencia profesional</a></li>
+          <li><a href="/#impact">Resultados medibles</a></li>
+          <li><a href="/#credentials">Certificaciones y educación</a></li>
+          <li><a href="/#contact">Contacto</a></li>
+        </ul>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__copy">&copy; <span id="footer-year"></span> Jose Alberto Jimenez. <span id="footer-rights">All rights reserved.</span></p>
+        <div class="footer__links"><a href="/" class="footer__link" id="footer-home">← Portfolio</a></div>
+      </div>
+      <nav class="footer__legal" aria-label="Legal pages">
+        <a href="/privacy.html" id="legal-privacy">Privacy Policy</a>
+        <a href="/terms.html" id="legal-terms">Terms of Use</a>
+        <a href="/accessibility.html" id="legal-a11y">Accessibility</a>
+        <a href="/#contact" id="legal-contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/i18n.js" defer></script>
+  <script src="/legal.js" defer></script>
+</body>
+</html>

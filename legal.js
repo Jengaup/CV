@@ -41,7 +41,8 @@
     home: ['footer-home', '\u2190 Portfolio', '\u2190 Portafolio'],
     priv: ['legal-privacy', 'Privacy Policy', 'Pol\u00edtica de Privacidad'],
     terms: ['legal-terms', 'Terms of Use', 'T\u00e9rminos de Uso'],
-    a11y: ['legal-a11y', 'Accessibility', 'Accesibilidad']
+    a11y: ['legal-a11y', 'Accessibility', 'Accesibilidad'],
+    contact: ['legal-contact', 'Contact', 'Contacto']
   };
   function lang() { try { return localStorage.getItem('lang') === 'es' ? 'es' : 'en'; } catch (e) { return 'en'; } }
   function update() {

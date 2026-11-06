@@ -7,24 +7,9 @@ Audited: October 25, 2026.
 
 ## Services Inventory
 
-### 1. Google Fonts
+### 1. Fonts (self-hosted)
 
-**Purpose:** Web font delivery  
-**Resources loaded:**
-- `https://fonts.googleapis.com` — CSS stylesheet (font declarations)
-- `https://fonts.gstatic.com` — Font binary files (woff2)
-
-**Fonts loaded:**
-- Space Grotesk (weights: 400, 600, 700, 800)
-- Inter (weights: 300, 400, 500)
-
-**Note:** JetBrains Mono is referenced in `styles.css` as a monospace fallback but is not loaded via Google Fonts (it falls back to system monospace).
-
-**Data sent to Google:** Browser makes a request to `fonts.googleapis.com` which includes the user's IP address, user agent, and referer header. Google may log this as part of standard CDN infrastructure.  
-**Cookies set:** None by this site's loading of Google Fonts.  
-**Personal data collected by this site:** None.  
-**Privacy policy:** https://policies.google.com/privacy  
-**CSP coverage:** `style-src https://fonts.googleapis.com`, `font-src https://fonts.gstatic.com`
+Space Grotesk, Inter and JetBrains Mono (SIL OFL 1.1) are served from this site (`/fonts/*.woff2`, Fontsource 5.3.0 variable builds). Since 2026-11-06 the browser makes **no request to Google** to display them. See `THIRD-PARTY-NOTICES.md`.
 
 ---
 
@@ -114,4 +99,4 @@ Both entries are set by first-party JavaScript and are never read by or transmit
 
 ## Summary
 
-This site uses **4 active external services** (Google Fonts, EmailJS, Cloudflare incl. Turnstile; GitHub Pages as origin) and includes **1 outbound link** to LinkedIn. There is no analytics, no advertising, no tracking, and no third-party cookies. The only personal data collected is the contact form submission, processed by EmailJS for delivery to the site owner's inbox.
+This site uses **3 active external services** (EmailJS, Cloudflare incl. Turnstile; GitHub Pages as origin; fonts are self-hosted) and includes **1 outbound link** to LinkedIn. There is no analytics, no advertising, no tracking, and no third-party cookies. The only personal data collected is the contact form submission, processed by EmailJS for delivery to the site owner's inbox.

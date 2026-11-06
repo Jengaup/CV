@@ -8,7 +8,7 @@ This document lists the open-source fonts and libraries used on josealbertopr.co
 
 ### Space Grotesk
 
-**Provider:** Google Fonts  
+**Provider:** self-hosted from Fontsource (`@fontsource-variable/*` 5.3.0), file in `/fonts/`  
 **Designer:** Florian Karsten  
 **License:** SIL Open Font License 1.1  
 **Source:** https://fonts.google.com/specimen/Space+Grotesk  
@@ -26,7 +26,7 @@ http://scripts.sil.org/OFL
 
 ### Inter
 
-**Provider:** Google Fonts  
+**Provider:** self-hosted from Fontsource (`@fontsource-variable/*` 5.3.0), file in `/fonts/`  
 **Designer:** Rasmus Andersson  
 **License:** SIL Open Font License 1.1  
 **Source:** https://fonts.google.com/specimen/Inter  
@@ -44,7 +44,7 @@ http://scripts.sil.org/OFL
 
 ### JetBrains Mono
 
-**Status:** Referenced as a CSS fallback in `font-family` stacks but not actively loaded from a CDN. Falls back to `monospace` system font if not installed on the user's device.  
+**Status:** self-hosted (`/fonts/jetbrains-mono-latin-wght-normal.woff2`).  
 **Designer:** JetBrains  
 **License:** SIL Open Font License 1.1  
 **Source:** https://www.jetbrains.com/lp/mono/  

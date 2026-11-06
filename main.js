@@ -310,6 +310,13 @@ console.log(
   (function mountTurnstile() {
     var slot = document.getElementById('turnstile-widget');
     if (!slot || !WORKER_URL || !TURNSTILE_SITEKEY) return;
+    if (!window.turnstile && !document.getElementById('turnstile-script')) {
+      var sc = document.createElement('script');
+      sc.id = 'turnstile-script';
+      sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      sc.async = true;
+      document.head.appendChild(sc);
+    }
     var tries = 0;
     var iv = setInterval(function () {
       if (window.turnstile) {

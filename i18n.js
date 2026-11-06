@@ -472,7 +472,7 @@
       var label = btn.querySelector('.nav__lang-label');
       if (label) label.textContent = lang === 'en' ? 'ES' : 'EN';
       btn.setAttribute('title', lang === 'en' ? 'Cambiar a Español' : 'Switch to English');
-      btn.setAttribute('aria-label', lang === 'en' ? 'Switch to Spanish' : 'Cambiar a Inglés');
+      btn.setAttribute('aria-label', lang === 'en' ? 'Switch to Spanish (ES)' : 'Cambiar a Inglés (EN)');
     }
 
     currentLang = lang;

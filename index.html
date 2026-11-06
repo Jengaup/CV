@@ -14,8 +14,8 @@
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'none';
     script-src 'self' https://challenges.cloudflare.com;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-    font-src https://fonts.gstatic.com;
+    style-src 'self' 'unsafe-inline';
+    font-src 'self';
     img-src 'self' data: https://josealbertopr.com;
     connect-src 'self' https://api.emailjs.com https://challenges.cloudflare.com;
     frame-src https://challenges.cloudflare.com;
@@ -29,44 +29,41 @@
   <!-- ═══════════════════════════════════════════════
        PRIMARY SEO
   ═══════════════════════════════════════════════ -->
-  <title>Jose Alberto Jimenez | IT Director · IT Manager · Business Relationship Manager</title>
-  <meta name="description" content="Jose Alberto Jimenez — IT Director &amp; BRM. 20+ years driving digital transformation across energy, pharma &amp; healthcare. $1.2M+ delivered. MBA · ITIL V4 · BRMP · Six Sigma. US Citizen. Bilingual EN/ES." />
+  <title>Jose Alberto Jimenez | IT Director &amp; Business Relationship Manager</title>
+  <meta name="description" content="IT Director and Business Relationship Manager with 20+ years in digital transformation and IT/OT integration. MBA, ITIL 4, BRMP, Six Sigma. Bilingual EN/ES." />
   <meta name="author" content="Jose Alberto Jimenez" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <meta name="theme-color" content="#050d1a" />
   <link rel="canonical" href="https://josealbertopr.com/" />
-  <link rel="alternate" hreflang="en" href="https://josealbertopr.com/" />
-  <link rel="alternate" hreflang="es" href="https://josealbertopr.com/" />
-  <link rel="alternate" hreflang="x-default" href="https://josealbertopr.com/" />
 
   <!-- ═══════════════════════════════════════════════
        OPEN GRAPH (Facebook, LinkedIn, WhatsApp)
   ═══════════════════════════════════════════════ -->
   <meta property="og:type" content="profile" />
-  <meta property="og:title" content="Jose Alberto Jimenez | IT Director · Business Relationship Manager" />
-  <meta property="og:description" content="Senior IT leader with 20+ years driving digital transformation, IT/OT integration, and $1.2M+ in measurable business results across energy, pharma, healthcare, and food service industries. MBA · Six Sigma Green Belt · ITIL V4 · BRMP. US Citizen. Bilingual EN/ES." />
+  <meta property="og:title" content="Jose Alberto Jimenez | IT Director &amp; Business Relationship Manager" />
+  <meta property="og:description" content="IT Director and Business Relationship Manager with 20+ years in digital transformation and IT/OT integration. MBA, ITIL 4, BRMP, Six Sigma. Bilingual EN/ES." />
   <meta property="og:url" content="https://josealbertopr.com/" />
   <meta property="og:site_name" content="Jose Alberto Jimenez — IT Executive Portfolio" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="es_PR" />
-  <meta property="og:image" content="https://josealbertopr.com/og-image.png" />
+  <meta property="og:image" content="https://josealbertopr.com/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:alt" content="Jose Alberto Jimenez — IT Director &amp; Business Relationship Manager" />
   <meta property="profile:first_name" content="Jose Alberto" />
   <meta property="profile:last_name" content="Jimenez" />
-  <meta property="profile:username" content="josealbertojimenez" />
 
   <!-- ═══════════════════════════════════════════════
        TWITTER / X CARD
   ═══════════════════════════════════════════════ -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Jose Alberto Jimenez | IT Director · BRM" />
-  <meta name="twitter:description" content="20+ years of IT leadership. $1.2M+ delivered. Energy · Pharma · Healthcare · Food Service. US Citizen. Bilingual." />
-  <meta name="twitter:image" content="https://josealbertopr.com/og-image.png" />
-  <meta name="twitter:site" content="@josealbertopr" />
-  <meta name="twitter:creator" content="@josealbertopr" />
+  <meta name="twitter:title" content="Jose Alberto Jimenez | IT Director &amp; Business Relationship Manager" />
+  <meta name="twitter:description" content="IT Director and Business Relationship Manager with 20+ years in digital transformation and IT/OT integration. MBA, ITIL 4, BRMP, Six Sigma. Bilingual EN/ES." />
+  <meta name="twitter:image" content="https://josealbertopr.com/og-image.jpg" />
+  <meta name="twitter:image:alt" content="Jose Alberto Jimenez — IT Director &amp; Business Relationship Manager" />
+  <!-- [PENDIENTE] twitter:site / twitter:creator removed: no verified X/Twitter account provided -->
 
   <!-- ═══════════════════════════════════════════════
        STRUCTURED DATA — Schema.org (Google, Bing, ATS)
@@ -80,14 +77,41 @@
       "name": "Jose Alberto Jimenez — IT Director & Business Relationship Manager",
       "description": "Professional portfolio and CV of Jose Alberto Jimenez, a senior IT leader with 20+ years of experience.",
       "url": "https://josealbertopr.com/",
-      "inLanguage": ["en", "es"],
-      "dateModified": "2026-10-02",
-      "mainEntity": { "@id": "https://josealbertopr.com/#person" },
+      "inLanguage": [
+        "en",
+        "es"
+      ],
+      "dateModified": "2026-11-06",
+      "mainEntity": {
+        "@id": "https://josealbertopr.com/#person"
+      },
       "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://josealbertopr.com/" }
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://josealbertopr.com/"
+          }
         ]
+      },
+      "isPartOf": {
+        "@id": "https://josealbertopr.com/#website"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://josealbertopr.com/#website",
+      "name": "Jose Alberto Jimenez — IT Executive Portfolio",
+      "url": "https://josealbertopr.com/",
+      "inLanguage": [
+        "en",
+        "es"
+      ],
+      "publisher": {
+        "@id": "https://josealbertopr.com/#person"
       }
     },
     {
@@ -97,15 +121,27 @@
       "name": "Jose Alberto Jimenez",
       "givenName": "Jose Alberto",
       "familyName": "Jimenez",
-      "jobTitle": ["IT Business Relationship Manager", "IT Director", "IT Manager"],
+      "jobTitle": [
+        "IT Business Relationship Manager",
+        "IT Director",
+        "IT Manager"
+      ],
       "description": "Senior IT leader with 20+ years of experience in IT strategy, IT/OT integration, digital transformation, infrastructure management, and technology leadership across energy, pharmaceutical, healthcare, and food service industries.",
       "url": "https://josealbertopr.com/",
       "sameAs": [
         "https://www.linkedin.com/in/jose-alberto-jimenez-it"
       ],
       "knowsLanguage": [
-        { "@type": "Language", "name": "English", "alternateName": "en" },
-        { "@type": "Language", "name": "Spanish", "alternateName": "es" }
+        {
+          "@type": "Language",
+          "name": "English",
+          "alternateName": "en"
+        },
+        {
+          "@type": "Language",
+          "name": "Spanish",
+          "alternateName": "es"
+        }
       ],
       "nationality": {
         "@type": "Country",
@@ -116,7 +152,10 @@
           "@type": "EducationalOccupationalCredential",
           "name": "MBA in Technology Management",
           "credentialCategory": "degree",
-          "issuedBy": { "@type": "EducationalOrganization", "name": "University of Phoenix" }
+          "recognizedBy": {
+            "@type": "EducationalOrganization",
+            "name": "University of Phoenix"
+          }
         },
         {
           "@type": "EducationalOccupationalCredential",
@@ -127,31 +166,46 @@
           "@type": "EducationalOccupationalCredential",
           "name": "ITIL V4 Foundation",
           "credentialCategory": "certification",
-          "issuedBy": { "@type": "Organization", "name": "PeopleCert / Axelos" }
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "PeopleCert / Axelos"
+          }
         },
         {
           "@type": "EducationalOccupationalCredential",
           "name": "Business Relationship Management Professional (BRMP)",
           "credentialCategory": "certification",
-          "issuedBy": { "@type": "Organization", "name": "BRM Institute" }
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "BRM Institute"
+          }
         },
         {
           "@type": "EducationalOccupationalCredential",
           "name": "CyberSec First Responder (CFR)",
           "credentialCategory": "certification",
-          "issuedBy": { "@type": "Organization", "name": "CertNexus" }
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "CertNexus"
+          }
         },
         {
           "@type": "EducationalOccupationalCredential",
           "name": "CompTIA A+",
           "credentialCategory": "certification",
-          "issuedBy": { "@type": "Organization", "name": "CompTIA" }
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "CompTIA"
+          }
         },
         {
           "@type": "EducationalOccupationalCredential",
           "name": "CompTIA Network+",
           "credentialCategory": "certification",
-          "issuedBy": { "@type": "Organization", "name": "CompTIA" }
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "CompTIA"
+          }
         }
       ],
       "alumniOf": [
@@ -175,27 +229,52 @@
         {
           "@type": "Occupation",
           "name": "IT Business Relationship Manager",
-          "occupationLocation": { "@type": "Country", "name": "United States" },
+          "occupationLocation": {
+            "@type": "Country",
+            "name": "United States"
+          },
           "skills": "IT/OT Integration, Strategic Planning, Stakeholder Management, Vendor Negotiation, Digital Transformation"
         },
         {
           "@type": "Occupation",
           "name": "IT Director",
-          "skills": "IT Leadership, Team Management, Budget Management, Infrastructure, Cybersecurity, Cloud Computing"
+          "skills": "IT Leadership, Team Management, Budget Management, Infrastructure, Cybersecurity"
         }
       ],
       "knowsAbout": [
-        "IT Strategy", "Digital Transformation", "IT/OT Integration", "OT Systems", "SCADA",
-        "Infrastructure Management", "Business Relationship Management", "Change Management",
-        "Project Management", "Program Management", "Vendor Management", "Budget Management",
-        "IT Portfolio Management", "IT Operations", "Cybersecurity", "CyberSec First Responder",
-        "Cloud Computing", "Azure", "VMware", "ESX", "NetApp", "ERP",
-        "Six Sigma", "Process Improvement", "ITIL V4", "ITSM", "BRMP",
-        "FDA Compliance", "cGMP", "GMP", "21 CFR Part 11",
-        "Pharmaceutical IT", "Healthcare IT", "Energy IT", "Manufacturing IT",
-        "Food Service IT", "QSR Technology",
-        "Web Development", "Social Media Strategy", "AI Consulting",
-        "Process Automation", "SMB Technology Consulting"
+        "IT Strategy",
+        "Digital Transformation",
+        "IT/OT Integration",
+        "Business Relationship Management",
+        "Change Management",
+        "Budget Management",
+        "IT Operations",
+        "Cybersecurity",
+        "CyberSec First Responder",
+        "VMware",
+        "ESX",
+        "NetApp",
+        "ERP",
+        "Six Sigma",
+        "Process Improvement",
+        "ITIL V4",
+        "ITSM",
+        "BRMP",
+        "FDA Compliance",
+        "cGMP",
+        "GMP",
+        "21 CFR Part 11",
+        "Pharmaceutical IT",
+        "Healthcare IT",
+        "Energy IT",
+        "Manufacturing IT",
+        "Food Service IT",
+        "QSR Technology",
+        "Web Development",
+        "Social Media Strategy",
+        "AI Consulting",
+        "Process Automation",
+        "SMB Technology Consulting"
       ]
     },
     {
@@ -207,32 +286,35 @@
           "@type": "ListItem",
           "position": 1,
           "item": {
-            "@type": "WorkExperience",
-            "name": "IT Business Relationship Manager at Luma Energy LLC",
+            "@type": "EmployeeRole",
             "description": "Strategic technology partner managing IT/OT integration and multi-million-dollar technology portfolios. Saved $1.2M+ through strategic initiatives.",
-            "startDate": "2024-06"
+            "startDate": "2024-06",
+            "roleName": "IT Business Relationship Manager",
+            "name": "IT Business Relationship Manager at Luma Energy LLC"
           }
         },
         {
           "@type": "ListItem",
           "position": 2,
           "item": {
-            "@type": "WorkExperience",
-            "name": "IT Manager / MRM at Baxter International",
+            "@type": "EmployeeRole",
             "description": "Full oversight of IT operations for a regulated GMP medical device manufacturing facility.",
             "startDate": "2023-02",
-            "endDate": "2024-06"
+            "endDate": "2024-06",
+            "roleName": "IT Manager / MRM",
+            "name": "IT Manager / MRM at Baxter International"
           }
         },
         {
           "@type": "ListItem",
           "position": 3,
           "item": {
-            "@type": "WorkExperience",
-            "name": "Senior IT Specialist at Avara Pharmaceutical Services",
+            "@type": "EmployeeRole",
             "description": "Single point of contact for site IT in global pharmaceutical environment. Six Sigma Green Belt. $198K+ network infrastructure savings.",
             "startDate": "2016-10",
-            "endDate": "2023-02"
+            "endDate": "2023-02",
+            "roleName": "Senior IT Specialist",
+            "name": "Senior IT Specialist at Avara Pharmaceutical Services"
           }
         }
       ]
@@ -243,18 +325,17 @@
   <!-- ═══════════════════════════════════════════════
        PERFORMANCE HINTS (Core Web Vitals = SEO signal)
   ═══════════════════════════════════════════════ -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://api.emailjs.com" />
+  <link rel="dns-prefetch" href="https://api.emailjs.com" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preload" href="styles.css" as="style" />
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" as="style" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" href="fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
   <!-- EmailJS SDK 4.4.1 (BSD-3-Clause) hosted locally; no third-party CDN, so no SRI dependency -->
-  <script src="vendor/emailjs-4.4.1.min.js"></script>
-  <!-- Cloudflare Turnstile: explicit render, widget is created by main.js once a site key is set -->
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+  <script src="vendor/emailjs-4.4.1.min.js" defer></script>
+  <!-- Cloudflare Turnstile is injected by main.js only when WORKER_URL and TURNSTILE_SITEKEY are set -->
 </head>
 <body>
 
@@ -266,7 +347,7 @@
   <!-- NAV -->
   <header class="nav" role="banner">
     <div class="nav__inner container">
-      <a href="#hero" class="nav__logo" aria-label="Home">JAJ</a>
+      <a href="#hero" class="nav__logo" aria-label="JAJ — Home">JAJ</a>
       <nav aria-label="Main navigation">
         <ul class="nav__links">
           <li class="nav__indicator-wrap" aria-hidden="true"><span class="nav__indicator"></span></li>
@@ -277,7 +358,7 @@
           <li><a href="#contact" class="nav__cta" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </nav>
-      <button id="lang-toggle" class="nav__lang" aria-label="Switch to Spanish" title="Cambiar idioma / Switch language">
+      <button id="lang-toggle" class="nav__lang" aria-label="Switch to Spanish (ES)" title="Cambiar idioma / Switch language">
         <span class="nav__lang-icon" aria-hidden="true">🌐</span>
         <span class="nav__lang-label">ES</span>
       </button>
@@ -990,7 +1071,7 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             LinkedIn
           </a>
-          <a href="Jose_Alberto_Jimenez_Resume.pdf" download class="footer__link" aria-label="Download Resume">
+          <a href="Jose_Alberto_Jimenez_Resume.pdf" download class="footer__link" aria-label="Resume PDF — download">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <span data-i18n="footer.resume">Resume PDF</span>
           </a>
@@ -1005,7 +1086,7 @@
     </div>
   </footer>
 
-  <script src="i18n.js"></script>
-  <script src="main.js"></script>
+  <script src="i18n.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>

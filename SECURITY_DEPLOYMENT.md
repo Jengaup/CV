@@ -36,15 +36,14 @@ Do **not** add `preload` without reading https://hstspreload.org (removal takes 
 CSP (final, for when the Worker is live):
 
 ```
-default-src 'none'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
+default-src 'none'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
 ```
 
 | Origin | Directive | Why |
 |---|---|---|
 | `'self'` | script, connect, img | own JS, own `/api/contact` Worker route, own images |
 | challenges.cloudflare.com | script, frame, connect | Turnstile widget |
-| fonts.googleapis.com | style | Google Fonts CSS |
-| fonts.gstatic.com | font | Google Fonts files |
+| `'self'` | font | self-hosted woff2 files in `/fonts/` |
 | `'unsafe-inline'` | style | inline style attributes in the page; no inline scripts exist |
 
 While still on the legacy path, temporarily add `https://api.emailjs.com` to `connect-src`.
