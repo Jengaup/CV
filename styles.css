@@ -1554,6 +1554,7 @@ a {
 .cert-badge--crimson { background: #1e40af; font-size: 0.85rem; }
 .cert-badge--orange  { background: #d97706; }
 .cert-badge--teal    { background: #0d9488; }
+.cert-badge--slate   { background: #475569; font-size: 0.75rem; }
 .cert-badge--rose    { background: #be185d; font-size: 0.68rem; }
 .cert-badge--gold    { background: #b45309; }
 

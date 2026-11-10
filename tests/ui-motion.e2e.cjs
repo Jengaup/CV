@@ -2,7 +2,7 @@
    Network is mocked: fonts/Turnstile/EmailJS are aborted or stubbed. No real mail is sent. */
 const { chromium } = require('playwright');
 const BASE = process.env.BASE || 'http://localhost:8765';
-const EXPECT = { all: 19, education: 1, quality: 1, itsm: 1, brm: 2, cybersecurity: 1, infrastructure: 2, automation: 4, ai: 2, emergency: 4, leadership: 2 };
+const EXPECT = { all: 24, education: 1, quality: 1, itsm: 2, brm: 2, cybersecurity: 1, infrastructure: 2, automation: 4, ai: 2, simulation: 2, emergency: 4, leadership: 3 };
 let pass = 0, fail = 0; const failures = [];
 const ok = (c, m) => { if (c) pass++; else { fail++; failures.push(m); console.log('  FAIL:', m); } };
 
@@ -23,15 +23,15 @@ const visibleCards = p => p.evaluate(() => [...document.querySelectorAll('.cert-
 
   console.log('# Filters (desktop)');
   let { ctx, page, errs } = await open(browser);
-  ok(await page.locator('.cert-card').count() === 19, 'total cards is 19');
-  ok(await page.locator('#certs-count').textContent() === 'Showing 19 of 19 credentials', 'initial counter EN');
+  ok(await page.locator('.cert-card').count() === 24, 'total cards is 24');
+  ok(await page.locator('#certs-count').textContent() === 'Showing 24 of 24 credentials', 'initial counter EN');
   ok(await page.locator('#certs-filters button[aria-pressed="true"]').count() === 1, 'one pressed at start');
   for (const [f, n] of Object.entries(EXPECT)) {
     await page.click(`[data-filter="${f}"]`); await page.waitForTimeout(450);
     ok(await visibleCards(page) === n, `filter ${f} shows ${n}`);
     ok(await page.locator('#certs-filters button[aria-pressed="true"]').count() === 1, `${f}: exactly one pressed`);
     ok(await page.getAttribute(`[data-filter="${f}"]`, 'aria-pressed') === 'true', `${f}: pressed is clicked one`);
-    ok((await page.locator('#certs-count').textContent()) === `Showing ${n} of 19 credentials`, `${f}: counter text`);
+    ok((await page.locator('#certs-count').textContent()) === `Showing ${n} of 24 credentials`, `${f}: counter text`);
     const hiddenFocusable = await page.evaluate(() => [...document.querySelectorAll('.cert-card[hidden]')].some(c => getComputedStyle(c).display !== 'none' || c.offsetParent !== null));
     ok(!hiddenFocusable, `${f}: hidden cards removed from flow`);
     const grid = await page.evaluate(() => { const g = document.querySelector('.certs-grid'); const c = getComputedStyle(g); return { op: c.opacity, fading: g.classList.contains('is-fading') }; });
@@ -45,7 +45,7 @@ const visibleCards = p => p.evaluate(() => [...document.querySelectorAll('.cert-
   await page.click('[data-filter="emergency"]'); await page.waitForTimeout(450);
   ok((await page.locator('.cert-card:visible .cert-card__name').allTextContents()).some(t => t.includes('IS-240.C')), 'IS-240.C listed under emergency');
   await page.click('[data-filter="all"]'); await page.waitForTimeout(450);
-  ok(await visibleCards(page) === 19, 'All restores 19');
+  ok(await visibleCards(page) === 24, 'All restores 24');
   // keyboard
   await page.focus('[data-filter="cybersecurity"]'); await page.keyboard.press('Enter'); await page.waitForTimeout(450);
   ok(await visibleCards(page) === 1, 'Enter activates filter');
@@ -65,7 +65,7 @@ const visibleCards = p => p.evaluate(() => [...document.querySelectorAll('.cert-
   // language after filter
   await page.click('[data-filter="automation"]'); await page.waitForTimeout(450);
   await page.click('#lang-toggle'); await page.waitForTimeout(600);
-  ok((await page.locator('#certs-count').textContent()) === 'Mostrando 4 de 19 credenciales', 'counter in Spanish keeps filter');
+  ok((await page.locator('#certs-count').textContent()) === 'Mostrando 4 de 24 credenciales', 'counter in Spanish keeps filter');
   ok(await page.getAttribute('#certs-filters', 'aria-label') === 'Filtrar credenciales por área', 'filter group label translated');
   ok((await page.locator('[data-filter="all"]').textContent()).trim() === 'Todas', 'All label translated');
   ok(await visibleCards(page) === 4, 'filter preserved after language change');
@@ -136,7 +136,7 @@ const visibleCards = p => p.evaluate(() => [...document.querySelectorAll('.cert-
   await page.click('[data-filter="leadership"]'); await page.waitForTimeout(700);
   const vis = await page.evaluate(() => { const b = document.querySelector('[data-filter="leadership"]').getBoundingClientRect(); const g = document.getElementById('certs-filters').getBoundingClientRect(); return b.left >= g.left - 1 && b.right <= g.right + 1; });
   ok(vis, 'active filter scrolled into view');
-  ok(await visibleCards(page) === 2, 'leadership works on mobile');
+  ok(await visibleCards(page) === 3, 'leadership works on mobile');
   await page.click('.nav__hamburger'); await page.waitForTimeout(250);
   ok(await page.getAttribute('.nav__hamburger', 'aria-expanded') === 'true', 'mobile menu opens');
   await page.click('#mobile-menu a[href="#impact"]'); await page.waitForTimeout(900);
@@ -169,8 +169,8 @@ const visibleCards = p => p.evaluate(() => [...document.querySelectorAll('.cert-
 
   console.log('# No JavaScript');
   ({ ctx, page } = await open(browser, { js: false }));
-  ok(await page.evaluate(() => [...document.querySelectorAll('.cert-card')].every(c => c.offsetParent !== null)) , 'all 19 cards visible without JS');
-  ok(await page.locator('.cert-card:visible').count() === 19, '19 visible without JS');
+  ok(await page.evaluate(() => [...document.querySelectorAll('.cert-card')].every(c => c.offsetParent !== null)) , 'all 24 cards visible without JS');
+  ok(await page.locator('.cert-card:visible').count() === 24, '24 visible without JS');
   await ctx.close();
 
   await browser.close();
