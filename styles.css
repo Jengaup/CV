@@ -44,7 +44,7 @@
   --color-cyan:        #0ea5e9;
   --color-cyan-dim:    rgba(14, 165, 233, 0.12);
 
-  /* Text — boosted for WCAG AA */
+  /* Text: boosted for WCAG AA */
   --color-text:   #e8f0fe;
   --color-text-2: #a8c4e0;
   --color-text-3: #6788aa;
@@ -81,7 +81,7 @@
   --shadow-lg:     0 20px 60px rgba(0,0,0,0.5);
   --shadow-accent: 0 0 40px rgba(59,130,246,0.15);
 
-  /* Custom easing curves — Emil style */
+  /* Custom easing curves: Emil style */
   --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
@@ -386,7 +386,7 @@ a {
 .nav__hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav__hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile menu — slide-down with opacity */
+/* Mobile menu: slide-down with opacity */
 .nav__mobile {
   border-top: 1px solid var(--color-border);
   background: var(--color-surface);
@@ -699,7 +699,7 @@ a {
   animation: fade-up 0.55s var(--ease-out) forwards 0.85s;
 }
 
-/* Stats — stagger entry */
+/* Stats: stagger entry */
 .hero__stats {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -763,7 +763,7 @@ a {
   margin-top: var(--space-1);
 }
 
-/* Scroll indicator — subtle, no bounce */
+/* Scroll indicator: subtle, no bounce */
 .hero__scroll {
   position: absolute;
   bottom: var(--space-8);
@@ -980,7 +980,7 @@ a {
 /* ============================================================
    IMPACT
    ============================================================ */
-/* Section alternation — visual rhythm */
+/* Section alternation: visual rhythm */
 .section.about       { background: var(--color-bg); }
 .section.experience  { background: var(--color-bg-2); }
 .section.impact      { background: var(--color-bg); }
@@ -1463,7 +1463,7 @@ a {
 }
 
 /* ============================================================
-   SCROLL REVEAL — stagger-aware
+   SCROLL REVEAL: stagger-aware
    ============================================================ */
 .reveal {
   opacity: 0;
@@ -1707,7 +1707,7 @@ a {
 }
 
 /* ============================================================
-   SEO KEYWORD BLOCK — visually hidden
+   SEO KEYWORD BLOCK: visually hidden
    ============================================================ */
 .seo-keywords {
   position: absolute;
@@ -1722,7 +1722,7 @@ a {
 }
 
 /* ============================================================
-   ANIMATIONS — Scroll progress bar
+   ANIMATIONS: Scroll progress bar
    ============================================================ */
 .scroll-progress {
   position: fixed;
@@ -1737,7 +1737,7 @@ a {
 }
 
 /* ============================================================
-   ANIMATIONS — Cursor spotlight (hero)
+   ANIMATIONS: Cursor spotlight (hero)
    ============================================================ */
 .hero {
   --mx: 50%;
@@ -1756,7 +1756,7 @@ a {
 }
 
 /* ============================================================
-   ANIMATIONS — Magnetic buttons
+   ANIMATIONS: Magnetic buttons
    ============================================================ */
 @media (hover: hover) and (pointer: fine) {
   .btn--magnetic {
@@ -1766,7 +1766,7 @@ a {
 }
 
 /* ============================================================
-   ANIMATIONS — 3D card tilt
+   ANIMATIONS: 3D card tilt
    ============================================================ */
 @media (hover: hover) and (pointer: fine) {
   .impact-card,
@@ -1783,7 +1783,7 @@ a {
 }
 
 /* ============================================================
-   ANIMATIONS — Timeline line draw-in
+   ANIMATIONS: Timeline line draw-in
    ============================================================ */
 .timeline::before {
   transform-origin: top center;
@@ -1795,7 +1795,7 @@ a {
 }
 
 /* ============================================================
-   ANIMATIONS — Section title shimmer
+   ANIMATIONS: Section title shimmer
    ============================================================ */
 .section__title {
   position: relative;
@@ -1825,7 +1825,7 @@ a {
 }
 
 /* ============================================================
-   ANIMATIONS — Impact number flash on complete
+   ANIMATIONS: Impact number flash on complete
    ============================================================ */
 @keyframes impact-flash {
   0%   { text-shadow: 0 0 0px rgba(14, 165, 233, 0); }
@@ -1837,7 +1837,7 @@ a {
 }
 
 /* ============================================================
-   ANIMATIONS — Stagger cascade (cert + expertise cards)
+   ANIMATIONS: Stagger cascade (cert + expertise cards)
    ============================================================ */
 .cert-card.reveal,
 .expertise-card.reveal,
@@ -1928,7 +1928,7 @@ a {
 }
 
 /* ============================================================
-   LEGAL PAGE — shared styles (privacy / terms / accessibility)
+   LEGAL PAGE: shared styles (privacy / terms / accessibility)
    ============================================================ */
 .legal-page {
   max-width: 780px;

@@ -1,5 +1,5 @@
 /* ============================================================
-   legal.js — Minimal JS for privacy/terms/accessibility pages
+   legal.js: Minimal JS for privacy/terms/accessibility pages
    Handles: footer year, nav hamburger, lang-block visibility
    Does NOT include EmailJS or animation code.
    ============================================================ */

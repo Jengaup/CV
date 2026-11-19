@@ -1,5 +1,5 @@
 /* ============================================================
-   BILINGUAL SUPPORT — English (default) / Spanish
+   BILINGUAL SUPPORT: English (default) / Spanish
    ============================================================ */
 (function () {
   var translations = {
@@ -11,11 +11,11 @@
       'nav.contact':    'Contact',
 
       'hero.title': 'IT Director &amp; Business Relationship Manager',
-      'hero.sub':   'I turn business language into the requirements IT needs to build the right solution — and put AI to work: virtual-assistant agents and an end-to-end AI deployment that reduced HR and legal staffing needs for a homecare company.',
+      'hero.sub':   'I turn business language into the requirements IT needs to build the right solution, and put AI to work: virtual-assistant agents and an end-to-end AI deployment that reduced HR and legal staffing needs for a homecare company.',
       'hero.cta1':   'Get in Touch',
       'hero.cta2':   'See My Impact',
       'hero.resume': 'Download Resume',
-      'hero.sub':    'I turn business language into the requirements IT needs to build the right solution — and put AI to work: virtual-assistant agents and an end-to-end AI deployment that reduced HR and legal staffing needs for a homecare company.',
+      'hero.sub':    'I turn business language into the requirements IT needs to build the right solution, and put AI to work: virtual-assistant agents and an end-to-end AI deployment that reduced HR and legal staffing needs for a homecare company.',
       'hero.stat1': 'Business Needs Translated into IT Requirements',
       'hero.stat2': 'Cost Savings Delivered',
       'hero.stat3': 'On-Time Project Delivery',
@@ -147,7 +147,7 @@
       'tl5.highlights': [
         'Design and develop professional websites and landing pages for clients across multiple industries',
         'Advise businesses on social media strategy, digital presence, and brand positioning',
-        'Consult on AI tool adoption — chatbots, content generation, workflow intelligence — to reduce manual effort and improve productivity',
+        'Consult on AI tool adoption (chatbots, content generation, workflow intelligence) to reduce manual effort and improve productivity',
         'Built AI virtual-secretary agents that take over routine administrative work',
         'Delivered the complete deployment of an AI solution for a homecare company, reducing HR and legal staffing needs',
         'Build process automations connecting business systems, eliminating repetitive tasks and saving measurable hours per week'
@@ -219,11 +219,11 @@
       'nav.contact':    'Contacto',
 
       'hero.title': 'Director de TI y Gerente de Relaciones de Negocio',
-      'hero.sub':   'Convierto el lenguaje del negocio en los requisitos que TI necesita para construir la solución correcta — y pongo la IA a trabajar: agentes de asistentes virtuales y un despliegue completo de IA que redujo la necesidad de personal de RR. HH. y legal en una compañía de cuidado en el hogar.',
+      'hero.sub':   'Convierto el lenguaje del negocio en los requisitos que TI necesita para construir la solución correcta, y pongo la IA a trabajar: agentes de asistentes virtuales y un despliegue completo de IA que redujo la necesidad de personal de RR. HH. y legal en una compañía de cuidado en el hogar.',
       'hero.cta1':   'Contáctame',
       'hero.cta2':   'Ver Mi Impacto',
       'hero.resume': 'Descargar CV',
-      'hero.sub':    'Convierto el lenguaje del negocio en los requisitos que TI necesita para construir la solución correcta — y pongo la IA a trabajar: agentes de asistentes virtuales y un despliegue completo de IA que redujo la necesidad de personal de RR. HH. y legal en una compañía de cuidado en el hogar.',
+      'hero.sub':    'Convierto el lenguaje del negocio en los requisitos que TI necesita para construir la solución correcta, y pongo la IA a trabajar: agentes de asistentes virtuales y un despliegue completo de IA que redujo la necesidad de personal de RR. HH. y legal en una compañía de cuidado en el hogar.',
       'hero.stat1': 'Necesidades de Negocio Traducidas en Requisitos de TI',
       'hero.stat2': 'Ahorros Generados',
       'hero.stat3': 'Proyectos Entregados a Tiempo',
@@ -355,7 +355,7 @@
       'tl5.highlights': [
         'Diseño y desarrollo de sitios web profesionales y páginas de destino para clientes de múltiples industrias',
         'Asesoría a empresas sobre estrategia en redes sociales, presencia digital y posicionamiento de marca',
-        'Consultoría en adopción de herramientas de IA — chatbots, generación de contenido, flujos inteligentes — para reducir el esfuerzo manual y mejorar la productividad',
+        'Consultoría en adopción de herramientas de IA (chatbots, generación de contenido, flujos inteligentes) para reducir el esfuerzo manual y mejorar la productividad',
         'Construcción de agentes de IA de secretaría virtual que asumen el trabajo administrativo rutinario',
         'Despliegue completo de una solución de IA para una compañía de cuidado en el hogar, reduciendo la necesidad de personal de RR. HH. y legal',
         'Construcción de automatizaciones de procesos que conectan sistemas de negocio, eliminando tareas repetitivas y ahorrando horas medibles por semana'

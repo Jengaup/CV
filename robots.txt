@@ -1,4 +1,4 @@
-# robots.txt — josealbertopr.com
+# robots.txt: josealbertopr.com
 # Policy: public search engines and AI *search/assistant* crawlers are allowed;
 # crawlers used for model *training* are disallowed. robots.txt is advisory only:
 # abuse of the contact form is handled by Cloudflare Turnstile + rate limiting.

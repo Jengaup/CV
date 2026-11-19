@@ -17,12 +17,12 @@ var _t = ['templ','ate_r','jtij7','1'].join('');
    PORTFOLIO NOTICE
    ============================================================ */
 console.log(
-  '%cJosealbertopr.com — Personal professional portfolio.',
+  '%cJosealbertopr.com | Personal professional portfolio.',
   'color:#2563eb;font-size:13px;'
 );
 
 /* ============================================================
-   NAVIGATION — mobile toggle
+   NAVIGATION: mobile toggle
    ============================================================ */
 (function () {
   var hamburger  = document.querySelector('.nav__hamburger');
@@ -134,7 +134,7 @@ console.log(
 })();
 
 /* ============================================================
-   NAV — active section highlight + shared sliding indicator
+   NAV: active section highlight + shared sliding indicator
    ============================================================ */
 (function () {
   var sections = document.querySelectorAll('main section[id]');
@@ -206,7 +206,7 @@ console.log(
 })();
 
 /* ============================================================
-   CERTIFICATIONS — accessible filters (progressive enhancement)
+   CERTIFICATIONS: accessible filters (progressive enhancement)
    ============================================================ */
 (function () {
   var group = document.getElementById('certs-filters');
@@ -304,7 +304,7 @@ console.log(
 })();
 
 /* ============================================================
-   CONTACT FORM — validation + security + EmailJS submission
+   CONTACT FORM: validation + security + EmailJS submission
    ============================================================ */
 (function () {
   /* Mount Turnstile once its script and a site key are available */
@@ -508,7 +508,7 @@ console.log(
     showStatus(successMsg, false);
     showStatus(errorMsg,   false);
 
-    /* 1 — Validate fields */
+    /* 1: Validate fields */
     if (!validateAll()) {
       var firstInvalid = Object.keys(fields).find(function (k) {
         return fields[k].el && fields[k].el.getAttribute('aria-invalid') === 'true';
@@ -517,23 +517,23 @@ console.log(
       return;
     }
 
-    /* 2 — Honeypot */
+    /* 2: Honeypot */
     var honeypot = form.querySelector('input[name="_gotcha"]');
     if (honeypot && honeypot.value) return;
 
-    /* 3 — Bot timing (filled too fast) */
+    /* 3: Bot timing (filled too fast) */
     if (Date.now() - pageLoadTime < MIN_FILL_MS) return;
 
-    /* 4 — Submission guard (double-submit) */
+    /* 4: Submission guard (double-submit) */
     if (!sessionToken) return;
 
-    /* 5 — Client-side rate limit (last line of defence; Worker enforces by IP) */
+    /* 5: Client-side rate limit (last line of defence; Worker enforces by IP) */
     if (isRateLimited()) {
       showError(window.i18n ? window.i18n.t('form.rateLimit') : 'Too many attempts. Please try again in an hour.');
       return;
     }
 
-    /* 6 — Turnstile token (required only on the Worker path) */
+    /* 6: Turnstile token (required only on the Worker path) */
     var useWorker = !!WORKER_URL;
     var turnstileToken = '';
     if (useWorker) {
@@ -581,7 +581,7 @@ console.log(
           _sent = true;
           clearTimeout(_timeout);
           if (!result.ok) {
-            /* Worker returned a structured error — show generic message only */
+            /* Worker returned a structured error: show generic message only */
             console.warn('[Worker] submission rejected:', result.data && result.data.error);
             showStatus(errorMsg, true);
             if (errorMsg) errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -655,7 +655,7 @@ console.log(
 })();
 
 /* ============================================================
-   ANIMATION 1 — Scroll progress bar
+   ANIMATION 1: Scroll progress bar
    ============================================================ */
 (function () {
   var bar = document.getElementById('scroll-progress');
@@ -670,7 +670,7 @@ console.log(
 })();
 
 /* ============================================================
-   ANIMATION 2 — Cursor spotlight (hero)
+   ANIMATION 2: Cursor spotlight (hero)
    ============================================================ */
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -689,7 +689,7 @@ console.log(
 })();
 
 /* ============================================================
-   ANIMATION 3 — Magnetic buttons
+   ANIMATION 3: Magnetic buttons
    ============================================================ */
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -717,7 +717,7 @@ console.log(
 })();
 
 /* ============================================================
-   ANIMATION 4 — 3D card tilt
+   ANIMATION 4: 3D card tilt
    ============================================================ */
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -744,7 +744,7 @@ console.log(
 })();
 
 /* ============================================================
-   ANIMATION 5 — Timeline line draw-in
+   ANIMATION 5: Timeline line draw-in
    ============================================================ */
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -763,7 +763,7 @@ console.log(
 })();
 
 /* ============================================================
-   ANIMATION 6 — Section title shimmer
+   ANIMATION 6: Section title shimmer
    ============================================================ */
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -786,7 +786,7 @@ console.log(
 })();
 
 /* ============================================================
-   ANIMATION 7 — Impact metric flash on count complete +
+   ANIMATION 7: Impact metric flash on count complete +
                   enhanced counter for impact-card__metric
    ============================================================ */
 (function () {
@@ -847,7 +847,7 @@ console.log(
 })();
 
 /* ============================================================
-   ANIMATION 8 — Stagger cascade (cert, expertise, impact, value cards)
+   ANIMATION 8: Stagger cascade (cert, expertise, impact, value cards)
    ============================================================ */
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
