@@ -158,7 +158,7 @@ Source: statements made by the site owner in this session; **no supporting docum
 |---|---|---|
 | "Virtual-assistant / virtual-secretary agents" built | Hero sentence, Experience (independent consulting) | Owner statement; [PENDIENTE] confirm scope and whether it can be named |
 | "End-to-end AI deployment that reduced HR and legal staffing needs for a homecare company" | Hero sentence, hero box "AI", Experience (independent consulting) | Owner statement; [PENDIENTE] confirm client confidentiality, that it was independent work, and whether a number (headcount, hours, cost) can be published |
-| "IT + OT integration in regulated environments" | Hero box | Consistent with existing Experience entries (energy, pharma/GMP, medical devices) |
+| "Business needs translated into IT requirements" (BRM) | Hero sentence and box | Describes the BRM role already presented in Experience and Expertise |
 
-Removed from the hero because it was redundant with the opening sentence: "20+ Years" and "4 Industries" boxes (the 20+ years claim remains in the meta description and structured data).
+Removed from the hero because it was redundant with the opening sentence: "20+ Years", "4 Industries" and "IT + OT" boxes (the 20+ years claim remains in the meta description and structured data).
 Not published on purpose: any personal project involving a family member (minor / health information).
