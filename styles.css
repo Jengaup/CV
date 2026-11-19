@@ -701,15 +701,14 @@ a {
 
 /* Stats — stagger entry */
 .hero__stats {
-  display: flex;
-  gap: var(--space-8);
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
   margin-top: var(--space-8);
   padding-top: var(--space-8);
   border-top: 1px solid var(--color-border);
   width: 100%;
-  max-width: 700px;
+  max-width: 920px;
 }
 
 .hero__stat {
@@ -723,7 +722,8 @@ a {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: rgba(11, 26, 46, 0.6);
-  min-width: 130px;
+  min-width: 0;
+  text-align: center;
   transition: border-color 200ms var(--ease-out), background 200ms var(--ease-out);
 }
 @media (hover: hover) and (pointer: fine) {
@@ -1680,7 +1680,7 @@ a {
   .nav__links     { display: none; }
   .nav__hamburger { display: flex; }
 
-  .hero__stats { gap: var(--space-5); }
+  .hero__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); max-width: 520px; }
 
   .expertise__grid { grid-template-columns: 1fr 1fr; }
 
@@ -1704,7 +1704,6 @@ a {
   .footer__links    { justify-content: center; }
   .certs-grid       { grid-template-columns: 1fr; }
   .hero__stats      { gap: var(--space-3); }
-  .hero__stat       { min-width: 0; flex: 1 1 calc(50% - var(--space-3)); }
 }
 
 /* ============================================================

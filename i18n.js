@@ -11,15 +11,15 @@
       'nav.contact':    'Contact',
 
       'hero.title': 'IT Director &amp; Business Relationship Manager',
-      'hero.sub':   '20+ years of IT leadership, digital transformation, and IT/OT integration across energy, pharmaceutical, healthcare, and food service industries. US Citizen. Bilingual EN/ES.',
+      'hero.sub':   'I bridge IT and OT in regulated environments — and put AI to work: virtual-assistant agents and an end-to-end AI deployment that reduced HR and legal staffing needs for a homecare company.',
       'hero.cta1':   'Get in Touch',
       'hero.cta2':   'See My Impact',
       'hero.resume': 'Download Resume',
-      'hero.sub':    'IT executive who turns technology investment into measurable business results — 20+ years across energy, pharma, healthcare &amp; food service.',
-      'hero.stat1': 'Years of Experience',
+      'hero.sub':    'I bridge IT and OT in regulated environments — and put AI to work: virtual-assistant agents and an end-to-end AI deployment that reduced HR and legal staffing needs for a homecare company.',
+      'hero.stat1': 'Integration in Regulated Environments',
       'hero.stat2': 'Cost Savings Delivered',
       'hero.stat3': 'On-Time Project Delivery',
-      'hero.stat4': 'Industries Served',
+      'hero.stat4': 'AI Agents &amp; End-to-End Deployment',
 
       'about.label':      'About',
       'about.title':      'Where Technology Meets <span class="accent">Business Value</span>',
@@ -148,9 +148,11 @@
         'Design and develop professional websites and landing pages for clients across multiple industries',
         'Advise businesses on social media strategy, digital presence, and brand positioning',
         'Consult on AI tool adoption — chatbots, content generation, workflow intelligence — to reduce manual effort and improve productivity',
+        'Built AI virtual-secretary agents that take over routine administrative work',
+        'Delivered the complete deployment of an AI solution for a homecare company, reducing HR and legal staffing needs',
         'Build process automations connecting business systems, eliminating repetitive tasks and saving measurable hours per week'
       ],
-      'tl5.tags': ['Web Development', 'Social Media', 'AI Consulting', 'Process Automation', 'Digital Strategy', 'SMB Technology'],
+      'tl5.tags': ['Web Development', 'Social Media', 'AI Agents', 'AI Consulting', 'Process Automation', 'Digital Strategy', 'SMB Technology'],
 
       'edu.title': 'Education',
 
@@ -217,15 +219,15 @@
       'nav.contact':    'Contacto',
 
       'hero.title': 'Director de TI y Gerente de Relaciones de Negocio',
-      'hero.sub':   'Más de 20 años de liderazgo en TI, transformación digital e integración TI/OT en industrias de energía, farmacéutica, salud y servicio de alimentos. Ciudadano estadounidense. Bilingüe EN/ES.',
+      'hero.sub':   'Uno TI y OT en entornos regulados — y pongo la IA a trabajar: agentes de asistentes virtuales y un despliegue completo de IA que redujo la necesidad de personal de RR. HH. y legal en una compañía de cuidado en el hogar.',
       'hero.cta1':   'Contáctame',
       'hero.cta2':   'Ver Mi Impacto',
       'hero.resume': 'Descargar CV',
-      'hero.sub':    'Ejecutivo de TI que convierte inversión tecnológica en resultados medibles — 20+ años en energía, pharma, salud y servicio de alimentos.',
-      'hero.stat1': 'Años de Experiencia',
+      'hero.sub':    'Uno TI y OT en entornos regulados — y pongo la IA a trabajar: agentes de asistentes virtuales y un despliegue completo de IA que redujo la necesidad de personal de RR. HH. y legal en una compañía de cuidado en el hogar.',
+      'hero.stat1': 'Integración en Entornos Regulados',
       'hero.stat2': 'Ahorros Generados',
       'hero.stat3': 'Proyectos Entregados a Tiempo',
-      'hero.stat4': 'Industrias Atendidas',
+      'hero.stat4': 'Agentes de IA y Despliegue Completo',
 
       'about.label':      'Sobre Mí',
       'about.title':      'Donde la Tecnología Genera <span class="accent">Valor de Negocio</span>',
@@ -354,9 +356,11 @@
         'Diseño y desarrollo de sitios web profesionales y páginas de destino para clientes de múltiples industrias',
         'Asesoría a empresas sobre estrategia en redes sociales, presencia digital y posicionamiento de marca',
         'Consultoría en adopción de herramientas de IA — chatbots, generación de contenido, flujos inteligentes — para reducir el esfuerzo manual y mejorar la productividad',
+        'Construcción de agentes de IA de secretaría virtual que asumen el trabajo administrativo rutinario',
+        'Despliegue completo de una solución de IA para una compañía de cuidado en el hogar, reduciendo la necesidad de personal de RR. HH. y legal',
         'Construcción de automatizaciones de procesos que conectan sistemas de negocio, eliminando tareas repetitivas y ahorrando horas medibles por semana'
       ],
-      'tl5.tags': ['Desarrollo Web', 'Redes Sociales', 'Consultoría IA', 'Automatización de Procesos', 'Estrategia Digital', 'Tecnología PYME'],
+      'tl5.tags': ['Desarrollo Web', 'Redes Sociales', 'Agentes de IA', 'Consultoría IA', 'Automatización de Procesos', 'Estrategia Digital', 'Tecnología PYME'],
 
       'edu.title': 'Educación',
 

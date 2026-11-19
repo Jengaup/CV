@@ -89,9 +89,11 @@ console.log(
   }
 
   var stats = document.querySelectorAll('.hero__stat-value');
-  stats.forEach(function (el) {
+  stats = Array.prototype.filter.call(stats, function (el) {
+    if (parseTarget(el).num === 0) return false; /* non-numeric value (e.g. "AI"): leave as is */
     el.setAttribute('data-stat-raw', el.textContent.trim());
     el.textContent = '0';
+    return true;
   });
 
   var observer = new IntersectionObserver(function (entries) {
