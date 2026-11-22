@@ -6,6 +6,8 @@ which has no server-side protection. After step 5 that path is no longer used.
 
 ## 1. Force HTTPS (Cloudflare)
 
+**Verified live 2026-11-22:** `http://josealbertopr.com/` answers `301` to `https://josealbertopr.com/` (OK). `https://josealbertopr.com/` still returns **no** HSTS, CSP, X-Content-Type-Options, X-Frame-Options, Referrer-Policy or Permissions-Policy headers, so step 2 is still pending.
+
 SSL/TLS → Edge Certificates → **Always Use HTTPS = On**. SSL/TLS mode should be **Full (strict)**
 (GitHub Pages serves a valid certificate for the custom domain).
 Path, query string and fragment are preserved by this redirect.
@@ -30,7 +32,7 @@ Rule: When `Hostname equals josealbertopr.com` → Set static:
 | Referrer-Policy | `strict-origin-when-cross-origin` |
 | Permissions-Policy | `camera=(), microphone=(), geolocation=(), payment=(), usb=()` |
 
-Before enabling `includeSubDomains`, confirm every subdomain (e.g. `www`) works over HTTPS only.
+Before enabling `includeSubDomains`, confirm every subdomain works over HTTPS only. Known subdomains: `ai.josealbertopr.com` (JimjoAI, AI and automation services) was checked on 2026-11-22: it redirects HTTP with `301` and already sends `Strict-Transport-Security: max-age=31536000`, so it is compatible. `www` could not be checked from the build environment: confirm it manually.
 Do **not** add `preload` without reading https://hstspreload.org (removal takes months).
 
 CSP (final, for when the Worker is live):
