@@ -59,7 +59,7 @@ Space Grotesk, Inter and JetBrains Mono (SIL OFL 1.1) are served from this site 
 ### 5. LinkedIn (External Link Only)
 
 **Purpose:** Professional networking profile link  
-**Nature:** Outbound hyperlink only — no SDK, no embed, no pixel, no iframe.
+**Nature:** Outbound hyperlink only (also used for the Credly "Verify" links) — no SDK, no embed, no pixel, no iframe.
 
 **Data processed:** When a user clicks the LinkedIn link and navigates to LinkedIn, their IP address and browser information are transmitted to LinkedIn's servers. This is standard external navigation behavior and not within the control of this site.  
 **Data collected by this site:** None from the LinkedIn link.  
