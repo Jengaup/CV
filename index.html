@@ -1,195 +1,1197 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>José Alberto — Freelancer & Consultoría Tecnológica</title>
-  <meta name="description" content="Servicios freelance de desarrollo web, manejo de redes sociales, consultoría tecnológica y consultoría de inteligencia artificial y automatizaciones." />
-  <style>
-    :root {
-      --bg: #0b1020;
-      --bg-soft: #121a33;
-      --card: #16203d;
-      --text: #e8edff;
-      --muted: #9fb0d8;
-      --accent: #6ea8ff;
-      --accent-2: #a679ff;
-      --border: rgba(255, 255, 255, 0.08);
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: radial-gradient(1200px 600px at 70% -10%, #1b294f 0%, var(--bg) 55%);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-    .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
 
-    header {
-      text-align: center;
-      padding: 90px 20px 60px;
-    }
-    .badge {
-      display: inline-block;
-      font-size: 0.8rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 6px 16px;
-      margin-bottom: 24px;
-      background: rgba(110, 168, 255, 0.08);
-    }
-    h1 {
-      font-size: clamp(2.2rem, 6vw, 3.6rem);
-      line-height: 1.1;
-      background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      margin-bottom: 16px;
-    }
-    header p {
-      color: var(--muted);
-      font-size: clamp(1rem, 2.5vw, 1.25rem);
-      max-width: 640px;
-      margin: 0 auto;
-    }
-    .cta {
-      margin-top: 34px;
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-block;
-      padding: 13px 26px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary {
-      background: linear-gradient(120deg, var(--accent), var(--accent-2));
-      color: #0b1020;
-      box-shadow: 0 10px 30px rgba(110, 168, 255, 0.35);
-    }
-    .btn-ghost {
-      color: var(--text);
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.03);
-    }
+  <!-- ═══════════════════════════════════════════════
+       SECURITY HEADERS
+  ═══════════════════════════════════════════════ -->
+  <!--
+    CSP meta: fallback only; the authoritative policy is the HTTP
+    header set in Cloudflare (see SECURITY_DEPLOYMENT.md). frame-ancestors only works as a header.
+  -->
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'none';
+    script-src 'self' https://challenges.cloudflare.com;
+    style-src 'self' 'unsafe-inline';
+    font-src 'self';
+    img-src 'self' data: https://josealbertopr.com;
+    connect-src 'self' https://api.emailjs.com https://challenges.cloudflare.com;
+    frame-src https://challenges.cloudflare.com;
+    base-uri 'self';
+    form-action 'self';
+    upgrade-insecure-requests;
+  " />
+  <!-- X-Frame-Options, nosniff, Permissions-Policy, HSTS are real HTTP headers; set in Cloudflare, not via meta -->
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-    section { padding: 40px 0; }
-    .section-title {
-      text-align: center;
-      font-size: 1.6rem;
-      margin-bottom: 8px;
-    }
-    .section-sub {
-      text-align: center;
-      color: var(--muted);
-      margin-bottom: 40px;
-    }
+  <!-- ═══════════════════════════════════════════════
+       PRIMARY SEO
+  ═══════════════════════════════════════════════ -->
+  <title>Jose Alberto Jimenez | IT Director &amp; Business Relationship Manager</title>
+  <meta name="description" content="IT Director and BRM turning business needs into IT requirements and deploying AI agents. MBA, ITIL 4, BRMP, Six Sigma. Bilingual EN/ES." />
+  <meta name="author" content="Jose Alberto Jimenez" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+  <meta name="theme-color" content="#050d1a" />
+  <link rel="canonical" href="https://josealbertopr.com/" />
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 28px 24px;
-      transition: transform 0.18s ease, border-color 0.18s ease;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(110, 168, 255, 0.4);
-    }
-    .card .ico { font-size: 2rem; margin-bottom: 14px; }
-    .card h3 { font-size: 1.15rem; margin-bottom: 8px; }
-    .card p { color: var(--muted); font-size: 0.96rem; }
+  <!-- ═══════════════════════════════════════════════
+       OPEN GRAPH (Facebook, LinkedIn, WhatsApp)
+  ═══════════════════════════════════════════════ -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Jose Alberto Jimenez | IT Director &amp; Business Relationship Manager" />
+  <meta property="og:description" content="IT Director and BRM turning business needs into IT requirements and deploying AI agents. MBA, ITIL 4, BRMP, Six Sigma. Bilingual EN/ES." />
+  <meta property="og:url" content="https://josealbertopr.com/" />
+  <meta property="og:site_name" content="Jose Alberto Jimenez | IT Executive Portfolio" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_PR" />
+  <meta property="og:image" content="https://josealbertopr.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:alt" content="Jose Alberto Jimenez, IT Director &amp; Business Relationship Manager" />
+  <meta property="profile:first_name" content="Jose Alberto" />
+  <meta property="profile:last_name" content="Jimenez" />
 
-    footer {
-      text-align: center;
-      padding: 60px 20px 50px;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      margin-top: 30px;
+  <!-- ═══════════════════════════════════════════════
+       TWITTER / X CARD
+  ═══════════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Jose Alberto Jimenez | IT Director &amp; Business Relationship Manager" />
+  <meta name="twitter:description" content="IT Director and BRM turning business needs into IT requirements and deploying AI agents. MBA, ITIL 4, BRMP, Six Sigma. Bilingual EN/ES." />
+  <meta name="twitter:image" content="https://josealbertopr.com/og-image.jpg" />
+  <meta name="twitter:image:alt" content="Jose Alberto Jimenez, IT Director &amp; Business Relationship Manager" />
+  <!-- [PENDIENTE] twitter:site / twitter:creator removed: no verified X/Twitter account provided -->
+
+  <!-- ═══════════════════════════════════════════════
+       STRUCTURED DATA: Schema.org (Google, Bing, ATS)
+  ═══════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "@id": "https://josealbertopr.com/#webpage",
+      "name": "Jose Alberto Jimenez, IT Director & Business Relationship Manager",
+      "description": "Professional portfolio and CV of Jose Alberto Jimenez, a senior IT leader with 20+ years of experience.",
+      "url": "https://josealbertopr.com/",
+      "inLanguage": [
+        "en",
+        "es"
+      ],
+      "dateModified": "2026-11-06",
+      "mainEntity": {
+        "@id": "https://josealbertopr.com/#person"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://josealbertopr.com/"
+          }
+        ]
+      },
+      "isPartOf": {
+        "@id": "https://josealbertopr.com/#website"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://josealbertopr.com/#website",
+      "name": "Jose Alberto Jimenez | IT Executive Portfolio",
+      "url": "https://josealbertopr.com/",
+      "inLanguage": [
+        "en",
+        "es"
+      ],
+      "publisher": {
+        "@id": "https://josealbertopr.com/#person"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://josealbertopr.com/#person",
+      "name": "Jose Alberto Jimenez",
+      "givenName": "Jose Alberto",
+      "familyName": "Jimenez",
+      "jobTitle": [
+        "IT Business Relationship Manager",
+        "IT Director",
+        "IT Manager"
+      ],
+      "description": "Senior IT leader with 20+ years of experience translating business needs into IT requirements, digital transformation, infrastructure, technology leadership and applied AI (AI agents and AI deployment).",
+      "url": "https://josealbertopr.com/",
+      "sameAs": [
+        "https://www.linkedin.com/in/jose-alberto-jimenez-it"
+      ],
+      "knowsLanguage": [
+        {
+          "@type": "Language",
+          "name": "English",
+          "alternateName": "en"
+        },
+        {
+          "@type": "Language",
+          "name": "Spanish",
+          "alternateName": "es"
+        }
+      ],
+      "nationality": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "MBA in Technology Management",
+          "credentialCategory": "degree",
+          "recognizedBy": {
+            "@type": "EducationalOrganization",
+            "name": "University of Phoenix"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Six Sigma Green Belt",
+          "credentialCategory": "certification"
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "ITIL V4 Foundation",
+          "credentialCategory": "certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "PeopleCert / Axelos"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Business Relationship Management Professional (BRMP)",
+          "credentialCategory": "certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "BRM Institute"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "CyberSec First Responder (CFR)",
+          "credentialCategory": "certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "CertNexus"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "CompTIA A+",
+          "credentialCategory": "certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "CompTIA"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "CompTIA Network+",
+          "credentialCategory": "certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "CompTIA"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Claude Academy: Claude 101",
+          "credentialCategory": "certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Anthropic"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Claude Academy: Claude Code in action",
+          "credentialCategory": "certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Anthropic"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "ServiceNow Administration Fundamentals",
+          "credentialCategory": "certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "ServiceNow"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Snagit Certification",
+          "credentialCategory": "certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "TechSmith"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Certified Coach",
+          "credentialCategory": "certification",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "ICF"
+          }
+        }
+      ],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "University of Phoenix",
+          "description": "MBA · Technology Management · GPA 3.80"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Universidad Metropolitana (UMET)",
+          "description": "BA · Information Systems · GPA 3.70"
+        }
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Luma Energy LLC",
+        "description": "Major energy transmission and distribution company"
+      },
+      "hasOccupation": [
+        {
+          "@type": "Occupation",
+          "name": "IT Business Relationship Manager",
+          "occupationLocation": {
+            "@type": "Country",
+            "name": "United States"
+          },
+          "skills": "IT/OT Integration, Strategic Planning, Stakeholder Management, Vendor Negotiation, Digital Transformation"
+        },
+        {
+          "@type": "Occupation",
+          "name": "IT Director",
+          "skills": "IT Leadership, Team Management, Budget Management, Infrastructure, Cybersecurity"
+        }
+      ],
+      "knowsAbout": [
+        "IT Strategy",
+        "Digital Transformation",
+        "IT/OT Integration",
+        "Business Relationship Management",
+        "Change Management",
+        "Budget Management",
+        "IT Operations",
+        "Cybersecurity",
+        "CyberSec First Responder",
+        "VMware",
+        "ESX",
+        "NetApp",
+        "ERP",
+        "Six Sigma",
+        "Process Improvement",
+        "ITIL V4",
+        "ITSM",
+        "BRMP",
+        "FDA Compliance",
+        "cGMP",
+        "GMP",
+        "21 CFR Part 11",
+        "Pharmaceutical IT",
+        "Healthcare IT",
+        "Energy IT",
+        "Manufacturing IT",
+        "Food Service IT",
+        "QSR Technology",
+        "Web Development",
+        "Social Media Strategy",
+        "AI Consulting",
+        "Process Automation",
+        "SMB Technology Consulting",
+        "AI Agents",
+        "AI Adoption"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Work Experience: Jose Alberto Jimenez",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "EmployeeRole",
+            "description": "Strategic technology partner managing IT/OT integration and multi-million-dollar technology portfolios. Saved $1.2M+ through strategic initiatives.",
+            "startDate": "2024-06",
+            "roleName": "IT Business Relationship Manager",
+            "name": "IT Business Relationship Manager at Luma Energy LLC"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "EmployeeRole",
+            "description": "Full oversight of IT operations for a regulated GMP medical device manufacturing facility.",
+            "startDate": "2023-02",
+            "endDate": "2024-06",
+            "roleName": "IT Manager / MRM",
+            "name": "IT Manager / MRM at Baxter International"
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "EmployeeRole",
+            "description": "Single point of contact for site IT in global pharmaceutical environment. Six Sigma Green Belt. $198K+ network infrastructure savings.",
+            "startDate": "2016-10",
+            "endDate": "2023-02",
+            "roleName": "Senior IT Specialist",
+            "name": "Senior IT Specialist at Avara Pharmaceutical Services"
+          }
+        }
+      ]
     }
-    footer a { color: var(--accent); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    .contact-links {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-  </style>
+  ]
+  </script>
+
+  <!-- ═══════════════════════════════════════════════
+       PERFORMANCE HINTS (Core Web Vitals = SEO signal)
+  ═══════════════════════════════════════════════ -->
+  <link rel="dns-prefetch" href="https://api.emailjs.com" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-48.png" type="image/png" sizes="48x48" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preload" href="styles.css" as="style" />
+  <link rel="preload" href="fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- EmailJS SDK 4.4.1 (BSD-3-Clause) hosted locally; no third-party CDN, so no SRI dependency -->
+  <script src="vendor/emailjs-4.4.1.min.js" defer></script>
+  <!-- Cloudflare Turnstile is injected by main.js only when WORKER_URL and TURNSTILE_SITEKEY are set -->
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <span class="badge">Freelancer · Consultoría Tecnológica</span>
-      <h1>José Alberto</h1>
-      <p>Ayudo a personas y negocios a crecer con tecnología: desde tu página web y tus redes sociales, hasta consultoría en inteligencia artificial y automatizaciones.</p>
-      <div class="cta">
-        <a class="btn btn-primary" href="#contacto">Trabajemos juntos</a>
-        <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
-      </div>
+
+  <a class="skip-link" href="#main-content" data-i18n="nav.skip">Skip to main content</a>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav" role="banner">
+    <div class="nav__inner container">
+      <a href="#hero" class="nav__logo" aria-label="JAJ (Home)">JAJ</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav__links">
+          <li class="nav__indicator-wrap" aria-hidden="true"><span class="nav__indicator"></span></li>
+          <li><a href="#about" data-i18n="nav.about">About</a></li>
+          <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="#impact" data-i18n="nav.impact">Impact</a></li>
+          <li><a href="#expertise" data-i18n="nav.expertise">Expertise</a></li>
+          <li><a href="#contact" class="nav__cta" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="lang-toggle" class="nav__lang" aria-label="Switch to Spanish (ES)" title="Cambiar idioma / Switch language">
+        <span class="nav__lang-icon" aria-hidden="true">🌐</span>
+        <span class="nav__lang-label">ES</span>
+      </button>
+      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="mobile-menu" hidden>
+      <ul>
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#impact" data-i18n="nav.impact">Impact</a></li>
+        <li><a href="#expertise" data-i18n="nav.expertise">Expertise</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
     </div>
   </header>
 
-  <section id="servicios">
-    <div class="wrap">
-      <h2 class="section-title">Servicios</h2>
-      <p class="section-sub">Soluciones a la medida de tu proyecto</p>
-      <div class="grid">
-        <div class="card">
-          <div class="ico">🌐</div>
-          <h3>Desarrollo de páginas web</h3>
-          <p>Sitios modernos, rápidos y adaptados a móvil, listos para representar tu marca.</p>
-        </div>
-        <div class="card">
-          <div class="ico">📱</div>
-          <h3>Manejo de redes sociales</h3>
-          <p>Estrategia y gestión de contenido para hacer crecer tu presencia digital.</p>
-        </div>
-        <div class="card">
-          <div class="ico">🛠️</div>
-          <h3>Consultoría tecnológica</h3>
-          <p>Asesoría para elegir las herramientas correctas y optimizar tus procesos.</p>
-        </div>
-        <div class="card">
-          <div class="ico">🤖</div>
-          <h3>IA y automatizaciones</h3>
-          <p>Consultoría en inteligencia artificial y automatización para ahorrar tiempo y escalar.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <main id="main-content">
 
-  <footer id="contacto">
-    <div class="wrap">
-      <h2 class="section-title" style="margin-bottom:20px;">¿Hablamos?</h2>
-      <div class="contact-links">
-        <a href="mailto:Jengaup@hotmail.com">✉️ Jengaup@hotmail.com</a>
-        <a href="https://josealbertopr.com">🌐 josealbertopr.com</a>
+    <!-- HERO -->
+    <section id="hero" class="hero" aria-labelledby="hero-heading">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__grid"></div>
+        <div class="hero__glow"></div>
       </div>
-      <p>© <span id="year"></span> José Alberto · Freelancer &amp; Consultoría Tecnológica</p>
+      <div class="hero__spotlight" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <div class="hero__avatar" aria-hidden="true">
+          <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JAJ initials avatar">
+            <defs>
+              <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2563eb"/>
+                <stop offset="50%" stop-color="#0ea5e9"/>
+                <stop offset="100%" stop-color="#7c3aed"/>
+              </linearGradient>
+              <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#2563eb" stop-opacity="0.6"/>
+                <stop offset="100%" stop-color="#7c3aed" stop-opacity="0.6"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="58" fill="#0b1a2e" stroke="url(#borderGrad)" stroke-width="1.5"/>
+            <circle cx="60" cy="60" r="50" fill="url(#avatarGrad)" fill-opacity="0.1"/>
+            <text x="60" y="68" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="800" font-size="28" letter-spacing="-1" fill="url(#avatarGrad)">JAJ</text>
+          </svg>
+        </div>
+        <h1 id="hero-heading" class="hero__name">
+          <span class="hero__firstname">Jose Alberto</span>
+          <span class="hero__lastname">Jimenez</span>
+        </h1>
+        <p class="hero__title" data-i18n="hero.title">IT Director &amp; Business Relationship Manager</p>
+        <p class="hero__sub" data-i18n="hero.sub">I turn business language into the requirements IT needs to build the right solution, and put AI to work: virtual-assistant agents and an end-to-end AI deployment that reduced HR and legal staffing needs for a homecare company.</p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary btn--magnetic" data-i18n="hero.cta1">Get in Touch</a>
+          <a href="#impact" class="btn btn--ghost btn--magnetic" data-i18n="hero.cta2">See My Impact</a>
+          <a href="Jose_Alberto_Jimenez_Resume.pdf" download class="btn btn--ghost" aria-label="Download Resume PDF">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-i18n="hero.resume">Download Resume</span>
+          </a>
+          <a href="https://www.linkedin.com/in/jose-alberto-jimenez-it" target="_blank" rel="me noopener noreferrer" class="btn btn--linkedin" aria-label="View LinkedIn Profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </div>
+        <div class="hero__stats" aria-label="Key metrics">
+          <div class="hero__stat">
+            <div class="hero__stat-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+            <span class="hero__stat-value">BRM</span>
+            <span class="hero__stat-label" data-i18n="hero.stat1">Business Needs Translated into IT Requirements</span>
+          </div>
+          <div class="hero__stat">
+            <div class="hero__stat-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <span class="hero__stat-value">$1.2M+</span>
+            <span class="hero__stat-label" data-i18n="hero.stat2">Cost Savings Delivered</span>
+          </div>
+          <div class="hero__stat">
+            <div class="hero__stat-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <span class="hero__stat-value">95%</span>
+            <span class="hero__stat-label" data-i18n="hero.stat3">On-Time Project Delivery</span>
+          </div>
+          <div class="hero__stat">
+            <div class="hero__stat-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <span class="hero__stat-value">AI</span>
+            <span class="hero__stat-label" data-i18n="hero.stat4">AI Agents &amp; End-to-End Deployment</span>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="hero__scroll" aria-label="Scroll to About section">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 10l5 5 5-5"/></svg>
+      </a>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section__label" data-i18n="about.label">About</div>
+        <div class="about__grid">
+          <div class="about__text">
+            <h2 id="about-heading" class="section__title" data-i18n="about.title">Where Technology Meets <span class="accent">Business Value</span></h2>
+            <p class="about__lead" data-i18n="about.lead">Results-driven IT Director and Business Relationship Manager with 20+ years leading digital transformation, IT/OT integration, and technology strategy across regulated and high-demand industries.</p>
+            <ul class="about__highlights" data-i18n-list="about.highlights"></ul>
+            <div class="about__badges">
+              <span class="about__badge">MBA · Tech Management</span>
+              <span class="about__badge">ITIL V4</span>
+              <span class="about__badge">BRMP</span>
+              <span class="about__badge">Six Sigma</span>
+              <span class="about__badge">US Citizen · Bilingual</span>
+            </div>
+          </div>
+          <div class="about__values">
+            <div class="value-card">
+              <div class="value-card__icon" aria-hidden="true">⚡</div>
+              <h3 data-i18n="about.v1title">Results First</h3>
+              <p data-i18n="about.v1desc">Every initiative I lead is tied to measurable business outcomes: cost reduction, efficiency gains, and real capability improvements.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-card__icon" aria-hidden="true">🤝</div>
+              <h3 data-i18n="about.v2title">Partnership Mindset</h3>
+              <p data-i18n="about.v2desc">I build trust across organizational layers, from shop floor to boardroom, making sure technology serves people and not the other way around.</p>
+            </div>
+            <div class="value-card">
+              <div class="value-card__icon" aria-hidden="true">🔄</div>
+              <h3 data-i18n="about.v3title">Continuous Improvement</h3>
+              <p data-i18n="about.v3desc">Trained in Six Sigma methodology, I systematically identify inefficiencies and implement sustainable improvements.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section experience" aria-labelledby="experience-heading">
+      <div class="container">
+        <div class="section__label" data-i18n="xp.label">Career Highlights</div>
+        <h2 id="experience-heading" class="section__title" data-i18n="xp.title">Professional <span class="accent">Experience</span></h2>
+        <div class="timeline">
+
+          <article class="timeline-item">
+            <div class="timeline-item__marker" aria-hidden="true"></div>
+            <div class="timeline-item__content">
+              <div class="timeline-item__header">
+                <div>
+                  <h3 class="timeline-item__role" data-i18n="tl1.role">IT Business Relationship Manager</h3>
+                  <p class="timeline-item__company">Luma Energy LLC.</p>
+                </div>
+                <span class="timeline-item__period" data-i18n="tl1.period">Jun 2024 – Present</span>
+              </div>
+              <p class="timeline-item__summary" data-i18n="tl1.summary">Strategic technology partner to the business, managing IT/OT integration, cross-department alignment, and multi-million-dollar technology portfolios for a major energy transmission and distribution company.</p>
+              <ul class="timeline-item__highlights" data-i18n-list="tl1.highlights"></ul>
+              <div class="timeline-item__tags" data-i18n-tags="tl1.tags"></div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-item__marker" aria-hidden="true"></div>
+            <div class="timeline-item__content">
+              <div class="timeline-item__header">
+                <div>
+                  <h3 class="timeline-item__role" data-i18n="tl2.role">IT Manager / MRM</h3>
+                  <p class="timeline-item__company">Baxter International</p>
+                </div>
+                <span class="timeline-item__period">Feb 2023 – Jun 2024</span>
+              </div>
+              <p class="timeline-item__summary" data-i18n="tl2.summary">Full oversight of IT operations for a regulated medical device manufacturing facility, ensuring compliance, driving team performance, and managing infrastructure, budget, and vendor relationships.</p>
+              <ul class="timeline-item__highlights" data-i18n-list="tl2.highlights"></ul>
+              <div class="timeline-item__tags" data-i18n-tags="tl2.tags"></div>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-item__marker" aria-hidden="true"></div>
+            <div class="timeline-item__content">
+              <div class="timeline-item__header">
+                <div>
+                  <h3 class="timeline-item__role" data-i18n="tl3.role">Senior IT Specialist</h3>
+                  <p class="timeline-item__company">Avara Pharmaceutical Services</p>
+                </div>
+                <span class="timeline-item__period">Oct 2016 – Feb 2023</span>
+              </div>
+              <p class="timeline-item__summary" data-i18n="tl3.summary">Promoted to senior level to coordinate and manage computing solutions and infrastructure in a global pharmaceutical environment, serving as the single point of contact for site IT across local and international operations.</p>
+              <ul class="timeline-item__highlights" data-i18n-list="tl3.highlights"></ul>
+              <div class="timeline-item__tags" data-i18n-tags="tl3.tags"></div>
+            </div>
+          </article>
+
+          <article class="timeline-item timeline-item--earlier">
+            <div class="timeline-item__marker" aria-hidden="true"></div>
+            <div class="timeline-item__content">
+              <div class="timeline-item__header">
+                <div>
+                  <h3 class="timeline-item__role" data-i18n="tl4.role">Earlier Career</h3>
+                  <p class="timeline-item__company" data-i18n="tl4.company">Healthcare &amp; Hospitality Sectors</p>
+                </div>
+                <span class="timeline-item__period">2003 – 2016</span>
+              </div>
+              <p class="timeline-item__summary" data-i18n="tl4.summary">Built a strong technical foundation across healthcare IT and food service technology, managing IT support operations, deskside services, and infrastructure across multi-site environments. This period shaped the discipline, customer focus, and operational depth that define 20+ years of technology leadership.</p>
+              <div class="timeline-item__tags" data-i18n-tags="tl4.tags"></div>
+            </div>
+          </article>
+
+          <article class="timeline-item timeline-item--freelance">
+            <div class="timeline-item__marker" aria-hidden="true"></div>
+            <div class="timeline-item__content">
+              <div class="timeline-item__header">
+                <div>
+                  <h3 class="timeline-item__role" data-i18n="tl5.role">Technology Consultant &amp; Freelancer</h3>
+                  <p class="timeline-item__company" data-i18n="tl5.company">Independent · Self-Employed</p>
+                </div>
+                <span class="timeline-item__period" data-i18n="tl5.period">Ongoing</span>
+              </div>
+              <p class="timeline-item__summary" data-i18n="tl5.summary">Parallel track of independent consulting alongside full-time roles, delivering technology solutions to small and medium businesses. Services span web development, social media strategy, AI adoption, and process automation.</p>
+              <ul class="timeline-item__highlights" data-i18n-list="tl5.highlights"></ul>
+              <div class="timeline-item__tags" data-i18n-tags="tl5.tags"></div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- EDUCATION -->
+        <div class="education">
+          <h3 class="education__title" data-i18n="edu.title">Education</h3>
+          <div class="education__grid">
+            <div class="education__item">
+              <span class="education__degree">MBA · Technology Management</span>
+              <span class="education__school">University of Phoenix · GPA 3.80</span>
+            </div>
+            <div class="education__item">
+              <span class="education__degree">BA · Information Systems</span>
+              <span class="education__school">Universidad Metropolitana (UMET) · GPA 3.70</span>
+            </div>
+            <div class="education__item">
+              <span class="education__degree">Minor · Marketing</span>
+              <span class="education__school">Universidad Metropolitana (UMET)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section id="impact" class="section impact" aria-labelledby="impact-heading">
+      <div class="container">
+        <div class="section__label" data-i18n="impact.label">Selected Impact</div>
+        <h2 id="impact-heading" class="section__title" data-i18n="impact.title">Delivering <span class="accent">Measurable Results</span></h2>
+        <p class="section__sub" data-i18n="impact.sub">Impact speaks louder than titles. Here are some of the outcomes I have driven throughout my career.</p>
+        <p class="impact__disclaimer" data-i18n="impact.disclaimer">Results shown reflect documented professional initiatives. Certain details are withheld for confidentiality.</p>
+        <div class="impact__grid">
+
+          <article class="impact-card impact-card--featured">
+            <div class="impact-card__metric">$1.2M+</div>
+            <h3 data-i18n="ic1.title">Cost Savings via IT/OT Initiatives</h3>
+            <p data-i18n="ic1.desc">Led strategic IT/OT integration programs at Luma Energy, identifying and implementing initiatives that saved over $1.2 million while maintaining full project quality and deliverables.</p>
+            <div class="impact-card__tag" data-i18n="ic1.tag">Luma Energy · 2024–Present</div>
+          </article>
+
+          <article class="impact-card">
+            <div class="impact-card__metric">15%</div>
+            <h3 data-i18n="ic2.title">Operational Efficiency Increase</h3>
+            <p data-i18n="ic2.desc">Aligned technology roadmaps across 7 departments with business objectives, resulting in a 15% increase in operational efficiency through strategic IT/OT integration.</p>
+            <div class="impact-card__tag" data-i18n="ic2.tag">Luma Energy</div>
+          </article>
+
+          <article class="impact-card">
+            <div class="impact-card__metric">95%</div>
+            <h3 data-i18n="ic3.title">On-Time Project Delivery Rate</h3>
+            <p data-i18n="ic3.desc">Supervised technology implementations across the full project lifecycle, consistently achieving 95% of project deadlines on time and within budget.</p>
+            <div class="impact-card__tag" data-i18n="ic3.tag">Luma Energy</div>
+          </article>
+
+          <article class="impact-card">
+            <div class="impact-card__metric">$448K+</div>
+            <h3 data-i18n="ic4.title">Network Infrastructure Savings</h3>
+            <p data-i18n="ic4.desc">Led a network infrastructure change management project replacing L2 switches, APs, and wireless controllers, delivering $198K in year one savings and a projected $250K in year two.</p>
+            <div class="impact-card__tag" data-i18n="ic4.tag">Avara Pharmaceutical · 2016–2023</div>
+          </article>
+
+          <article class="impact-card">
+            <div class="impact-card__metric">20%</div>
+            <h3 data-i18n="ic5.title">Downtime Reduction</h3>
+            <p data-i18n="ic5.desc">Identified root causes of recurring program issues and implemented creative solutions that reduced operational downtime by 20%, improving service continuity across the organization.</p>
+            <div class="impact-card__tag" data-i18n="ic5.tag">Luma Energy</div>
+          </article>
+
+          <article class="impact-card">
+            <div class="impact-card__metric">Green Belt</div>
+            <h3 data-i18n="ic6.title">Six Sigma Certification Achieved</h3>
+            <p data-i18n="ic6.desc">Earned Six Sigma Green Belt for implementing a network monitoring and management project that realized $198K in savings and contributed 17% toward the company's savings goal.</p>
+            <div class="impact-card__tag" data-i18n="ic6.tag">Avara Pharmaceutical</div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERTISE -->
+    <section id="expertise" class="section expertise" aria-labelledby="expertise-heading">
+      <div class="container">
+        <div class="section__label" data-i18n="expertise.label">Core Strengths</div>
+        <h2 id="expertise-heading" class="section__title" data-i18n="expertise.title">Areas of <span class="accent">Expertise</span></h2>
+        <p class="section__sub" data-i18n="expertise.sub">A comprehensive command of the technical and leadership dimensions that modern IT Directors and Technology Managers need to deliver real business value.</p>
+        <div class="expertise__grid">
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 data-i18n="exp1.title">IT Leadership &amp; Team Management</h3>
+            <p data-i18n="exp1.desc">Building and guiding high-performance IT teams. Mentoring professionals, defining vision, and aligning day-to-day operations with strategic objectives.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3 data-i18n="exp2.title">IT/OT Integration &amp; Alignment</h3>
+            <p data-i18n="exp2.desc">Bridging Information Technology and Operational Technology in manufacturing and energy environments. Ensuring systems speak the same language as the business.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            </div>
+            <h3 data-i18n="exp3.title">Infrastructure &amp; Operations</h3>
+            <p data-i18n="exp3.desc">End-to-end management of enterprise infrastructure: networks, servers, data centers, storage systems, virtualization (VMware/ESX), and cloud environments.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+            </div>
+            <h3 data-i18n="exp4.title">Business Relationship Management</h3>
+            <p data-i18n="exp4.desc">Serving as the strategic bridge between IT and business units. Translating organizational needs into technology roadmaps that generate tangible value.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <h3 data-i18n="exp5.title">Project &amp; Program Delivery</h3>
+            <p data-i18n="exp5.desc">Leading complex, cross-functional technology programs from scoping to delivery. Consistent track record of on-time, on-budget execution across multiple concurrent projects.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12h20"/><path d="M12 2v20"/><circle cx="12" cy="12" r="4"/></svg>
+            </div>
+            <h3 data-i18n="exp6.title">Process Improvement &amp; Six Sigma</h3>
+            <p data-i18n="exp6.desc">Green Belt certified in Six Sigma methodology. Systematically identifying inefficiencies, implementing controls, and measuring results to drive sustainable operational improvements.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 data-i18n="exp7.title">IT Security &amp; Compliance</h3>
+            <p data-i18n="exp7.desc">Enforcing security policies, managing regulatory compliance (FDA, cGMP), and implementing cybersecurity frameworks to protect critical enterprise assets and data.</p>
+          </article>
+
+          <article class="expertise-card">
+            <div class="expertise-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h3 data-i18n="exp8.title">Bilingual Communication</h3>
+            <p data-i18n="exp8.desc">Fully bilingual in English and Spanish, which allows me to collaborate effectively with global teams, multinational stakeholders, and diverse user communities across industries.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section id="credentials" class="section credentials" aria-labelledby="creds-heading">
+      <div class="container">
+        <div class="section__label" data-i18n="creds.label">Credentials &amp; Certifications</div>
+        <h2 id="creds-heading" class="section__title" data-i18n="creds.title">Certifications &amp; <span class="accent">Education</span></h2>
+        <!-- CERTIFICATIONS -->
+        <div class="certs-section">
+            <div class="certs-legend" id="certs-filters" role="group" aria-label="Filter credentials by area" data-i18n-aria-label="certs.filterLabel">
+            <button type="button" class="certs-legend__item" data-filter="all" aria-pressed="true"><span class="certs-legend__dot" aria-hidden="true" data-all="true"></span><span data-i18n="certs.legend.all">All</span></button>
+            <button type="button" class="certs-legend__item" data-filter="education" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#7c3aed"></span><span data-i18n="certs.legend.education">Education</span></button>
+            <button type="button" class="certs-legend__item" data-filter="quality" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#16a34a"></span><span data-i18n="certs.legend.quality">Quality &amp; Process</span></button>
+            <button type="button" class="certs-legend__item" data-filter="itsm" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#6d28d9"></span><span data-i18n="certs.legend.itsm">IT Service Management</span></button>
+            <button type="button" class="certs-legend__item" data-filter="brm" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#1e40af"></span><span data-i18n="certs.legend.brm">Business Relationship Mgmt</span></button>
+            <button type="button" class="certs-legend__item" data-filter="cybersecurity" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#b91c1c"></span><span data-i18n="certs.legend.cyber">Cybersecurity</span></button>
+            <button type="button" class="certs-legend__item" data-filter="infrastructure" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#1e40af"></span><span data-i18n="certs.legend.infra">IT Infrastructure</span></button>
+            <button type="button" class="certs-legend__item" data-filter="automation" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#d97706"></span><span data-i18n="certs.legend.automation">Automation &amp; RPA</span></button>
+            <button type="button" class="certs-legend__item" data-filter="ai" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#be185d"></span><span data-i18n="certs.legend.ai">Artificial Intelligence</span></button>
+            <button type="button" class="certs-legend__item" data-filter="emergency" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#0d9488"></span><span data-i18n="certs.legend.emergency">Emergency Management</span></button>
+            <button type="button" class="certs-legend__item" data-filter="leadership" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#b45309"></span><span data-i18n="certs.legend.leadership">Leadership &amp; Communication</span></button>
+            <button type="button" class="certs-legend__item" data-filter="simulation" aria-pressed="false"><span class="certs-legend__dot" aria-hidden="true" style="background:#475569"></span><span data-i18n="certs.legend.simulation">Job Simulations</span></button>
+            <span class="certs-legend__indicator" aria-hidden="true"></span>
+          </div>
+          <noscript><style>.certs-legend__item{pointer-events:none;cursor:default}</style></noscript>
+          <p class="certs-count" id="certs-count" aria-live="polite" aria-atomic="true"></p>
+
+          <div class="certs-grid">
+
+            <div class="cert-card" data-category="education">
+              <div class="cert-badge cert-badge--purple" aria-hidden="true">MBA</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">MBA · Technology Management</span>
+                <span class="cert-card__issuer">University of Phoenix · GPA 3.80</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="quality">
+              <div class="cert-badge cert-badge--green" aria-hidden="true">6σ</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">Six Sigma Green Belt (CSSGB)</span>
+                <span class="cert-card__issuer">American Society for Quality®</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="itsm">
+              <div class="cert-badge cert-badge--violet" aria-hidden="true">ITIL</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">ITIL® 4 Foundation</span>
+                <span class="cert-card__issuer">PeopleCert / Axelos®</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="itsm">
+              <div class="cert-badge cert-badge--violet" aria-hidden="true">SN</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">ServiceNow Administration Fundamentals</span>
+                <span class="cert-card__issuer">ServiceNow · Mar 2025</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="brm">
+              <div class="cert-badge cert-badge--blue" aria-hidden="true">BRM</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">BRMP®: Business Relationship Management Professional</span>
+                <span class="cert-card__issuer">APMG International · BRM Institute</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="brm">
+              <div class="cert-badge cert-badge--blue" aria-hidden="true">BRM+</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">High Performing BRM Designation</span>
+                <span class="cert-card__issuer">Barkley Consulting Group · Sep 2024</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="cybersecurity">
+              <div class="cert-badge cert-badge--red" aria-hidden="true">CFR</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">CyberSec First Responder (CFR)</span>
+                <span class="cert-card__issuer">CertNexus</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="infrastructure">
+              <div class="cert-badge cert-badge--crimson" aria-hidden="true">A+</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">CompTIA A+</span>
+                <span class="cert-card__issuer">CompTIA</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="infrastructure">
+              <div class="cert-badge cert-badge--crimson" aria-hidden="true">N+</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">CompTIA Network+</span>
+                <span class="cert-card__issuer">CompTIA</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="automation">
+              <div class="cert-badge cert-badge--orange" aria-hidden="true">UI</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">Introduction to Automation</span>
+                <span class="cert-card__issuer">UiPath · Sep 2024</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="automation">
+              <div class="cert-badge cert-badge--orange" aria-hidden="true">UI</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">Build Your First Automation in Studio Web</span>
+                <span class="cert-card__issuer">UiPath · Sep 2024</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="automation">
+              <div class="cert-badge cert-badge--orange" aria-hidden="true">AI</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">Introduction to AI-Powered Automation</span>
+                <span class="cert-card__issuer">UiPath · Sep 2024</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="automation">
+              <div class="cert-badge cert-badge--orange" aria-hidden="true">BA</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">UiPath Business Automation Platform for Business Analysts</span>
+                <span class="cert-card__issuer">UiPath · Sep 2024</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="ai">
+              <div class="cert-badge cert-badge--rose" aria-hidden="true">C101</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">Claude Academy: Claude 101</span>
+                <span class="cert-card__issuer">Anthropic · Nov 2026</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="ai">
+              <div class="cert-badge cert-badge--rose" aria-hidden="true">CC</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">Claude Academy: Claude Code in action</span>
+                <span class="cert-card__issuer">Anthropic · Nov 2026</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="emergency">
+              <div class="cert-badge cert-badge--teal" aria-hidden="true">ICS</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">ICS-100: Introduction to the Incident Command System</span>
+                <span class="cert-card__issuer">FEMA / NIMS · Jun 2024</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="emergency">
+              <div class="cert-badge cert-badge--teal" aria-hidden="true">ICS</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">ICS-200: ICS for Single Resources and Initial Action Incidents</span>
+                <span class="cert-card__issuer">FEMA / NIMS · Jun 2024</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="emergency">
+              <div class="cert-badge cert-badge--teal" aria-hidden="true">ICS</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">IS-700: National Incident Management System (NIMS)</span>
+                <span class="cert-card__issuer">FEMA / NIMS · Jul 2024</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="emergency leadership">
+              <div class="cert-badge cert-badge--teal" aria-hidden="true">IS</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">IS-240.C: Leadership and Influence</span>
+                <span class="cert-card__issuer">FEMA / Emergency Management Institute · Jun 2024</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="leadership">
+              <div class="cert-badge cert-badge--gold" aria-hidden="true">TM</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">Persuasive Influence</span>
+                <span class="cert-card__issuer">Toastmasters International · Sep 2025</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="leadership">
+              <div class="cert-badge cert-badge--gold" aria-hidden="true">ICF</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">Certified Coach</span>
+                <span class="cert-card__issuer">ICF · Nov 2024</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="other">
+              <div class="cert-badge cert-badge--slate" aria-hidden="true">SG</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">Snagit Certification</span>
+                <span class="cert-card__issuer">TechSmith · Dec 2024 · Expires Dec 2026</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="simulation">
+              <div class="cert-badge cert-badge--slate" aria-hidden="true">BCG</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">BCG - IT Architecture Job Simulation</span>
+                <span class="cert-card__issuer">Forage · Sep 2026</span>
+              </div>
+            </div>
+
+            <div class="cert-card" data-category="simulation">
+              <div class="cert-badge cert-badge--slate" aria-hidden="true">GS</div>
+              <div class="cert-card__info">
+                <span class="cert-card__name">Goldman Sachs - Operations Job Simulation</span>
+                <span class="cert-card__issuer">Goldman Sachs · Sep 2026</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section__label" data-i18n="contact.label">Contact</div>
+        <h2 id="contact-heading" class="section__title" data-i18n="contact.title">Let's <span class="accent">Connect</span></h2>
+        <p class="section__sub" data-i18n="contact.sub">Whether you have a leadership opportunity, a strategic initiative, or simply want to connect, I would be glad to hear from you.</p>
+
+        <div class="contact__grid">
+          <div class="contact__info">
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+              <div>
+                <strong data-i18n="contact.industries">Industries</strong>
+                <span>Energy · Pharma · Healthcare · Food Service</span>
+              </div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div>
+                <strong data-i18n="contact.languages">Languages</strong>
+                <span>English · Spanish</span>
+              </div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <div>
+                <strong data-i18n="contact.availability">Availability</strong>
+                <span data-i18n="contact.availabilityVal">Open to new opportunities</span>
+              </div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <strong data-i18n="contact.workstyle">Work Style</strong>
+                <span data-i18n="contact.workstyleVal">On-site · Remote · Hybrid</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact__form-wrap">
+            <form
+              id="contact-form"
+              class="contact__form"
+              novalidate
+              aria-label="Contact form"
+            >
+              <!-- Honeypot anti-spam field -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="contact-name" data-i18n="form.name">Full Name <span aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    required
+                    minlength="2"
+                    placeholder="Your full name"
+                    data-i18n-placeholder="form.namePh"
+                    autocomplete="name"
+                    aria-required="true"
+                    aria-describedby="name-error"
+                  />
+                  <span class="form-error" id="name-error" role="alert" aria-live="polite"></span>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email" data-i18n="form.email">Email Address <span aria-hidden="true">*</span></label>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    name="email"
+                    required
+                    placeholder="your@email.com"
+                    autocomplete="email"
+                    aria-required="true"
+                    aria-describedby="email-error"
+                  />
+                  <span class="form-error" id="email-error" role="alert" aria-live="polite"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject" data-i18n="form.subject">Subject <span aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="contact-subject"
+                  name="subject"
+                  required
+                  minlength="3"
+                  placeholder="What is this regarding?"
+                  aria-required="true"
+                  aria-describedby="subject-error"
+                />
+                <span class="form-error" id="subject-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" data-i18n="form.message">Message <span aria-hidden="true">*</span></label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  required
+                  minlength="20"
+                  rows="5"
+                  placeholder="Tell me about the opportunity or reason for reaching out..."
+                  aria-required="true"
+                  aria-describedby="message-error"
+                ></textarea>
+                <span class="form-error" id="message-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <p class="form-privacy-notice" data-i18n="form.privacyNotice">Information provided is used only to respond to your inquiry. <a href="privacy.html" class="form-privacy-link">Review the Privacy Policy</a>.</p>
+
+              <!-- Turnstile mounts here when a site key is set in main.js (TURNSTILE_SITEKEY) -->
+              <div id="turnstile-widget" class="cf-turnstile"></div>
+
+              <button type="submit" class="btn btn--primary btn--full" id="form-submit">
+                <span class="btn__text" data-i18n="form.submit">Send Message</span>
+                <span class="btn__spinner" aria-hidden="true" hidden></span>
+              </button>
+
+              <div id="form-success" class="form-success" role="alert" aria-live="polite" hidden style="display:none">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <div>
+                  <strong data-i18n="form.successTitle">Message sent successfully!</strong>
+                  <p data-i18n="form.successMsg">Thank you for reaching out. I will get back to you shortly.</p>
+                </div>
+              </div>
+
+              <div id="form-error-msg" class="form-error-msg" role="alert" aria-live="polite" hidden style="display:none">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <div>
+                  <strong data-i18n="form.errorTitle">Something went wrong.</strong>
+                  <p data-i18n="form.errorMsg">Please try again or check your connection.</p>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__cta">
+        <p class="footer__cta-text" data-i18n="footer.cta">Open to leadership opportunities in IT strategy, digital transformation, and business relationship management.</p>
+        <a href="#contact" class="btn btn--primary" data-i18n="footer.ctaBtn">Let's Talk</a>
+      </div>
+      <div class="footer__inner">
+        <p class="footer__copy">&copy; <span id="footer-year"></span> Jose Alberto Jimenez. <span data-i18n="footer.rights">All rights reserved.</span></p>
+        <div class="footer__links">
+          <a href="https://www.linkedin.com/in/jose-alberto-jimenez-it" target="_blank" rel="me noopener noreferrer" class="footer__link" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="Jose_Alberto_Jimenez_Resume.pdf" download class="footer__link" aria-label="Resume PDF (download)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-i18n="footer.resume">Resume PDF</span>
+          </a>
+        </div>
+      </div>
+      <nav class="footer__legal" aria-label="Legal pages">
+        <a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="terms.html" data-i18n="footer.terms">Terms of Use</a>
+        <a href="accessibility.html" data-i18n="footer.accessibility">Accessibility</a>
+        <a href="privacy.html#data-deletion" data-i18n="footer.dataDeletion">Data Deletion</a>
+      </nav>
     </div>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script src="i18n.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>

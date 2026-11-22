@@ -1,0 +1,51 @@
+# robots.txt: josealbertopr.com
+# Policy: public search engines and AI *search/assistant* crawlers are allowed;
+# crawlers used for model *training* are disallowed. robots.txt is advisory only:
+# abuse of the contact form is handled by Cloudflare Turnstile + rate limiting.
+# Never block /styles.css, /main.js, /i18n.js or images: Google needs them to render the page.
+# Last reviewed: 2026-11-06 (re-check vendor docs for crawler names periodically).
+
+# Everyone else, including Googlebot and Bingbot
+User-agent: *
+Allow: /
+
+# --- AI search / assistant retrieval: allowed ---
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# --- Training-only crawlers: disallowed ---
+# (Google-Extended and Applebot-Extended only opt out of AI training; they do not affect Search indexing.)
+User-agent: GPTBot
+Disallow: /
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Google-Extended
+Disallow: /
+User-agent: Applebot-Extended
+Disallow: /
+User-agent: CCBot
+Disallow: /
+User-agent: Bytespider
+Disallow: /
+User-agent: Meta-ExternalAgent
+Disallow: /
+User-agent: omgili
+Disallow: /
+User-agent: omgilibot
+Disallow: /
+User-agent: Diffbot
+Disallow: /
+User-agent: DataForSeoBot
+Disallow: /
+
+Sitemap: https://josealbertopr.com/sitemap.xml
