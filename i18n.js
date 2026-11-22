@@ -143,6 +143,7 @@
 
       'tl5.role':    'Technology Consultant &amp; Freelancer',
       'tl5.company': 'Independent · Self-Employed',
+      'tl5.client':  'Selected client',
       'tl5.period':  'Ongoing',
       'tl5.summary': 'Parallel track of independent consulting alongside full-time roles, delivering technology solutions to small and medium businesses. Services span web development, social media strategy, AI adoption, and process automation.',
       'tl5.highlights': [
@@ -352,6 +353,7 @@
 
       'tl5.role':    'Consultor Tecnológico y Freelancer',
       'tl5.company': 'Independiente · Por Cuenta Propia',
+      'tl5.client':  'Cliente destacado',
       'tl5.period':  'Continuo',
       'tl5.summary': 'Trayectoria paralela de consultoría independiente junto a roles de tiempo completo, entregando soluciones tecnológicas a pequeñas y medianas empresas. Los servicios incluyen desarrollo web, estrategia en redes sociales, adopción de IA y automatización de procesos.',
       'tl5.highlights': [
