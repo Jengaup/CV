@@ -2,7 +2,7 @@
    Network is mocked: fonts/Turnstile/EmailJS are aborted or stubbed. No real mail is sent. */
 const { chromium } = require('playwright');
 const BASE = process.env.BASE || 'http://localhost:8765';
-const EXPECT = { all: 24, education: 1, quality: 1, itsm: 2, brm: 2, cybersecurity: 1, infrastructure: 2, automation: 4, ai: 2, simulation: 2, emergency: 4, leadership: 3 };
+const EXPECT = { all: 26, education: 1, quality: 1, itsm: 3, brm: 2, cybersecurity: 2, infrastructure: 2, automation: 4, ai: 2, simulation: 2, emergency: 4, leadership: 3 };
 let pass = 0, fail = 0; const failures = [];
 const ok = (c, m) => { if (c) pass++; else { fail++; failures.push(m); console.log('  FAIL:', m); } };
 
@@ -23,15 +23,15 @@ const visibleCards = p => p.evaluate(() => [...document.querySelectorAll('.cert-
 
   console.log('# Filters (desktop)');
   let { ctx, page, errs } = await open(browser);
-  ok(await page.locator('.cert-card').count() === 24, 'total cards is 24');
-  ok(await page.locator('#certs-count').textContent() === 'Showing 24 of 24 credentials', 'initial counter EN');
+  ok(await page.locator('.cert-card').count() === 26, 'total cards is 26');
+  ok(await page.locator('#certs-count').textContent() === 'Showing 26 of 26 credentials', 'initial counter EN');
   ok(await page.locator('#certs-filters button[aria-pressed="true"]').count() === 1, 'one pressed at start');
   for (const [f, n] of Object.entries(EXPECT)) {
     await page.click(`[data-filter="${f}"]`); await page.waitForTimeout(450);
     ok(await visibleCards(page) === n, `filter ${f} shows ${n}`);
     ok(await page.locator('#certs-filters button[aria-pressed="true"]').count() === 1, `${f}: exactly one pressed`);
     ok(await page.getAttribute(`[data-filter="${f}"]`, 'aria-pressed') === 'true', `${f}: pressed is clicked one`);
-    ok((await page.locator('#certs-count').textContent()) === `Showing ${n} of 24 credentials`, `${f}: counter text`);
+    ok((await page.locator('#certs-count').textContent()) === `Showing ${n} of 26 credentials`, `${f}: counter text`);
     const hiddenFocusable = await page.evaluate(() => [...document.querySelectorAll('.cert-card[hidden]')].some(c => getComputedStyle(c).display !== 'none' || c.offsetParent !== null));
     ok(!hiddenFocusable, `${f}: hidden cards removed from flow`);
     const grid = await page.evaluate(() => { const g = document.querySelector('.certs-grid'); const c = getComputedStyle(g); return { op: c.opacity, fading: g.classList.contains('is-fading') }; });
@@ -45,16 +45,16 @@ const visibleCards = p => p.evaluate(() => [...document.querySelectorAll('.cert-
   await page.click('[data-filter="emergency"]'); await page.waitForTimeout(450);
   ok((await page.locator('.cert-card:visible .cert-card__name').allTextContents()).some(t => t.includes('IS-240.C')), 'IS-240.C listed under emergency');
   await page.click('[data-filter="all"]'); await page.waitForTimeout(450);
-  ok(await visibleCards(page) === 24, 'All restores 24');
+  ok(await visibleCards(page) === 26, 'All restores 26');
   // keyboard
   await page.focus('[data-filter="cybersecurity"]'); await page.keyboard.press('Enter'); await page.waitForTimeout(450);
-  ok(await visibleCards(page) === 1, 'Enter activates filter');
+  ok(await visibleCards(page) === 2, 'Enter activates filter');
   await page.focus('[data-filter="brm"]'); await page.keyboard.press('Space'); await page.waitForTimeout(450);
   ok(await visibleCards(page) === 2, 'Space activates filter');
   ok(await page.evaluate(() => document.activeElement.getAttribute('data-filter')) === 'brm', 'focus stays on filter button');
   // tab order never lands on hidden cards
-  const focusables = await page.evaluate(() => [...document.querySelectorAll('.cert-card[hidden] a, .cert-card[hidden] button')].length);
-  ok(focusables === 0, 'no focusable content in cards');
+  const focusables = await page.evaluate(() => [...document.querySelectorAll('.cert-card[hidden] a, .cert-card[hidden] button')].filter(e => e.offsetParent !== null || getComputedStyle(e.closest('.cert-card')).display !== 'none').length);
+  ok(focusables === 0, 'links inside hidden cards are not focusable');
   // rapid clicks
   for (const f of ['quality', 'itsm', 'automation', 'emergency', 'leadership', 'education']) await page.click(`[data-filter="${f}"]`, { delay: 0 });
   await page.waitForTimeout(600);
@@ -65,7 +65,7 @@ const visibleCards = p => p.evaluate(() => [...document.querySelectorAll('.cert-
   // language after filter
   await page.click('[data-filter="automation"]'); await page.waitForTimeout(450);
   await page.click('#lang-toggle'); await page.waitForTimeout(600);
-  ok((await page.locator('#certs-count').textContent()) === 'Mostrando 4 de 24 credenciales', 'counter in Spanish keeps filter');
+  ok((await page.locator('#certs-count').textContent()) === 'Mostrando 4 de 26 credenciales', 'counter in Spanish keeps filter');
   ok(await page.getAttribute('#certs-filters', 'aria-label') === 'Filtrar credenciales por área', 'filter group label translated');
   ok((await page.locator('[data-filter="all"]').textContent()).trim() === 'Todas', 'All label translated');
   ok(await visibleCards(page) === 4, 'filter preserved after language change');
@@ -169,8 +169,8 @@ const visibleCards = p => p.evaluate(() => [...document.querySelectorAll('.cert-
 
   console.log('# No JavaScript');
   ({ ctx, page } = await open(browser, { js: false }));
-  ok(await page.evaluate(() => [...document.querySelectorAll('.cert-card')].every(c => c.offsetParent !== null)) , 'all 24 cards visible without JS');
-  ok(await page.locator('.cert-card:visible').count() === 24, '24 visible without JS');
+  ok(await page.evaluate(() => [...document.querySelectorAll('.cert-card')].every(c => c.offsetParent !== null)) , 'all 26 cards visible without JS');
+  ok(await page.locator('.cert-card:visible').count() === 26, '26 visible without JS');
   await ctx.close();
 
   await browser.close();
