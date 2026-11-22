@@ -11,11 +11,11 @@
       'nav.contact':    'Contact',
 
       'hero.title': 'IT Director &amp; Business Relationship Manager',
-      'hero.sub':   'I turn business language into the requirements IT needs to build the right solution, and put AI to work: virtual-assistant agents and an end-to-end AI deployment that reduced HR and legal staffing needs for H3 Home Care.',
+      'hero.sub':   'I turn business language into the requirements IT needs to build the right solution, and put AI to work: virtual-assistant agents and an end-to-end AI deployment that reduced HR and legal staffing needs for a U.S. home care agency.',
       'hero.cta1':   'Get in Touch',
       'hero.cta2':   'See My Impact',
       'hero.resume': 'Download Resume',
-      'hero.sub':    'I turn business language into the requirements IT needs to build the right solution, and put AI to work: virtual-assistant agents and an end-to-end AI deployment that reduced HR and legal staffing needs for H3 Home Care.',
+      'hero.sub':    'I turn business language into the requirements IT needs to build the right solution, and put AI to work: virtual-assistant agents and an end-to-end AI deployment that reduced HR and legal staffing needs for a U.S. home care agency.',
       'hero.stat1': 'Business Needs Translated into IT Requirements',
       'hero.stat2': 'Cost Savings Delivered',
       'hero.stat3': 'On-Time Project Delivery',
@@ -143,7 +143,6 @@
 
       'tl5.role':    'Technology Consultant &amp; Freelancer',
       'tl5.company': 'Independent · Self-Employed',
-      'tl5.client':  'Selected client',
       'tl5.period':  'Ongoing',
       'tl5.summary': 'Parallel track of independent consulting alongside full-time roles, delivering technology solutions to small and medium businesses. Services span web development, social media strategy, AI adoption, and process automation.',
       'tl5.highlights': [
@@ -151,7 +150,7 @@
         'Advise businesses on social media strategy, digital presence, and brand positioning',
         'Consult on AI tool adoption (chatbots, content generation, workflow intelligence) to reduce manual effort and improve productivity',
         'Built AI virtual-secretary agents that take over routine administrative work',
-        'Delivered the complete deployment of an AI solution for H3 Home Care, a U.S. home care agency, reducing HR and legal staffing needs',
+        'Delivered the complete deployment of an AI solution for a U.S. home care agency, reducing HR and legal staffing needs',
         'Build process automations connecting business systems, eliminating repetitive tasks and saving measurable hours per week'
       ],
       'tl5.tags': ['Web Development', 'Social Media', 'AI Agents', 'AI Consulting', 'Process Automation', 'Digital Strategy', 'SMB Technology'],
@@ -221,11 +220,11 @@
       'nav.contact':    'Contacto',
 
       'hero.title': 'Director de TI y Gerente de Relaciones de Negocio',
-      'hero.sub':   'Convierto el lenguaje del negocio en los requisitos que TI necesita para construir la solución correcta, y pongo la IA a trabajar: agentes de asistentes virtuales y un despliegue completo de IA que redujo la necesidad de personal de RR. HH. y legal en H3 Home Care.',
+      'hero.sub':   'Convierto el lenguaje del negocio en los requisitos que TI necesita para construir la solución correcta, y pongo la IA a trabajar: agentes de asistentes virtuales y un despliegue completo de IA que redujo la necesidad de personal de RR. HH. y legal en una agencia de cuidado en el hogar en EE. UU.',
       'hero.cta1':   'Contáctame',
       'hero.cta2':   'Ver Mi Impacto',
       'hero.resume': 'Descargar CV',
-      'hero.sub':    'Convierto el lenguaje del negocio en los requisitos que TI necesita para construir la solución correcta, y pongo la IA a trabajar: agentes de asistentes virtuales y un despliegue completo de IA que redujo la necesidad de personal de RR. HH. y legal en H3 Home Care.',
+      'hero.sub':    'Convierto el lenguaje del negocio en los requisitos que TI necesita para construir la solución correcta, y pongo la IA a trabajar: agentes de asistentes virtuales y un despliegue completo de IA que redujo la necesidad de personal de RR. HH. y legal en una agencia de cuidado en el hogar en EE. UU.',
       'hero.stat1': 'Necesidades de Negocio Traducidas en Requisitos de TI',
       'hero.stat2': 'Ahorros Generados',
       'hero.stat3': 'Proyectos Entregados a Tiempo',
@@ -353,7 +352,6 @@
 
       'tl5.role':    'Consultor Tecnológico y Freelancer',
       'tl5.company': 'Independiente · Por Cuenta Propia',
-      'tl5.client':  'Cliente destacado',
       'tl5.period':  'Continuo',
       'tl5.summary': 'Trayectoria paralela de consultoría independiente junto a roles de tiempo completo, entregando soluciones tecnológicas a pequeñas y medianas empresas. Los servicios incluyen desarrollo web, estrategia en redes sociales, adopción de IA y automatización de procesos.',
       'tl5.highlights': [
@@ -361,7 +359,7 @@
         'Asesoría a empresas sobre estrategia en redes sociales, presencia digital y posicionamiento de marca',
         'Consultoría en adopción de herramientas de IA (chatbots, generación de contenido, flujos inteligentes) para reducir el esfuerzo manual y mejorar la productividad',
         'Construcción de agentes de IA de secretaría virtual que asumen el trabajo administrativo rutinario',
-        'Despliegue completo de una solución de IA para H3 Home Care, una agencia de cuidado en el hogar en EE. UU., reduciendo la necesidad de personal de RR. HH. y legal',
+        'Despliegue completo de una solución de IA para una agencia de cuidado en el hogar en EE. UU., reduciendo la necesidad de personal de RR. HH. y legal',
         'Construcción de automatizaciones de procesos que conectan sistemas de negocio, eliminando tareas repetitivas y ahorrando horas medibles por semana'
       ],
       'tl5.tags': ['Desarrollo Web', 'Redes Sociales', 'Agentes de IA', 'Consultoría IA', 'Automatización de Procesos', 'Estrategia Digital', 'Tecnología PYME'],

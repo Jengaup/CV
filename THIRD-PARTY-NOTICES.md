@@ -181,9 +181,3 @@ OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER
 DEALINGS IN THE FONT SOFTWARE.
 ```
-
----
-
-## Client logo
-
-`images/h3-home-care-logo.png` is the logo of H3 Home Care Agency LLC, a client of the site owner. It is a trademark of its owner and is displayed in the Experience section with the owner's stated permission (keep the written approval on file). It is not covered by any license of this repository.

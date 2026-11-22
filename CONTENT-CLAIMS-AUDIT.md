@@ -157,7 +157,7 @@ Source: statements made by the site owner in this session; **no supporting docum
 | Claim (EN) | Where | Status |
 |---|---|---|
 | "Virtual-assistant / virtual-secretary agents" built | Hero sentence, Experience (independent consulting) | Owner statement; [PENDIENTE] confirm scope and whether it can be named |
-| "End-to-end AI deployment that reduced HR and legal staffing needs for a homecare company" | Hero sentence, hero box "AI", Experience (independent consulting) | Owner statement; Client named as H3 Home Care (U.S. home care agency) on 2026-11-22: owner states he has the client's permission to be named [PENDIENTE: keep the written permission on file]. Logo NOT used. [PENDIENTE] confirm it was independent work and whether a number (headcount, hours, cost) can be published |
+| "End-to-end AI deployment that reduced HR and legal staffing needs for a homecare company" | Hero sentence, hero box "AI", Experience (independent consulting) | Owner statement; Client kept anonymous (a U.S. home care agency) at the owner's request. [PENDIENTE] confirm it was independent work and whether a number (headcount, hours, cost) can be published |
 | "Business needs translated into IT requirements" (BRM) | Hero sentence and box | Describes the BRM role already presented in Experience and Expertise |
 
 Removed from the hero because it was redundant with the opening sentence: "20+ Years", "4 Industries" and "IT + OT" boxes (the 20+ years claim remains in the meta description and structured data).
